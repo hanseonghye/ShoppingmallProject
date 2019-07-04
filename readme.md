@@ -1,4 +1,4 @@
-# 🛒 [ShoppingMall Project]([https://github.com/hanseonghye/ShoppingmallProject/wiki/Home%F0%9F%9B%92](https://github.com/hanseonghye/ShoppingmallProject/wiki/Home🛒)) 🛍
+# 🛒 [ShoppingMall Project](https://github.com/hanseonghye/ShoppingmallProject/wiki/Home%F0%9F%9B%92) 🛍
 
 ## 🔗 [erd](https://github.com/hanseonghye/ShoppingmallProject/wiki/erd%E2%9B%93%EF%B8%8F)
 
