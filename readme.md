@@ -1,5 +1,2 @@
 # Shoppingmall project
 
-## erd
-
-s
