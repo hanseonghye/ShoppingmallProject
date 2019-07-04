@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>8</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>56</x>
-      <y>136</y>
-      <w>48</w>
-      <h>96</h>
+      <x>0</x>
+      <y>27</y>
+      <w>54</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>고객
 </panel_attributes>
@@ -16,10 +16,10 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>128</x>
-      <y>696</y>
-      <w>48</w>
-      <h>96</h>
+      <x>81</x>
+      <y>657</y>
+      <w>54</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>비회원
 </panel_attributes>
@@ -28,10 +28,10 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>120</x>
-      <y>384</y>
-      <w>48</w>
-      <h>112</h>
+      <x>72</x>
+      <y>306</y>
+      <w>54</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>회원
 
@@ -41,10 +41,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>248</x>
-      <y>472</y>
-      <w>96</w>
-      <h>32</h>
+      <x>216</x>
+      <y>405</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>주문하기</panel_attributes>
     <additional_attributes/>
@@ -52,10 +52,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>248</x>
-      <y>136</y>
-      <w>96</w>
-      <h>32</h>
+      <x>216</x>
+      <y>27</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>상품조회
 
@@ -65,10 +65,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>88</x>
-      <y>144</y>
-      <w>176</w>
-      <h>24</h>
+      <x>36</x>
+      <y>36</y>
+      <w>198</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>200.0;10.0;10.0;10.0</additional_attributes>
@@ -76,10 +76,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>152</x>
-      <y>392</y>
-      <w>112</w>
-      <h>112</h>
+      <x>108</x>
+      <y>315</y>
+      <w>126</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>120.0;120.0;10.0;10.0</additional_attributes>
@@ -87,10 +87,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>88</x>
-      <y>192</y>
-      <w>56</w>
-      <h>224</h>
+      <x>36</x>
+      <y>90</y>
+      <w>63</w>
+      <h>252</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;50.0;260.0</additional_attributes>
@@ -98,10 +98,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>80</x>
-      <y>208</y>
-      <w>72</w>
-      <h>520</h>
+      <x>27</x>
+      <y>108</y>
+      <w>81</w>
+      <h>585</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;70.0;630.0</additional_attributes>
@@ -109,10 +109,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>248</x>
-      <y>712</y>
-      <w>96</w>
-      <h>32</h>
+      <x>216</x>
+      <y>675</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>회원가입</panel_attributes>
     <additional_attributes/>
@@ -120,10 +120,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>704</y>
-      <w>104</w>
-      <h>40</h>
+      <x>117</x>
+      <y>666</y>
+      <w>117</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>110.0;30.0;10.0;10.0</additional_attributes>
@@ -131,10 +131,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>248</x>
-      <y>384</y>
-      <w>96</w>
-      <h>32</h>
+      <x>216</x>
+      <y>306</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>로그아웃</panel_attributes>
     <additional_attributes/>
@@ -142,21 +142,33 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>248</x>
-      <y>552</y>
-      <w>96</w>
-      <h>32</h>
+      <x>99</x>
+      <y>549</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>장바구니 담기</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>342</x>
+      <y>549</y>
+      <w>108</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>장바구니 삭제
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
     <id>Relation</id>
     <coordinates>
-      <x>152</x>
-      <y>392</y>
-      <w>112</w>
-      <h>192</h>
+      <x>108</x>
+      <y>315</y>
+      <w>126</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>120.0;220.0;10.0;10.0</additional_attributes>
@@ -164,33 +176,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>248</x>
-      <y>592</y>
-      <w>96</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>장바구니 삭제
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>152</x>
-      <y>392</y>
-      <w>112</w>
-      <h>224</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>120.0;260.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLUseCase</id>
-    <coordinates>
-      <x>616</x>
-      <y>584</y>
-      <w>96</w>
-      <h>32</h>
+      <x>621</x>
+      <y>666</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>결제하기</panel_attributes>
     <additional_attributes/>
@@ -198,10 +187,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>248</x>
-      <y>760</y>
-      <w>96</w>
-      <h>32</h>
+      <x>216</x>
+      <y>729</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>주문하기</panel_attributes>
     <additional_attributes/>
@@ -209,10 +198,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>704</y>
-      <w>104</w>
-      <h>88</h>
+      <x>117</x>
+      <y>666</y>
+      <w>117</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>110.0;90.0;10.0;10.0</additional_attributes>
@@ -220,44 +209,21 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>248</x>
-      <y>848</y>
-      <w>96</w>
-      <h>32</h>
+      <x>216</x>
+      <y>828</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
-    <panel_attributes>장바구니 담기</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLUseCase</id>
-    <coordinates>
-      <x>248</x>
-      <y>888</y>
-      <w>96</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>장바구니 삭제
-</panel_attributes>
+    <panel_attributes>장바구니 관리</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>704</y>
-      <w>104</w>
-      <h>208</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>110.0;240.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>160</x>
-      <y>704</y>
-      <w>104</w>
-      <h>176</h>
+      <x>117</x>
+      <y>666</y>
+      <w>117</w>
+      <h>198</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>110.0;200.0;10.0;10.0</additional_attributes>
@@ -265,10 +231,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>152</x>
-      <y>392</y>
-      <w>112</w>
-      <h>24</h>
+      <x>108</x>
+      <y>315</y>
+      <w>126</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>120.0;10.0;10.0;10.0</additional_attributes>
@@ -276,10 +242,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>248</x>
-      <y>512</y>
-      <w>96</w>
-      <h>32</h>
+      <x>216</x>
+      <y>450</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>주문조회</panel_attributes>
     <additional_attributes/>
@@ -287,10 +253,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>152</x>
-      <y>392</y>
-      <w>112</w>
-      <h>152</h>
+      <x>108</x>
+      <y>315</y>
+      <w>126</w>
+      <h>171</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>120.0;170.0;10.0;10.0</additional_attributes>
@@ -298,10 +264,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>248</x>
-      <y>800</y>
-      <w>96</w>
-      <h>32</h>
+      <x>216</x>
+      <y>774</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>주문조회</panel_attributes>
     <additional_attributes/>
@@ -309,10 +275,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>704</y>
-      <w>104</w>
-      <h>128</h>
+      <x>117</x>
+      <y>666</y>
+      <w>117</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>110.0;140.0;10.0;10.0</additional_attributes>
@@ -320,10 +286,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>632</x>
-      <y>392</y>
-      <w>96</w>
-      <h>32</h>
+      <x>648</x>
+      <y>315</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>로그인</panel_attributes>
     <additional_attributes/>
@@ -331,10 +297,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
-      <y>384</y>
-      <w>312</w>
-      <h>40</h>
+      <x>315</x>
+      <y>306</y>
+      <w>351</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;include&gt;&gt;</panel_attributes>
@@ -343,10 +309,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
-      <y>400</y>
-      <w>312</w>
-      <h>104</h>
+      <x>315</x>
+      <y>324</y>
+      <w>351</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;include&gt;&gt;</panel_attributes>
@@ -355,10 +321,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
-      <y>400</y>
-      <w>312</w>
-      <h>144</h>
+      <x>315</x>
+      <y>324</y>
+      <w>351</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;include&gt;&gt;</panel_attributes>
@@ -367,71 +333,48 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
-      <y>400</y>
-      <w>312</w>
-      <h>184</h>
+      <x>297</x>
+      <y>324</y>
+      <w>369</w>
+      <h>198</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;include&gt;&gt;</panel_attributes>
-    <additional_attributes>370.0;10.0;10.0;210.0</additional_attributes>
+    <additional_attributes>390.0;10.0;10.0;200.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
-      <y>400</y>
-      <w>312</w>
-      <h>224</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;include&gt;&gt;</panel_attributes>
-    <additional_attributes>370.0;10.0;10.0;260.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>336</x>
-      <y>480</y>
-      <w>296</w>
-      <h>136</h>
+      <x>315</x>
+      <y>414</y>
+      <w>324</w>
+      <h>288</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;include&gt;&gt;
 </panel_attributes>
-    <additional_attributes>350.0;150.0;10.0;10.0</additional_attributes>
+    <additional_attributes>340.0;300.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
-      <y>760</y>
-      <w>176</w>
-      <h>40</h>
+      <x>315</x>
+      <y>675</y>
+      <w>324</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;include&gt;&gt;
 </panel_attributes>
-    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>340.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>496</x>
-      <y>760</y>
-      <w>96</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>결제하기</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLUseCase</id>
-    <coordinates>
-      <x>248</x>
-      <y>424</y>
-      <w>96</w>
-      <h>32</h>
+      <x>216</x>
+      <y>351</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>회원정보 수정</panel_attributes>
     <additional_attributes/>
@@ -439,10 +382,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>152</x>
-      <y>392</y>
-      <w>112</w>
-      <h>64</h>
+      <x>108</x>
+      <y>315</y>
+      <w>126</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>120.0;60.0;10.0;10.0</additional_attributes>
@@ -450,10 +393,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
-      <y>400</y>
-      <w>312</w>
-      <h>56</h>
+      <x>315</x>
+      <y>324</y>
+      <w>351</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;include&gt;&gt;</panel_attributes>
@@ -462,10 +405,10 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>1456</x>
-      <y>376</y>
-      <w>48</w>
-      <h>112</h>
+      <x>1575</x>
+      <y>297</y>
+      <w>54</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>관리자
 
@@ -475,10 +418,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1208</x>
-      <y>760</y>
-      <w>96</w>
-      <h>32</h>
+      <x>1296</x>
+      <y>729</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>고객 관리</panel_attributes>
     <additional_attributes/>
@@ -486,10 +429,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1216</x>
-      <y>376</y>
-      <w>96</w>
-      <h>32</h>
+      <x>1305</x>
+      <y>297</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>상품/진열 관리</panel_attributes>
     <additional_attributes/>
@@ -497,10 +440,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1080</x>
-      <y>744</y>
-      <w>96</w>
-      <h>32</h>
+      <x>1152</x>
+      <y>711</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>회원 조회</panel_attributes>
     <additional_attributes/>
@@ -508,10 +451,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1080</x>
-      <y>792</y>
-      <w>96</w>
-      <h>32</h>
+      <x>1152</x>
+      <y>765</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>회원 삭제</panel_attributes>
     <additional_attributes/>
@@ -519,10 +462,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1304</x>
-      <y>384</y>
-      <w>176</w>
-      <h>24</h>
+      <x>1404</x>
+      <y>306</y>
+      <w>198</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;200.0;10.0</additional_attributes>
@@ -530,10 +473,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1080</x>
-      <y>336</y>
-      <w>96</w>
-      <h>32</h>
+      <x>1152</x>
+      <y>252</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>상품 등록</panel_attributes>
     <additional_attributes/>
@@ -541,10 +484,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1080</x>
-      <y>376</y>
-      <w>96</w>
-      <h>32</h>
+      <x>1152</x>
+      <y>297</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>상품 수정</panel_attributes>
     <additional_attributes/>
@@ -552,10 +495,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1080</x>
-      <y>416</y>
-      <w>96</w>
-      <h>32</h>
+      <x>1152</x>
+      <y>342</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>상품 삭제</panel_attributes>
     <additional_attributes/>
@@ -563,10 +506,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1168</x>
-      <y>384</y>
-      <w>64</w>
-      <h>64</h>
+      <x>1251</x>
+      <y>306</y>
+      <w>72</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
     <additional_attributes>10.0;60.0;60.0;10.0</additional_attributes>
@@ -574,10 +517,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1296</x>
-      <y>384</y>
-      <w>184</w>
-      <h>408</h>
+      <x>1395</x>
+      <y>306</y>
+      <w>207</w>
+      <h>459</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;490.0;210.0;10.0</additional_attributes>
@@ -585,10 +528,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1168</x>
-      <y>752</y>
-      <w>56</w>
-      <h>40</h>
+      <x>1251</x>
+      <y>720</y>
+      <w>63</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
     <additional_attributes>10.0;10.0;50.0;30.0</additional_attributes>
@@ -596,10 +539,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1168</x>
-      <y>768</y>
-      <w>56</w>
-      <h>56</h>
+      <x>1251</x>
+      <y>738</y>
+      <w>63</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
     <additional_attributes>10.0;50.0;50.0;10.0</additional_attributes>
@@ -607,10 +550,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>944</x>
-      <y>376</y>
-      <w>96</w>
-      <h>32</h>
+      <x>999</x>
+      <y>297</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>진열 여부 관리</panel_attributes>
     <additional_attributes/>
@@ -618,10 +561,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1168</x>
-      <y>384</y>
-      <w>64</w>
-      <h>24</h>
+      <x>1251</x>
+      <y>306</y>
+      <w>72</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
     <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
@@ -629,10 +572,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>944</x>
-      <y>432</y>
-      <w>96</w>
-      <h>32</h>
+      <x>999</x>
+      <y>360</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>재고관리</panel_attributes>
     <additional_attributes/>
@@ -640,10 +583,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>896</x>
-      <y>440</y>
-      <w>64</w>
-      <h>40</h>
+      <x>945</x>
+      <y>369</y>
+      <w>72</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
     <additional_attributes>10.0;30.0;60.0;10.0</additional_attributes>
@@ -651,10 +594,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>896</x>
-      <y>416</y>
-      <w>64</w>
-      <h>48</h>
+      <x>945</x>
+      <y>342</y>
+      <w>72</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
     <additional_attributes>10.0;10.0;60.0;40.0</additional_attributes>
@@ -662,10 +605,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1168</x>
-      <y>344</y>
-      <w>64</w>
-      <h>64</h>
+      <x>1251</x>
+      <y>261</y>
+      <w>72</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
     <additional_attributes>10.0;10.0;60.0;60.0</additional_attributes>
@@ -673,10 +616,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>808</x>
-      <y>448</y>
-      <w>96</w>
-      <h>32</h>
+      <x>846</x>
+      <y>378</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>비재고상품 관리</panel_attributes>
     <additional_attributes/>
@@ -684,10 +627,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>808</x>
-      <y>408</y>
-      <w>96</w>
-      <h>32</h>
+      <x>846</x>
+      <y>333</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>한정 재고상품 관리</panel_attributes>
     <additional_attributes/>
@@ -695,10 +638,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1216</x>
-      <y>544</y>
-      <w>96</w>
-      <h>32</h>
+      <x>1305</x>
+      <y>486</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>주문 관리</panel_attributes>
     <additional_attributes/>
@@ -706,10 +649,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1304</x>
-      <y>384</y>
-      <w>176</w>
-      <h>192</h>
+      <x>1404</x>
+      <y>306</y>
+      <w>198</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;220.0;200.0;10.0</additional_attributes>
@@ -717,10 +660,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1080</x>
-      <y>536</y>
-      <w>96</w>
-      <h>32</h>
+      <x>1152</x>
+      <y>477</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>주문 목록 확인</panel_attributes>
     <additional_attributes/>
@@ -728,10 +671,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1168</x>
-      <y>544</y>
-      <w>64</w>
-      <h>32</h>
+      <x>1251</x>
+      <y>486</y>
+      <w>72</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
     <additional_attributes>10.0;10.0;60.0;20.0</additional_attributes>
@@ -739,10 +682,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1080</x>
-      <y>600</y>
-      <w>96</w>
-      <h>32</h>
+      <x>1152</x>
+      <y>549</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>주문 상세 조회</panel_attributes>
     <additional_attributes/>
@@ -750,10 +693,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1120</x>
-      <y>560</y>
-      <w>72</w>
-      <h>56</h>
+      <x>1197</x>
+      <y>504</y>
+      <w>81</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
@@ -762,10 +705,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1032</x>
-      <y>376</y>
-      <w>64</w>
-      <h>32</h>
+      <x>1098</x>
+      <y>297</y>
+      <w>72</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
@@ -774,10 +717,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1032</x>
-      <y>384</y>
-      <w>96</w>
-      <h>80</h>
+      <x>1098</x>
+      <y>306</y>
+      <w>108</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
@@ -786,10 +729,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>720</x>
-      <y>200</y>
-      <w>744</w>
-      <h>224</h>
+      <x>747</x>
+      <y>99</y>
+      <w>837</w>
+      <h>252</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;include&gt;&gt;</panel_attributes>
@@ -798,10 +741,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1248</x>
-      <y>200</y>
-      <w>216</w>
-      <h>192</h>
+      <x>1341</x>
+      <y>99</y>
+      <w>243</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>lt=.
 </panel_attributes>
@@ -810,10 +753,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1288</x>
-      <y>200</y>
-      <w>176</w>
-      <h>576</h>
+      <x>1386</x>
+      <y>99</y>
+      <w>198</w>
+      <h>648</h>
     </coordinates>
     <panel_attributes>lt=.
 </panel_attributes>
@@ -822,13 +765,137 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1264</x>
-      <y>200</y>
-      <w>200</w>
-      <h>360</h>
+      <x>1359</x>
+      <y>99</y>
+      <w>225</w>
+      <h>405</h>
     </coordinates>
     <panel_attributes>lt=.
 </panel_attributes>
     <additional_attributes>230.0;10.0;10.0;430.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>216</x>
+      <y>495</y>
+      <w>108</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>장바구니 관리
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>216</x>
+      <y>549</y>
+      <w>108</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>장바구니 수정</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>522</y>
+      <w>90</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>252</x>
+      <y>522</y>
+      <w>54</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>252</x>
+      <y>522</y>
+      <w>144</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>342</x>
+      <y>882</y>
+      <w>108</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>장바구니 삭제
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>216</x>
+      <y>882</y>
+      <w>108</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>장바구니 수정</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>252</x>
+      <y>855</y>
+      <w>54</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>252</x>
+      <y>855</y>
+      <w>144</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>855</y>
+      <w>90</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>99</x>
+      <y>882</y>
+      <w>108</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>장바구니 담기</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
