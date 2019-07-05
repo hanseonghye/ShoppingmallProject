@@ -18,7 +18,7 @@
 
 ---
 
-### 간단한 고객 flowchart
+### 고객 flowchart
 
 ![고객 flowchart](<https://github.com/hanseonghye/ShoppingmallProject/blob/master/img/user-flowDiagram1.png>)
 
