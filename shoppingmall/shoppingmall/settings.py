@@ -38,7 +38,7 @@ INSTALLED_APPS = [
 
     'drf_yasg',
 
-    'account.apps.AccountConfig',
+    # 'account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr'
 
 TIME_ZONE = 'Asia/Seoul'
 
@@ -122,8 +122,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = '/accounts/login'
-LOGOUT_URL = '/accounts/logout'
+# LOGIN_REDIRECT_URL = '/'
+# LOGIN_URL = '/member/login'
+# LOGOUT_URL = '/accounts/logout'
 
-AUTH_USER_MODEL = 'account.Account'
+# AUTH_USER_MODEL = 'account.Account'
