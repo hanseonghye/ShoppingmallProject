@@ -4,7 +4,7 @@ from drf_yasg.utils import swagger_auto_schema
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 
-from member.model import Member
+from member.test_model import Member
 from shoppingmall.jsonResult import JsonResult
 
 name = openapi.Schema(type=openapi.TYPE_STRING)
@@ -28,7 +28,7 @@ class Login(APIView):
         responses={
             '200': jsonResult
         },
-        operation_id='post/api/login',
+        operation_id='로그인',
         operation_description='로그인 요청 api'
     )
     def post(self, request):
@@ -46,7 +46,7 @@ class Login(APIView):
         response={
             '200': jsonResult
         },
-        operation_id='get/api/login',
+        operation_id='로그인 폼',
         operation_description='로그인 폼 요청 api'
     )
     def get(self, request):
@@ -58,7 +58,7 @@ class Login(APIView):
         response={
             '200': jsonResult
         },
-        operation_id='get/api/logout',
+        operation_id='로그아웃',
         operation_description='로그아웃 요청 api'
     )
     @api_view(['GET'])
@@ -83,7 +83,7 @@ class SignUp(APIView):
         responses={
             '200': jsonResult
         },
-        operation_id='post/api/signup',
+        operation_id='회원가입',
         operation_description='회원가입 요청 api'
     )
     def post(self, request):
@@ -101,7 +101,7 @@ class SignUp(APIView):
         response={
             '200': jsonResult
         },
-        operation_id='get/api/signup',
+        operation_id='회원가입 폼',
         operation_description='회원가입 form 요청api'
     )
     def get(self, request):
@@ -114,7 +114,7 @@ class MemberInforUpdate(APIView):
         response={
             '200': jsonResult
         },
-        operation_id='get/api/memberinputupdate',
+        operation_id='회원정보수정 폼',
         operation_description='회원정보 변경 form 요청 api'
     )
     def get(self, request):
@@ -133,7 +133,7 @@ class MemberInforUpdate(APIView):
         responses={
             '200': jsonResult
         },
-        operation_id='post/api/memberinputupdate',
+        operation_id='회원정보수정',
         operation_description='회원정보 변경 요청 api'
     )
     def put(self, request):
@@ -180,8 +180,8 @@ class MemberInforUpdate(APIView):
     responses={
         '200': jsonResult
     },
-    operation_id='get/api/checkid',
-    operation_description='회원가입 id 중복값 체크'
+    operation_id='회원가입 id 중복값 체크',
+    operation_description='회원가입 id 중복값 체크 api'
 )
 @api_view(['GET'])
 def check_id(request):
