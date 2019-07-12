@@ -81,7 +81,10 @@ DATABASES = {
         'USER': 'hans',
         'PASSWORD': '201524617',
         'HOST': '106.10.36.145',
-        'PORT': '5432'
+        'PORT': '5432',
+        'TEST': {
+            'NAME': 'test_shoppingmall',
+        }
     }
 }
 

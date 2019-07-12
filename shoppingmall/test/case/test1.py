@@ -1,15 +1,30 @@
+import json
+
 from django.test import TestCase, Client
 
 
-class Test01(TestCase):
-    c = Client()
-    response = c.get('/member/api/login/')
-    print(response.content)
+class TestMember(TestCase):
 
-    # response = c.post("/account/api/signup/", data={
-    #     'name':'hans',
-    #     'id':'user1',
-    #     'password':'passw0rd'
-    # })
-    #
-    # print(response.content)
+    def test_회원가입_실패(self):
+        response = self.client.post('/member/api/member/signup/',
+                                    {"name": "", "id": "hans", "password": "passw0rd"})
+        self.assertEqual(response.status_code, 200)
+        json_response = json.loads(response.content)
+        self.assertEqual(json_response['status'], True)
+        self.assertEqual(json_response['result'], 'fail')
+
+    def test_회원가입_성공(self):
+        response = self.client.post('/member/api/member/signup/',
+                                    {"name": "hanseonghye", "id": "hans", "password": "passw0rd"})
+        self.assertEqual(response.status_code, 200)
+        json_response = json.loads(response.content)
+        self.assertEqual(json_response['status'], True)
+        self.assertEqual(json_response['result'], 'success')
+        self.assertEqual(json_response['data']['name'], "hanseonghye")
+
+    def test_회원가입_아이디중복체크_성공(self):
+        response = self.client.get('/member/api/member/checkid/', {'id': 'user1'})
+        self.assertEqual(response.status_code, 200)
+        json_response = json.loads(response.content)
+        self.assertEqual(json_response['status'], True)
+        self.assertEqual(json_response['result'], 'success')

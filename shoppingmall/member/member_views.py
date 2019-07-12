@@ -87,13 +87,14 @@ class SignUp(APIView):
         operation_description='회원가입 요청 api'
     )
     def post(self, request):
-        user = Member(request.POST.get('name'), request.POST.get('id'), request.POST.get('password'))
+        user = Member(request.POST.get('name'), request.POST.get('id', None), request.POST.get('password', None),
+                      request.POST.get('phone_number', None))
 
-        if user.id == 'user1' and user.password == 'passw0rd':
-            return HttpResponse(JsonResult(True, "success", {"name": "한성혜", }).toJson(),
+        if user.is_valid():
+            return HttpResponse(JsonResult(True, "success", {"name": user.name}).toJson(),
                                 content_type=u"application/json; charset=utf-8")
         else:
-            return HttpResponse(JsonResult(True, "fail", dict()).toJson(),
+            return HttpResponse(JsonResult(True, "fail", {}).toJson(),
                                 content_type=u"application/json; charset=utf-8")
 
     @swagger_auto_schema(
@@ -108,6 +109,16 @@ class SignUp(APIView):
 
 
 class MemberInforUpdate(APIView):
+
+    @swagger_auto_schema(
+        response={
+            '200': jsonResult
+        },
+        operation_id='get/api/memberinputupdate',
+        operation_description='회원정보 변경 form 요청 api'
+    )
+    def get(self, request):
+        return HttpResponse(JsonResult(True, "success").toJson(), content_type=u"application/json; charset=utf-8")
 
     @swagger_auto_schema(
         request_body=openapi.Schema(
@@ -131,13 +142,36 @@ class MemberInforUpdate(APIView):
                             content_type=u"application/json; charset=utf-8")
 
     @swagger_auto_schema(
-        response={
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            properties={
+            }
+        ),
+        responses={
             '200': jsonResult
         },
-        operation_id='get/api/memberinputupdate',
-        operation_description='회원정보 변경 form 요청 api'
+        operation_id='회원탈퇴',
+        operation_description='회원탈퇴 api'
     )
-    def get(self, request):
+    def delete(self, request):
+        return HttpResponse(JsonResult(True, "success", {"message": "탈퇴완료"}).toJson(),
+                            content_type=u"application/json; charset=utf-8")
+
+    @staticmethod
+    @swagger_auto_schema(
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            properties={
+                'password': password,
+            }
+        ),
+        responses={
+            '200': jsonResult
+        },
+        operation_id='비밀번호확인',
+        operation_description='비밀번호 확인 api'
+    )
+    def cofirm_password(request):
         return HttpResponse(JsonResult(True, "success").toJson(), content_type=u"application/json; charset=utf-8")
 
 
@@ -151,19 +185,20 @@ class MemberInforUpdate(APIView):
 )
 @api_view(['GET'])
 def check_id(request):
-    id = request.GET.get('id')
-    return HttpResponse(JsonResult(True, Member.check_id(id), dict()).toJson(),
-                        content_type=u"application/json; charset=utf-8")
+    return HttpResponse(
+        JsonResult(True, "success" if Member.check_id(request.GET.get('id', None)) else "fail").toJson(),
+        content_type=u"application/json; charset=utf-8")
 
-# @swagger_auto_schema(
-#     method='GET',
-#     response={
-#         '200': jsonResult
-#     },
-#     operation_id='get/api/logout',
-#     operation_description='로그아웃 요청 api'
-# )
-# @api_view(['GET'])
-# def logout(request):
-#     return HttpResponse(JsonResult(True, True).toJson(),
-#                         content_type=u"application/json; charset=utf-8")
+
+@swagger_auto_schema(
+    method='get',
+    response={
+        '200': jsonResult
+    },
+    operation_id='새비밀번호요청',
+    operation_description='새 비밀번호 요청 api'
+)
+@api_view(['GET'])
+def new_password(request):
+    return HttpResponse(JsonResult(True, "success", {"email": "hans***@naver.com"}).toJson(),
+                        content_type=u"application/json; charset=utf-8")

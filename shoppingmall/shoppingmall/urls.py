@@ -38,7 +38,7 @@ urlpatterns = [
     path('docs/', schema_view.with_ui('redoc'), name='docs'),
     path('swagger/', schema_view.with_ui('swagger'), name='swagger'),
 
-    path('admin2/', admin.site.urls),
+    path('seller/', admin.site.urls),
     path('member/', include('member.urls'), name='member'),
     # path('admin/', include('admin.urls'), name='admin'),
 ]
