@@ -37,8 +37,8 @@ urlpatterns = [
     url(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('docs/', schema_view.with_ui('redoc'), name='docs'),
     path('swagger/', schema_view.with_ui('swagger'), name='swagger'),
-
-    path('seller/', admin.site.urls),
-    path('member/', include('member.urls'), name='member'),
+    #
+    # path('seller/', admin.site.urls),
+    # path('member/', include('member.urls'), name='member'),
     # path('admin/', include('admin.urls'), name='admin'),
 ]
