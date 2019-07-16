@@ -1,4 +1,8 @@
-shoppingmall/venv
-shoppingmall/.idea
+**/migrations/
+**/__pycache__/
+venv/
+.idea/
+*/venv/
+*/.idea/
 key.json
 ../key.json
