@@ -18,10 +18,18 @@ class CustomUser(AbstractUser):
     objects = CustomUserManager()
     EMAIL_FIELD = "admin@admin.com"
     # USER_ID_FIELD = []
-    REQUIRED_FIELDS = ['username'] # superuser
+    REQUIRED_FIELDS = ['username']  # superuser
 
     class Meta:
-        db_table = "user_users"
+        db_table = "user_user"
 
     def __str__(self):
         return f'User : {self.username} , {self.user_id}'
+
+
+class Address(models.Model):
+    address = models.CharField(max_length=50)
+    member = models.ForeignKey(CustomUser, to_field='id', on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = "user_address"

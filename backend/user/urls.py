@@ -14,5 +14,3 @@ urlpatterns = [
     path('', user_list, name='user-list'),
     path('<int:pk>/', user_detail, name='user-detail'),
 ]
-
-urlpatterns = format_suffix_patterns(urlpatterns, allowed=['json', ])

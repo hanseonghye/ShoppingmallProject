@@ -38,12 +38,12 @@ INSTALLED_APPS = [
 
     ##lib
     'rest_framework',
-    'rest_framework_swagger',
+    'drf_yasg',
 
     ##myapp
     'user.apps.UserConfig',
+    'product.apps.ProductConfig',
     'category.apps.CategoryConfig',
-    'item.apps.ItemConfig',
 ]
 
 MIDDLEWARE = [

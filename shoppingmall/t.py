@@ -37,41 +37,13 @@ class AuthPermission(models.Model):
         unique_together = (('content_type', 'codename'),)
 
 
-class AuthUser(models.Model):
-    password = models.CharField(max_length=128)
-    last_login = models.DateTimeField(blank=True, null=True)
-    is_superuser = models.BooleanField()
-    username = models.CharField(unique=True, max_length=150)
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=150)
-    email = models.CharField(max_length=254)
-    is_staff = models.BooleanField()
-    is_active = models.BooleanField()
-    date_joined = models.DateTimeField()
+class CategoryCategory(models.Model):
+    name = models.CharField(unique=True, max_length=20)
+    parent = models.ForeignKey('self', models.DO_NOTHING, blank=True, null=True)
 
     class Meta:
         managed = False
-        db_table = 'auth_user'
-
-
-class AuthUserGroups(models.Model):
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
-    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'auth_user_groups'
-        unique_together = (('user', 'group'),)
-
-
-class AuthUserUserPermissions(models.Model):
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
-    permission = models.ForeignKey(AuthPermission, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'auth_user_user_permissions'
-        unique_together = (('user', 'permission'),)
+        db_table = 'category_category'
 
 
 class DjangoAdminLog(models.Model):
@@ -81,7 +53,7 @@ class DjangoAdminLog(models.Model):
     action_flag = models.SmallIntegerField()
     change_message = models.TextField()
     content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING, blank=True, null=True)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    user = models.ForeignKey('UserUser', models.DO_NOTHING)
 
     class Meta:
         managed = False
@@ -116,3 +88,99 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
+
+
+class ItemItems(models.Model):
+    name = models.CharField(max_length=20)
+    reg_date = models.DateTimeField()
+    price = models.SmallIntegerField()
+    display = models.BooleanField()
+    stock = models.BooleanField()
+    file_url = models.CharField(max_length=200)
+    image_url = models.CharField(max_length=200)
+    category_id = models.ForeignKey(CategoryCategory, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'item_items'
+
+
+class ProductOption(models.Model):
+    name = models.CharField(max_length=30)
+    product = models.ForeignKey('ProductProduct', models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'product_option'
+
+
+class ProductOptionDetail(models.Model):
+    name = models.CharField(max_length=30)
+    option = models.ForeignKey(ProductOption, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'product_option_detail'
+
+
+class ProductProduct(models.Model):
+    name = models.CharField(max_length=30)
+    price = models.SmallIntegerField()
+    stock = models.BooleanField()
+    display = models.BooleanField()
+    create_date = models.DateTimeField()
+    modify_date = models.DateTimeField()
+    file_url = models.TextField()
+    image_url = models.TextField()
+    category = models.ForeignKey(CategoryCategory, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'product_product'
+
+
+class UserAddress(models.Model):
+    address = models.CharField(max_length=50)
+    member = models.ForeignKey('UserUser', models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'user_address'
+
+
+class UserUser(models.Model):
+    password = models.CharField(max_length=128)
+    last_login = models.DateTimeField(blank=True, null=True)
+    is_superuser = models.BooleanField()
+    username = models.CharField(max_length=30)
+    email = models.CharField(max_length=254)
+    is_staff = models.BooleanField()
+    is_active = models.BooleanField()
+    date_joined = models.DateTimeField()
+    is_admin = models.BooleanField()
+    user_id = models.CharField(unique=True, max_length=50)
+    phone_number = models.CharField(max_length=50)
+
+    class Meta:
+        managed = False
+        db_table = 'user_user'
+
+
+class UserUserGroups(models.Model):
+    customuser = models.ForeignKey(UserUser, models.DO_NOTHING)
+    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'user_user_groups'
+        unique_together = (('customuser', 'group'),)
+
+
+class UserUserUserPermissions(models.Model):
+    customuser = models.ForeignKey(UserUser, models.DO_NOTHING)
+    permission = models.ForeignKey(AuthPermission, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'user_user_user_permissions'
+        unique_together = (('customuser', 'permission'),)
