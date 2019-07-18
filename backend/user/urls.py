@@ -1,16 +1,12 @@
 from django.urls import path
-from rest_framework.urlpatterns import format_suffix_patterns
 
-from .views import UserViewSet
+from user.views import UserListView, UserDetailView, check_id, check_email
 
 app_name = 'user'
 
-
-user_list = UserViewSet.as_view({'post': 'create', 'get': 'list'})
-
-user_detail = UserViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})
-
 urlpatterns = [
-    path('', user_list, name='user-list'),
-    path('<int:pk>/', user_detail, name='user-detail'),
+    path('', UserListView.as_view(), name='user-list'),
+    path('<int:pk>/', UserDetailView.as_view(), name='user-detail'),
+    path('check/id/<str:user_id>', check_id, name='check-id'),
+    path('check/email/<str:email>', check_email, name='check-email'),
 ]

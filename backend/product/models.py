@@ -25,17 +25,20 @@ class Product(models.Model):
 
 
 class ProductDetail(models.Model):
-    id = models.CharField(primary_key=True, max_length=30)
-    name = models.CharField(max_length=30)
+    # id = models.CharField(primary_key=True, max_length=255)
+    # name = models.CharField('Name', max_length=30)
     price = models.SmallIntegerField('Price')
     stock = models.SmallIntegerField('Stock')
+    option_no = models.IntegerField('Option_No')
+    option_name = models.CharField('Option_Name', max_length=30)
+
     product = models.ForeignKey(Product, to_field='id', null=False, on_delete=models.CASCADE)
 
     class Meta:
         db_table = "product_product_detail"
 
     def __str__(self):
-        return f'ProductDetail : {self.no}, {self.name}, {self.product.name}'
+        return f'ProductDetail : {self.option_name}, {self.product.name}'
 
 
 class Option(models.Model):

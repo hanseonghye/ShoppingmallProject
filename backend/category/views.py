@@ -1,13 +1,9 @@
-from rest_framework import viewsets, generics, mixins
+from rest_framework import generics
 from rest_framework.response import Response
 
 from .models import Category
 from .serializers import CategorySerializer
-
-
-# class CategoryViewSet(viewsets.ModelViewSet):
-#     serializer_class = CategorySerializer
-#     queryset = Category.objects.all()
+from myModule import myMixins as mixins
 
 
 class CategoryListView(mixins.CreateModelMixin,
@@ -17,10 +13,12 @@ class CategoryListView(mixins.CreateModelMixin,
     serializer_class = CategorySerializer
 
     def get(self, request, *args, **kwargs):
-        return self.list(request, *args, **kwargs)
+        data = self.list(request, *args, **kwargs)
+        return Response({"result": "success", "message": None, "data": data})
 
     def post(self, request, *args, **kwargs):
-        return self.create(request, *args, **kwargs)
+        data = self.create(request, *args, **kwargs)
+        return Response({"result": "success", "message": None, "data": data})
 
 
 class CategoryDetailView(mixins.RetrieveModelMixin,
@@ -35,12 +33,18 @@ class CategoryDetailView(mixins.RetrieveModelMixin,
         if 'name' in self.kwargs:
             queryset = Category.objects.filter(name=kwargs['name'])
             serializer = self.get_serializer(queryset, many=True)
-            return Response(serializer.data)
+            return Response({"result": "success", "message": None, "data": serializer.data})
 
-        return self.retrieve(self, request, *args, **kwargs)
+        data = self.retrieve(self, request, *args, **kwargs)
+        return Response({"result": "success", "message": None, "data": data})
 
     def put(self, request, *args, **kwargs):
-        return self.update(self, request, *args, **kwargs)
+        try:
+            data = self.update(request, *args, **kwargs)
+        except Exception as e:
+            return Response({"result": "fail", "message": None, "data": None})
+        return Response({"result": "success", "message": None, "data": data})
 
     def delete(self, request, *args, **kwargs):
-        return self.delete(self, request, *args, **kwargs)
+        data = self.delete(request, *args, **kwargs)
+        return Response({"result": "success", "message": None, "data": data})

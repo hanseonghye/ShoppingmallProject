@@ -24,7 +24,7 @@ class CustomUser(AbstractUser):
         db_table = "user_user"
 
     def __str__(self):
-        return f'User : {self.username} , {self.user_id}'
+        return f'User :{self.id} {self.username} , {self.user_id}'
 
 
 class Address(models.Model):

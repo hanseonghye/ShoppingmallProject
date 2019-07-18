@@ -12,11 +12,10 @@ class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField()
     email = serializers.CharField()
     phone_number = serializers.CharField()
-    date_joined = serializers.DateTimeField()
 
     class Meta:
         model = User
-        fields = ('username', 'user_id', 'password', 'email', 'phone_number', 'date_joined')
+        fields = ('username', 'user_id', 'password', 'email', 'phone_number')
         validators = [
 
         ]
@@ -36,4 +35,5 @@ class UserSerializer(serializers.ModelSerializer):
         user.date_joined = now
         user.last_login = now
         user.save()
+
         return user
