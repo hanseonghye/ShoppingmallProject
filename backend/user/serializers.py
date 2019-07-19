@@ -7,11 +7,8 @@ from .models import CustomUser as User
 
 
 class UserSerializer(serializers.ModelSerializer):
-    username = serializers.CharField()
-    user_id = serializers.CharField()
-    password = serializers.CharField()
-    email = serializers.CharField()
-    phone_number = serializers.CharField()
+    username = serializers.ReadOnlyField
+    user_id = serializers.ReadOnlyField()
 
     class Meta:
         model = User

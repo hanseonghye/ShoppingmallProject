@@ -34,12 +34,14 @@ class UserDetailView(mixins.RetrieveModelMixin,
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-    def __init__(self):
-        self.data = None
-
     def get(self, request, *args, **kwargs):
         try:
-            data = self.retrieve(self, request, *args, **kwargs)
+            if 'user_id' in self.kwargs:
+                queryset = User.objects.filter(user_id=kwargs['user_id'])
+                serializer = self.get_serializer(queryset, many=True)
+                data = serializer.data
+            else:
+                data = self.retrieve(self, request, *args, **kwargs)
         except Exception as e:
             return Response({"result": "fail", "message": str(e), "data": None})
         return Response({"result": "success", "message": None, "data": data})

@@ -10,11 +10,22 @@ class TestUser(TestCase):
         if TestUser.setup_done:
             return
         TestUser.setup_done = True
-        # todo somethin
+        # todo something
+
+    def test_userID로_회원검색(self):
+        self.client.post('/api/v1/users/',
+                         {"username": "한성혜", "user_id": "searchId", "password": "dfsdfs!!",
+                          "email": "hans12312@naver.com",
+                          "phone_number": "01072163428"})
+        response = self.client.get('/api/v1/users/searchId/')
+        self.assertEqual(response.status_code, 200)
+        json_response = json.loads(response.content)
+        self.assertEqual(json_response['result'], 'success')
+        self.assertEqual(json_response['data']['user_id'], "searchId")
 
     def test_회원가입_성공(self):
         response = self.client.post('/api/v1/users/',
-                                    {"username": "한성혜", "user_id": "test_1", "password": "tjdqls0826!",
+                                    {"username": "한성혜", "user_id": "test_1", "password": "ffdfsaa@!",
                                      "email": "hans12312@naver.com",
                                      "phone_number": "01072163428"})
 
@@ -33,7 +44,7 @@ class TestUser(TestCase):
         json_response = json.loads(response.content)
         self.assertEqual(json_response['result'], 'fail')
 
-    def test_회원정보수정_성공(self):
+    def _test_회원정보수정_성공(self):
         response = self.client.post('/api/v1/users/',
                                     {"username": "한성혜", "user_id": "test_1", "password": "testdkdk!",
                                      "email": "hans12312@naver.com",

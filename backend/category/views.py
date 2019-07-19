@@ -1,6 +1,9 @@
+from django.core.serializers import get_serializer
 from rest_framework import generics
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from product.models import Product
 from .models import Category
 from .serializers import CategorySerializer
 from myModule import myMixins as mixins
@@ -30,6 +33,7 @@ class CategoryDetailView(mixins.RetrieveModelMixin,
     serializer_class = CategorySerializer
 
     def get(self, request, *args, **kwargs):
+
         if 'name' in self.kwargs:
             queryset = Category.objects.filter(name=kwargs['name'])
             serializer = self.get_serializer(queryset, many=True)
@@ -48,3 +52,12 @@ class CategoryDetailView(mixins.RetrieveModelMixin,
     def delete(self, request, *args, **kwargs):
         data = self.delete(request, *args, **kwargs)
         return Response({"result": "success", "message": None, "data": data})
+
+
+# @api_view(['GET'])
+# def getCategoryProduct(request, pk=None, name=None):
+#     if pk is not None:
+#         queryset = Product.objects.select_related('')
+#         serializer = get_serializer(queryset)
+#         Response({"result": "success", "message": None, "data": serializer.data})
+#     Response({"result": "success", "message": None, "data": None})

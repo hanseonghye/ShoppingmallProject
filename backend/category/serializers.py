@@ -1,15 +1,13 @@
 from rest_framework import serializers
 
-from category.models import Category
+from .models import Category
 
 
 class CategorySerializer(serializers.ModelSerializer):
-    name = serializers.CharField()
-    parent_id = serializers.IntegerField(default=None)
 
     class Meta:
         model = Category
-        fields = ('name', 'parent_id')
+        fields = ('name', 'parent')
 
     def create(self, request):
         category = Category.objects.create(**request)
