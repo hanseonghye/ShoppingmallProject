@@ -7,7 +7,7 @@ from .models import CustomUser as User
 
 
 class UserSerializer(serializers.ModelSerializer):
-    username = serializers.ReadOnlyField
+    username = serializers.ReadOnlyField()
     user_id = serializers.ReadOnlyField()
 
     class Meta:

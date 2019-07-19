@@ -24,15 +24,17 @@ class Product(models.Model):
         return f'Product : {self.name}'
 
 
-# class ProductCategory(models.Model):
-#     product = models.ForeignKey(Product, db_column='product_id', on_delete=models.CASCADE)
-#     category = models.ForeignKey(Category, db_column='category_id', on_delete=models.CASCADE)
-#
-#     class Meta:
-#         db_table = "product_product_category"
-#
-#     def __str__(self):
-#         return f'ProductCategory : {self.product.name}, {self.category.name}'
+class ProductCategory(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, primary_key=True)
+    category = models.ForeignKey(Category,  on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = "product_product_category"
+        unique_together = (('product', 'category'),)
+
+    def __str__(self):
+        return f'ProductCategory : {self.product.name}, {self.category.name}'
+
 
 class ProductDetail(models.Model):
     # id = models.CharField(primary_key=True, max_length=255)

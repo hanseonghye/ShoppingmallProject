@@ -1,16 +1,19 @@
 from rest_framework import generics
 from rest_framework.response import Response
 
-from product.models import Product, Option, OptionDetail, ProductDetail
-from product.serializers import ProductSerializer, OptionSerializer, OptionDetailSerializer, ProductDetailSerializer
+from product.models import Product, Option, OptionDetail, ProductDetail, ProductCategory
+from product.serializers import ProductSerializer, OptionSerializer, OptionDetailSerializer, ProductDetailSerializer, \
+    ProductCategorySerializer
 from myModule import myMixins as mixins
 
 
 class ProductListView(mixins.CreateModelMixin,
                       mixins.ListModelMixin,
                       generics.GenericAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+    queryset = ProductCategory.objects.all()
+    serializer_class = ProductCategorySerializer
+    # queryset = Product.objects.all()
+    # serializer_class = ProductSerializer
 
     def get(self, request, *args, **kwargs):
         data = self.list(request, *args, **kwargs)

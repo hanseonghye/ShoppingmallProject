@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
-from product.models import Product, Option, OptionDetail, ProductDetail
+from category.serializers import CategorySerializer
+from product.models import Product, Option, OptionDetail, ProductDetail, ProductCategory
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -14,18 +15,26 @@ class ProductSerializer(serializers.ModelSerializer):
         return product
 
 
-# class ProductCategorySerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = ProductCategory
-#         fields = '__all__'
-#
-#     def create(self, request):
-#         product_category = ProductCategory.objects.create(**request)
-#         product_category.save()
-#         return product_category
+class ProductCategorySerializer(serializers.ModelSerializer):
+    product = ProductSerializer(read_only=False)
+
+    class Meta:
+        model = ProductCategory
+        fields = '__all__'
+
+    def create(self, request):
+        product_data = dict(request.pop('product'))
+        product = Product.objects.create(**product_data)
+        product.save()
+        product_category_data = {'product': product, 'category': request['category']}
+        product_category = ProductCategory.objects.create(**product_category_data)
+        product_category.save()
+        return product_category
 
 
 class OptionSerializer(serializers.ModelSerializer):
+    product = ProductSerializer(read_only=False)
+
     class Meta:
         model = Option
         fields = ('name', 'product')
