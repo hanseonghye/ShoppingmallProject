@@ -12,9 +12,9 @@ class ProductListView(mixins.CreateModelMixin,
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-    def get(self, request, *args, **kwargs):
-        data = self.list(request, *args, **kwargs)
-        return Response({"result": "success", "message": None, "data": data})
+    # def get(self, request, *args, **kwargs):
+    #     data = self.list(request, *args, **kwargs)
+    #     return Response({"result": "success", "message": None, "data": data})
 
     def post(self, request, *args, **kwargs):
         data = self.create(request, *args, **kwargs)
@@ -33,17 +33,6 @@ class ProductDetailView(mixins.RetrieveModelMixin,
     def get(self, request, *args, **kwargs):
         data = self.retrieve(self, request, *args, **kwargs)
         return Response({"result": "success", "message": None, "data": data})
-
-    def put(self, request, *args, **kwargs):
-        try:
-            data = self.update(request, *args, **kwargs)
-        except Exception as e:
-            return Response({"result": "fail", "message": None, "data": None})
-        return Response({"result": "success", "message": None, "data": data})
-
-    def delete(self, request, *args, **kwargs):
-        self.delete(request, *args, **kwargs)
-        return Response({"result": "success", "message": None, "data": "ok"})
 
 
 class OptionListView(mixins.CreateModelMixin,
