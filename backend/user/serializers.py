@@ -3,12 +3,12 @@ from django.core.validators import validate_email
 from django.utils import timezone
 from rest_framework import serializers
 
-from .models import CustomUser as User
+from .models import CustomUser as User, Address
 
 
 class UserSerializer(serializers.ModelSerializer):
-    username = serializers.ReadOnlyField()
-    user_id = serializers.ReadOnlyField()
+    # username = serializers.ReadOnlyField()
+    # user_id = serializers.ReadOnlyField()
 
     class Meta:
         model = User
@@ -34,3 +34,14 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
 
         return user
+
+
+class AddressSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Address
+        fields = '__all__'
+
+    def create(self, request):
+        address = Address.objects.create(**request)
+        address.save()
+        return address

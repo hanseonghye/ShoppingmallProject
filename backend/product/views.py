@@ -1,19 +1,16 @@
 from rest_framework import generics
 from rest_framework.response import Response
 
-from product.models import Product, Option, OptionDetail, ProductDetail, ProductCategory
-from product.serializers import ProductSerializer, OptionSerializer, OptionDetailSerializer, ProductDetailSerializer, \
-    ProductCategorySerializer
+from product.models import Product, Option, OptionDetail, ProductDetail
+from product.serializers import ProductSerializer, OptionSerializer, OptionDetailSerializer, ProductDetailSerializer
 from myModule import myMixins as mixins
 
 
 class ProductListView(mixins.CreateModelMixin,
                       mixins.ListModelMixin,
                       generics.GenericAPIView):
-    queryset = ProductCategory.objects.all()
-    serializer_class = ProductCategorySerializer
-    # queryset = Product.objects.all()
-    # serializer_class = ProductSerializer
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
 
     def get(self, request, *args, **kwargs):
         data = self.list(request, *args, **kwargs)
@@ -29,11 +26,12 @@ class ProductDetailView(mixins.RetrieveModelMixin,
                         mixins.DestroyModelMixin,
                         mixins.ListModelMixin,
                         generics.GenericAPIView):
+
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
     def get(self, request, *args, **kwargs):
-        data = self.list(request, *args, **kwargs)
+        data = self.retrieve(self, request, *args, **kwargs)
         return Response({"result": "success", "message": None, "data": data})
 
     def put(self, request, *args, **kwargs):
@@ -44,47 +42,8 @@ class ProductDetailView(mixins.RetrieveModelMixin,
         return Response({"result": "success", "message": None, "data": data})
 
     def delete(self, request, *args, **kwargs):
-        data = self.delete(request, *args, **kwargs)
-        return Response({"result": "success", "message": None, "data": data})
-
-
-# class ProductCategoryListView(mixins.CreateModelMixin,
-#                               mixins.ListModelMixin,
-#                               generics.GenericAPIView):
-#     queryset = Product.objects.all()
-#     serializer_class = ProductSerializer
-#
-#     def get(self, request, *args, **kwargs):
-#         data = self.list(request, *args, **kwargs)
-#         return Response({"result": "success", "message": None, "data": data})
-#
-#     def post(self, request, *args, **kwargs):
-#         data = self.create(request, *args, **kwargs)
-#         return Response({"result": "success", "message": None, "data": data})
-#
-#
-# class ProductCategoryDetailView(mixins.RetrieveModelMixin,
-#                                 mixins.UpdateModelMixin,
-#                                 mixins.DestroyModelMixin,
-#                                 mixins.ListModelMixin,
-#                                 generics.GenericAPIView):
-#     queryset = Product.objects.all()
-#     serializer_class = ProductSerializer
-#
-#     def get(self, request, *args, **kwargs):
-#         data = self.list(request, *args, **kwargs)
-#         return Response({"result": "success", "message": None, "data": data})
-#
-#     def put(self, request, *args, **kwargs):
-#         try:
-#             data = self.update(request, *args, **kwargs)
-#         except Exception as e:
-#             return Response({"result": "fail", "message": None, "data": None})
-#         return Response({"result": "success", "message": None, "data": data})
-#
-#     def delete(self, request, *args, **kwargs):
-#         data = self.delete(request, *args, **kwargs)
-#         return Response({"result": "success", "message": None, "data": data})
+        self.delete(request, *args, **kwargs)
+        return Response({"result": "success", "message": None, "data": "ok"})
 
 
 class OptionListView(mixins.CreateModelMixin,
@@ -111,7 +70,7 @@ class OptionDetailView(mixins.RetrieveModelMixin,
     serializer_class = OptionSerializer
 
     def get(self, request, *args, **kwargs):
-        data = self.list(request, *args, **kwargs)
+        data = self.retrieve(request, *args, **kwargs)
         return Response({"result": "success", "message": None, "data": data})
 
     def put(self, request, *args, **kwargs):
@@ -170,7 +129,7 @@ class OptionDetailDetailView(mixins.RetrieveModelMixin,
     serializer_class = OptionDetailSerializer
 
     def get(self, request, *args, **kwargs):
-        data = self.list(request, *args, **kwargs)
+        data = self.retrieve(request, *args, **kwargs)
         return Response({"result": "success", "message": None, "data": data})
 
     def put(self, request, *args, **kwargs):
@@ -209,7 +168,7 @@ class OptionDetailDetailView(mixins.RetrieveModelMixin,
     serializer_class = ProductDetailSerializer
 
     def get(self, request, *args, **kwargs):
-        data = self.list(request, *args, **kwargs)
+        data = self.retrieve(request, *args, **kwargs)
         return Response({"result": "success", "message": None, "data": data})
 
     def put(self, request, *args, **kwargs):

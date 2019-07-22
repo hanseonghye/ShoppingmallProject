@@ -4,11 +4,12 @@ from product.models import ProductDetail
 from user.models import CustomUser as User
 
 ORDER_TYPE = (
-    ('0', '결제완료'),
-    ('1', '상품준비중'),
-    ('2', '배송시작'),
-    ('3', '배송중'),
-    ('4', '배송완료'),
+    ('0', '주문전'),
+    ('1', '결제완료'),
+    ('2', '상품준비중'),
+    ('3', '배송시작'),
+    ('4', '배송중'),
+    ('5', '배송완료'),
 )
 
 PAY_TYPE = (

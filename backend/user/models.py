@@ -29,6 +29,7 @@ class CustomUser(AbstractUser):
 
 class Address(models.Model):
     address = models.CharField(max_length=50)
+    detail = models.CharField(max_length=30)
     member = models.ForeignKey(CustomUser, db_column='member_id', on_delete=models.CASCADE)
 
     class Meta:

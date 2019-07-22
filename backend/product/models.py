@@ -6,7 +6,7 @@ from category.models import Category
 class Product(models.Model):
     name = models.CharField('Name', max_length=30, null=False)
     price = models.SmallIntegerField('Price')
-    # category = models.ForeignKey(Category, on_delete=models.CASCADE, db_column='category_id')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, db_column='category_id')
 
     stock = models.BooleanField('Stock')
     display = models.BooleanField('Display')
@@ -24,16 +24,16 @@ class Product(models.Model):
         return f'Product : {self.name}'
 
 
-class ProductCategory(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, primary_key=True)
-    category = models.ForeignKey(Category,  on_delete=models.CASCADE)
-
-    class Meta:
-        db_table = "product_product_category"
-        unique_together = (('product', 'category'),)
-
-    def __str__(self):
-        return f'ProductCategory : {self.product.name}, {self.category.name}'
+# class ProductCategory(models.Model):
+#     product = models.ForeignKey(Product, on_delete=models.CASCADE)
+#     category = models.ForeignKey(Category,  on_delete=models.CASCADE)
+#
+#     class Meta:
+#         db_table = "product_product_category"
+#         unique_together = (('product', 'category'),)
+#
+#     def __str__(self):
+#         return f'ProductCategory : {self.product.name}, {self.category.name}'
 
 
 class ProductDetail(models.Model):

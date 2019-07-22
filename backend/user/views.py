@@ -61,6 +61,35 @@ class UserDetailView(mixins.RetrieveModelMixin,
         return Response({"result": "success", "message": None, "data": "ok"})
 
 
+class UserAddressDetailView(mixins.RetrieveModelMixin,
+                            mixins.UpdateModelMixin,
+                            mixins.DestroyModelMixin,
+                            mixins.ListModelMixin,
+                            generics.GenericAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+    def get(self, request, *args, **kwargs):
+        data = self.retrieve(self, request, *args, **kwargs)
+        return Response({"result": "success", "message": None, "data": data})
+
+
+    def put(self, request, *args, **kwargs):
+        try:
+            data = self.update(request, *args, **kwargs)
+        except Exception as e:
+            return Response({"result": "fail", "message": str(e), "data": None})
+        return Response({"result": "success", "message": None, "data": data})
+
+
+    def delete(self, request, *args, **kwargs):
+        try:
+            self.destroy(self, request, *args, **kwargs)
+        except Exception:
+            return Response({"result": "fail", "message": None, "data": None})
+        return Response({"result": "success", "message": None, "data": "ok"})
+
+
 @api_view(['GET'])
 def check_id(request, user_id=''):
     result = User.objects.filter(user_id=user_id).exists()

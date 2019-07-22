@@ -1,35 +1,17 @@
 from rest_framework import serializers
 
-from category.serializers import CategorySerializer
-from product.models import Product, Option, OptionDetail, ProductDetail, ProductCategory
+from product.models import Product, Option, OptionDetail, ProductDetail
 
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('name', 'price', 'stock', 'display', 'file_url', 'image_url')
+        fields = ('name', 'price', 'stock', 'display', 'file_url', 'image_url', 'category')
 
     def create(self, request):
         product = Product.objects.create(**request)
         product.save()
         return product
-
-
-class ProductCategorySerializer(serializers.ModelSerializer):
-    product = ProductSerializer(read_only=False)
-
-    class Meta:
-        model = ProductCategory
-        fields = '__all__'
-
-    def create(self, request):
-        product_data = dict(request.pop('product'))
-        product = Product.objects.create(**product_data)
-        product.save()
-        product_category_data = {'product': product, 'category': request['category']}
-        product_category = ProductCategory.objects.create(**product_category_data)
-        product_category.save()
-        return product_category
 
 
 class OptionSerializer(serializers.ModelSerializer):
