@@ -15,7 +15,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 class OptionSerializer(serializers.ModelSerializer):
-    product = ProductSerializer(read_only=False)
+    # product = ProductSerializer(read_only=False)
 
     class Meta:
         model = Option

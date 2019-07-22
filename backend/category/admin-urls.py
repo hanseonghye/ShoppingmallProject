@@ -2,7 +2,7 @@ from django.urls import path
 
 from category.views import CategoryListView, CategoryDetailView, CategoryProductView
 
-app_name = 'category'
+app_name = 'admin-category'
 
 urlpatterns = [
     path('', CategoryListView.as_view(), name='category-list'),

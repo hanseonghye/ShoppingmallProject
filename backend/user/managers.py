@@ -5,10 +5,10 @@ class CustomUserManager(BaseUserManager):
 
     def create_user(self, username, user_id, password, email, **extra_fields):
         email = self.normalize_email(email)
-        member = self.model(username=username, password=password, email=email, user_id=user_id, **extra_fields)
-        member.set_password(password)
-        member.save()
-        return member
+        user = self.model(username=username, password=password, email=email, user_id=user_id, **extra_fields)
+        user.set_password(password)
+        user.save()
+        return user
 
     def create_superuser(self, username, user_id, password, **extra_fields):
         extra_fields.setdefault('is_staff', True)

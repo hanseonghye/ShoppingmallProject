@@ -83,3 +83,44 @@ class OrderProductDateilView(mixins.RetrieveModelMixin,
     def delete(self, request, *args, **kwargs):
         data = self.delete(request, *args, **kwargs)
         return Response({"result": "success", "message": None, "data": data})
+
+
+class UserOrderListView(mixins.CreateModelMixin,
+                        mixins.ListModelMixin,
+                        generics.GenericAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
+    def get(self, request, *args, **kwargs):
+        try:
+            if 'user_id' in self.kwargs:
+                queryset = self.queryset.filter(user__user_id=kwargs['user_id'])
+                serializer = self.get_serializer(queryset, many=True)
+                data = serializer.data
+            else:
+                queryset = self.queryset.filter(user=kwargs['pk'])
+                serializer = self.get_serializer(queryset, many=True)
+                data = serializer.data
+        except Exception as e:
+            return Response({"result": "fail", "message": str(e), "data": None})
+        return Response({"result": "success", "message": None, "data": data})
+
+    # def post(self, request, *args, **kwargs):
+    #     try:
+    #         data = self.create(request, *args, **kwargs)
+    #     except Exception as e:
+    #         return Response({"result": "fail", "message": str(e), "data": None})
+    #
+    #     return Response({"result": "success", "message": None, "data": data})
+
+class UserOrderDetailView(mixins.RetrieveModelMixin,
+                            mixins.UpdateModelMixin,
+                            mixins.DestroyModelMixin,
+                            generics.GenericAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
+    def get(self, request, *args, **kwargs):
+        pass
+
+

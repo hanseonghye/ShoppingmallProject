@@ -144,7 +144,7 @@ class OptionDetailDetailView(mixins.RetrieveModelMixin,
         return Response({"result": "success", "message": None, "data": data})
 
 
-class OptionDetailListView(mixins.CreateModelMixin,
+class ProductDetailListView(mixins.CreateModelMixin,
                            mixins.ListModelMixin,
                            generics.GenericAPIView):
     queryset = ProductDetail.objects.all()
@@ -159,7 +159,7 @@ class OptionDetailListView(mixins.CreateModelMixin,
         return Response({"result": "success", "message": None, "data": data})
 
 
-class OptionDetailDetailView(mixins.RetrieveModelMixin,
+class ProductDetailDetailView(mixins.RetrieveModelMixin,
                              mixins.UpdateModelMixin,
                              mixins.DestroyModelMixin,
                              mixins.ListModelMixin,
