@@ -6,7 +6,7 @@ from product.models import Product, Option, OptionDetail, ProductDetail
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('name', 'price', 'stock', 'display', 'file_url', 'image_url', 'category')
+        fields = ('name', 'price', 'is_stock', 'is_display', 'is_option', 'file_url', 'image_url', 'category')
 
     def create(self, request):
         product = Product.objects.create(**request)
@@ -15,7 +15,6 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 class OptionSerializer(serializers.ModelSerializer):
-    # product = ProductSerializer(read_only=False)
 
     class Meta:
         model = Option
@@ -30,8 +29,7 @@ class OptionSerializer(serializers.ModelSerializer):
 class OptionDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = OptionDetail
-        fields = '__all__'
-        # fields = ('name','option')
+        fields = ('name', 'option')
 
     def create(self, request):
         option_detail = OptionDetail.objects.create(**request)

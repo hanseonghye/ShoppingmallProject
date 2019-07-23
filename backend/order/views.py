@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework import generics
 from rest_framework.response import Response
 
@@ -13,9 +12,9 @@ class OrderListView(mixins.CreateModelMixin,
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
 
-    def get(self, request, *args, **kwargs):
-        data = self.list(request, *args, **kwargs)
-        return Response({"result": "success", "message": None, "data": data})
+    # def get(self, request, *args, **kwargs):
+    #     data = self.list(request, *args, **kwargs)
+    #     return Response({"result": "success", "message": None, "data": data})
 
     def post(self, request, *args, **kwargs):
         data = self.create(request, *args, **kwargs)
@@ -88,19 +87,17 @@ class OrderProductDateilView(mixins.RetrieveModelMixin,
 class UserOrderListView(mixins.CreateModelMixin,
                         mixins.ListModelMixin,
                         generics.GenericAPIView):
-    queryset = Order.objects.all()
+
     serializer_class = OrderSerializer
+
+    def get_queryset(self):
+        if 'user_id' in self.kwargs:
+            return Order.objects.exclude(status=0).filter(user__user_id=self.kwargs['user_id'], )
+        return Order.objects.exclude(status=0).filter(user=self.kwargs['pk'])
 
     def get(self, request, *args, **kwargs):
         try:
-            if 'user_id' in self.kwargs:
-                queryset = self.queryset.filter(user__user_id=kwargs['user_id'])
-                serializer = self.get_serializer(queryset, many=True)
-                data = serializer.data
-            else:
-                queryset = self.queryset.filter(user=kwargs['pk'])
-                serializer = self.get_serializer(queryset, many=True)
-                data = serializer.data
+            data = self.list(request, *args, **kwargs)
         except Exception as e:
             return Response({"result": "fail", "message": str(e), "data": None})
         return Response({"result": "success", "message": None, "data": data})
@@ -113,14 +110,13 @@ class UserOrderListView(mixins.CreateModelMixin,
     #
     #     return Response({"result": "success", "message": None, "data": data})
 
+
 class UserOrderDetailView(mixins.RetrieveModelMixin,
-                            mixins.UpdateModelMixin,
-                            mixins.DestroyModelMixin,
-                            generics.GenericAPIView):
+                          mixins.UpdateModelMixin,
+                          mixins.DestroyModelMixin,
+                          generics.GenericAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
 
     def get(self, request, *args, **kwargs):
         pass
-
-

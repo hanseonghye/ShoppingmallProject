@@ -1,15 +1,16 @@
 from django.db import models
 
-from product.models import ProductDetail
+from product.models import ProductDetail, Product
 from user.models import CustomUser as User
 
 ORDER_TYPE = (
     ('0', '주문전'),
-    ('1', '결제완료'),
-    ('2', '상품준비중'),
-    ('3', '배송시작'),
-    ('4', '배송중'),
-    ('5', '배송완료'),
+    ('1', '결제전'),
+    ('2', '결제완료'),
+    ('3', '상품준비중'),
+    ('4', '배송시작'),
+    ('5', '배송중'),
+    ('6', '배송완료'),
 )
 
 PAY_TYPE = (
@@ -38,18 +39,37 @@ class Order(models.Model):
         db_table = "order_order"
 
     def __str__(self):
-        return f'Order : '
+        return f'Order : {self.user.username}'
 
 
 class OrderProduct(models.Model):
     order = models.ForeignKey(Order, null=False, db_column='order_id', on_delete=models.CASCADE)
-    product_detail = models.ForeignKey(ProductDetail, null=False, db_column='product_detail_id',
+    product_detail = models.ForeignKey(ProductDetail, null=True, db_column='product_detail_id',
                                        on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, null=False, db_column='product_id', on_delete=models.CASCADE)
     amount = models.SmallIntegerField()
     price = models.SmallIntegerField()
+    all_price = models.SmallIntegerField()
 
     class Meta:
         db_table = "order_product"
 
     def __str__(self):
         return f'Order_Product : '
+
+
+class Cart(models.Model):
+    user = models.ForeignKey(User, null=True, db_column='user_id', on_delete=models.CASCADE)
+    non_user = models.IntegerField(null=True)
+    product = models.ForeignKey(Product, null=False, db_column='product_id', on_delete=models.CASCADE)
+    product_detail = models.ForeignKey(ProductDetail, null=True, db_column='product_detail_id',
+                                       on_delete=models.CASCADE)
+
+    amount = models.SmallIntegerField()
+    expiry_date = models.DateTimeField()
+
+    class Meta:
+        db_table = "order_cart"
+
+    def __str__(self):
+        return f'Cart : {self.user}, {self.non_user} '

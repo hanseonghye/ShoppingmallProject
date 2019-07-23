@@ -7,9 +7,6 @@ from .models import CustomUser as User, Address
 
 
 class UserSerializer(serializers.ModelSerializer):
-    # username = serializers.ReadOnlyField()
-    # user_id = serializers.ReadOnlyField()
-
     class Meta:
         model = User
         fields = ('username', 'user_id', 'password', 'email', 'phone_number')
@@ -39,7 +36,7 @@ class UserSerializer(serializers.ModelSerializer):
 class AddressSerializer(serializers.ModelSerializer):
     class Meta:
         model = Address
-        fields = '__all__'
+        fields = ('address', 'detail', 'user')
 
     def create(self, request):
         address = Address.objects.create(**request)

@@ -8,8 +8,9 @@ class Product(models.Model):
     price = models.SmallIntegerField('Price')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, db_column='category_id')
 
-    stock = models.BooleanField('Stock')
-    display = models.BooleanField('Display')
+    is_stock = models.BooleanField('Stock')
+    is_display = models.BooleanField('Display')
+    is_option = models.BooleanField('Option')
 
     create_date = models.DateTimeField('Create Date', auto_now_add=True)
     modify_date = models.DateTimeField('Modify_Date', auto_now=True)
@@ -24,23 +25,12 @@ class Product(models.Model):
         return f'Product : {self.name}'
 
 
-# class ProductCategory(models.Model):
-#     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-#     category = models.ForeignKey(Category,  on_delete=models.CASCADE)
-#
-#     class Meta:
-#         db_table = "product_product_category"
-#         unique_together = (('product', 'category'),)
-#
-#     def __str__(self):
-#         return f'ProductCategory : {self.product.name}, {self.category.name}'
-
-
 class ProductDetail(models.Model):
     # id = models.CharField(primary_key=True, max_length=255)
     # name = models.CharField('Name', max_length=30)
     price = models.SmallIntegerField('Price')
     stock = models.SmallIntegerField('Stock')
+
     option_no = models.IntegerField('Option_No')
     option_name = models.CharField('Option_Name', max_length=30)
 

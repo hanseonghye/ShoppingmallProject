@@ -1,4 +1,5 @@
-from rest_framework import generics
+from django.db.models import Q
+from rest_framework import generics, status
 from rest_framework.response import Response
 
 from product.models import Product, Option, OptionDetail, ProductDetail
@@ -26,40 +27,27 @@ class ProductDetailView(mixins.RetrieveModelMixin,
                         mixins.DestroyModelMixin,
                         mixins.ListModelMixin,
                         generics.GenericAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
 
+    def get(self, request, *args, **kwargs):
+        try:
+            data = self.retrieve(self, request, *args, **kwargs)
+        except Exception as e:
+            return Response({"result": "fail", "message": str(e), "data": None}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"result": "success", "message": None, "data": data}, status=status.HTTP_200_OK)
+
+
+class ProductModifyDetailView(mixins.RetrieveModelMixin,
+                              mixins.UpdateModelMixin,
+                              mixins.DestroyModelMixin,
+                              mixins.ListModelMixin,
+                              generics.GenericAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
     def get(self, request, *args, **kwargs):
         data = self.retrieve(self, request, *args, **kwargs)
-        return Response({"result": "success", "message": None, "data": data})
-
-
-class OptionListView(mixins.CreateModelMixin,
-                     mixins.ListModelMixin,
-                     generics.GenericAPIView):
-    queryset = Option.objects.all()
-    serializer_class = OptionSerializer
-
-    def get(self, request, *args, **kwargs):
-        data = self.list(request, *args, **kwargs)
-        return Response({"result": "success", "message": None, "data": data})
-
-    def post(self, request, *args, **kwargs):
-        data = self.create(request, *args, **kwargs)
-        return Response({"result": "success", "message": None, "data": data})
-
-
-class OptionDetailView(mixins.RetrieveModelMixin,
-                       mixins.UpdateModelMixin,
-                       mixins.DestroyModelMixin,
-                       mixins.ListModelMixin,
-                       generics.GenericAPIView):
-    queryset = Option.objects.all()
-    serializer_class = OptionSerializer
-
-    def get(self, request, *args, **kwargs):
-        data = self.retrieve(request, *args, **kwargs)
         return Response({"result": "success", "message": None, "data": data})
 
     def put(self, request, *args, **kwargs):
@@ -74,15 +62,36 @@ class OptionDetailView(mixins.RetrieveModelMixin,
         return Response({"result": "success", "message": None, "data": data})
 
 
-class ProductOptionListView(mixins.CreateModelMixin,
-                            mixins.ListModelMixin,
-                            generics.GenericAPIView):
+class OptionValueListView(mixins.RetrieveModelMixin,
+                          mixins.CreateModelMixin,
+                          mixins.ListModelMixin,
+                          generics.GenericAPIView):
+    serializer_class = OptionDetailSerializer
+    lookup_url_kwarg = 'optionpk'
+
+    def get_queryset(self):
+        if 'optionpk' in self.kwargs:
+            return OptionDetail.objects.filter(option=self.kwargs['optionpk'])
+        return Option.objects.none()
+
+    def get(self, request, *args, **kwargs):
+        data = self.list(request, *args, **kwargs)
+        return Response({"result": "success", "message": None, "data": data})
+
+    def post(self, request, *args, **kwargs):
+        data = self.create(request, *args, **kwargs)
+        return Response({"result": "success", "message": None, "data": data})
+
+
+class OptionListView(mixins.CreateModelMixin,
+                     mixins.ListModelMixin,
+                     generics.GenericAPIView):
     # queryset = Option.objects.all()
     serializer_class = OptionSerializer
 
     def get_queryset(self):
         if 'pk' in self.kwargs:
-            return Option.objects.filter(product_id=self.kwargs['pk'])
+            return Option.objects.filter(product=self.kwargs['pk'])
         return Option.objects.none()
 
     def get(self, request, *args, **kwargs):
@@ -134,8 +143,8 @@ class OptionDetailDetailView(mixins.RetrieveModelMixin,
 
 
 class ProductDetailListView(mixins.CreateModelMixin,
-                           mixins.ListModelMixin,
-                           generics.GenericAPIView):
+                            mixins.ListModelMixin,
+                            generics.GenericAPIView):
     queryset = ProductDetail.objects.all()
     serializer_class = ProductDetailSerializer
 
@@ -149,10 +158,10 @@ class ProductDetailListView(mixins.CreateModelMixin,
 
 
 class ProductDetailDetailView(mixins.RetrieveModelMixin,
-                             mixins.UpdateModelMixin,
-                             mixins.DestroyModelMixin,
-                             mixins.ListModelMixin,
-                             generics.GenericAPIView):
+                              mixins.UpdateModelMixin,
+                              mixins.DestroyModelMixin,
+                              mixins.ListModelMixin,
+                              generics.GenericAPIView):
     queryset = ProductDetail.objects.all()
     serializer_class = ProductDetailSerializer
 

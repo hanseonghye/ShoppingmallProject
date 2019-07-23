@@ -4,8 +4,6 @@ Basic building blocks for generic class based views.
 We don't bind behaviour to http method handlers yet,
 which allows mixin classes to be composed in interesting ways.
 """
-from rest_framework import status
-from rest_framework.response import Response
 from rest_framework.settings import api_settings
 
 
