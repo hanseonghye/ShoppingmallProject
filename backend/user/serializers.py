@@ -13,6 +13,9 @@ class UserSerializer(serializers.ModelSerializer):
         validators = [
 
         ]
+        extra_kwargs = {
+            'password': {'write_only': True},
+        }
 
     def validate_password(self, value):
         validate_password(value)
@@ -36,7 +39,7 @@ class UserSerializer(serializers.ModelSerializer):
 class AddressSerializer(serializers.ModelSerializer):
     class Meta:
         model = Address
-        fields = ('address', 'detail', 'user')
+        fields = ('address', 'user')
 
     def create(self, request):
         address = Address.objects.create(**request)

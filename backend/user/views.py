@@ -1,8 +1,10 @@
 from django.db.models import Q
+from oauth2_provider.views.generic import ProtectedResourceView
 from rest_framework import generics, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from backend.permissions import IsAuthenticatedOrCreate
 from .serializers import UserSerializer, AddressSerializer
 from .models import CustomUser as User, Address
 from myModule import myMixins as mixins
@@ -24,6 +26,7 @@ class UserAddView(mixins.CreateModelMixin,
                   generics.GenericAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    # permission_classes = (IsAuthenticatedOrCreate,)
 
     def post(self, request, *args, **kwargs):
         try:
@@ -33,6 +36,7 @@ class UserAddView(mixins.CreateModelMixin,
         return Response({"result": "success", "message": None, "data": data}, status=status.HTTP_201_CREATED)
 
 
+# ProtectedResourceView
 class UserDetailView(mixins.RetrieveModelMixin,
                      mixins.UpdateModelMixin,
                      mixins.DestroyModelMixin,
@@ -55,7 +59,7 @@ class UserDetailView(mixins.RetrieveModelMixin,
 
     def put(self, request, *args, **kwargs):
         try:
-            data = self.update(self,request, *args, **kwargs)
+            data = self.update(self, request, *args, **kwargs)
         except Exception as e:
             return Response({"result": "fail", "message": str(e), "data": None}, status=status.HTTP_400_BAD_REQUEST)
         return Response({"result": "success", "message": None, "data": data}, status=status.HTTP_200_OK)

@@ -66,12 +66,14 @@ class OptionValueListView(mixins.RetrieveModelMixin,
                           mixins.CreateModelMixin,
                           mixins.ListModelMixin,
                           generics.GenericAPIView):
+
+    queryset = OptionDetail.objects.all()
     serializer_class = OptionDetailSerializer
     lookup_url_kwarg = 'optionpk'
 
     def get_queryset(self):
         if 'optionpk' in self.kwargs:
-            return OptionDetail.objects.filter(option=self.kwargs['optionpk'])
+            return self.queryset.filter(option=self.kwargs['optionpk'])
         return Option.objects.none()
 
     def get(self, request, *args, **kwargs):

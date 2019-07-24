@@ -23,15 +23,18 @@ PAY_TYPE = (
 
 
 class Order(models.Model):
-    user = models.ForeignKey(User, null=True, db_column='user_id', on_delete=models.CASCADE)
-    price = models.SmallIntegerField()
+    price = models.SmallIntegerField(default=0)
     date = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=2, choices=ORDER_TYPE)
 
-    username = models.CharField(max_length=30)
-    phone_number = models.CharField(max_length=30)
-    address = models.CharField(max_length=30)
-    address_detail = models.CharField(max_length=30)
+    user = models.ForeignKey(User, null=True, db_column='user_id', on_delete=models.CASCADE)
+    sender_name = models.CharField(max_length=30)
+    sender_email = models.EmailField()
+    sender_phone_number = models.CharField(max_length=30)
+
+    receiver_name =models.CharField(max_length=30)
+    receiver_phone_number = models.CharField(max_length=30)
+    receiver_address = models.CharField(max_length=30)
     delivery_message = models.TextField()
     pay_type = models.CharField(max_length=1, choices=PAY_TYPE)
 
@@ -39,11 +42,11 @@ class Order(models.Model):
         db_table = "order_order"
 
     def __str__(self):
-        return f'Order : {self.user.username}'
+        return f'Order : {self.id}  {self.user.username}'
 
 
 class OrderProduct(models.Model):
-    order = models.ForeignKey(Order, null=False, db_column='order_id', on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, related_name='order_products', null=False, db_column='order_id', on_delete=models.CASCADE)
     product_detail = models.ForeignKey(ProductDetail, null=True, db_column='product_detail_id',
                                        on_delete=models.CASCADE)
     product = models.ForeignKey(Product, null=False, db_column='product_id', on_delete=models.CASCADE)

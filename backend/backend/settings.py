@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     ##lib
     'rest_framework',
     'drf_yasg',
+    'oauth2_provider',
+    'corsheaders',
 
     ##myapp
     'user.apps.UserConfig',
@@ -46,6 +48,11 @@ INSTALLED_APPS = [
     'category.apps.CategoryConfig',
     'order.apps.OrderConfig',
     'manager.apps.ManagerConfig',
+]
+
+AUTHENTICATION_BACKENDS = [
+    'oauth2_provider.backends.OAuth2Backend',
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
 MIDDLEWARE = [
@@ -56,6 +63,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+
+    'corsheaders.middleware.CorsMiddleware',
+    'oauth2_provider.middleware.OAuth2TokenMiddleware',
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -75,6 +86,9 @@ TEMPLATES = [
         },
     },
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
+SESSION_COOKIE_SECURE = False
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
@@ -102,6 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
