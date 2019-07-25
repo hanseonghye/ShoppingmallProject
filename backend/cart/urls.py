@@ -1,8 +1,8 @@
 from django.urls import path
 
-from order.views import CartListView, CartDetailView
+from .views import CartListView, CartDetailView
 
-app_name='cart'
+app_name = 'cart'
 
 urlpatterns = [
     path('<int:pk>', CartListView.as_view(), name='list'),

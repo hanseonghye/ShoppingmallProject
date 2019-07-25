@@ -64,7 +64,7 @@ urlpatterns = [
     path('api/v1/orders/', include('order.urls'), name='order'),
     path('api/v1/admin/orders/', include('order.admin-urls'), name='admin-order'),
 
-    path('api/v1/carts/', include('order.cart-urls'), name='cart'),
+    path('api/v1/carts/', include('cart.urls'), name='cart'),
 
     path('api/v1/admin/manager/', include('manager.urls'), name='manager'),
     # path('api/hello/',test.as_view())

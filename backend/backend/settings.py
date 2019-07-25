@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'category.apps.CategoryConfig',
     'order.apps.OrderConfig',
     'manager.apps.ManagerConfig',
+    'cart.apps.CartConfig',
 ]
 
 AUTHENTICATION_BACKENDS = [
