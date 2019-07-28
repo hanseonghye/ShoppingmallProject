@@ -48,11 +48,11 @@ class UserDetailView(mixins.RetrieveModelMixin,
     def get(self, request, *args, **kwargs):
         try:
             if 'user_id' in self.kwargs:
-                queryset = self.queryset.filter(user_id=kwargs['user_id'])
-                serializer = self.get_serializer(queryset, many=True)
+                queryset = self.queryset.get(user_id=kwargs['user_id'])
+                serializer = self.get_serializer(queryset)
                 data = serializer.data
             else:
-                data = self.retrieve(self, request, *args, **kwargs)
+                data = self.retrieve(request, *args, **kwargs)
         except Exception as e:
             return Response({"result": "fail", "message": str(e), "data": None}, status=status.HTTP_400_BAD_REQUEST)
         return Response({"result": "success", "message": None, "data": data}, status=status.HTTP_200_OK)

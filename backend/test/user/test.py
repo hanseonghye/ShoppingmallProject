@@ -29,7 +29,7 @@ class TestUser(TestCase):
                                      "email": "hans12312@naver.com",
                                      "phone_number": "01072163428"})
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 201)
         json_response = json.loads(response.content)
         self.assertEqual(json_response['result'], 'success')
         self.assertEqual(json_response['data']['username'], "한성혜")
@@ -40,7 +40,7 @@ class TestUser(TestCase):
                                      "email": "hans12312",
                                      "phone_number": "01072163428"})
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 400)
         json_response = json.loads(response.content)
         self.assertEqual(json_response['result'], 'fail')
 
@@ -59,7 +59,6 @@ class TestUser(TestCase):
                                     "phone_number": "01072163428"})
         self.assertEqual(response.status_code, 200)
         json_response = json.loads(response.content)
-        print(json_response)
         self.assertEqual(json_response['data']['phone_number'], "01000000000")
 
     # 항상 성공. data값으로 중복 여부 확인할 수 있다.
@@ -68,7 +67,7 @@ class TestUser(TestCase):
         self.assertEqual(response.status_code, 200)
         json_response = json.loads(response.content)
         self.assertEqual(json_response['result'], 'success')
-        print(json_response['data'])
+        # print(json_response['data'])
 
     def get_all_user(self):
         response = self.client.get('/api/v1/users/')

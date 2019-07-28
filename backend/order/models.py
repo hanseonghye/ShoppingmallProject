@@ -32,7 +32,7 @@ class Order(models.Model):
     sender_email = models.EmailField()
     sender_phone_number = models.CharField(max_length=30)
 
-    receiver_name =models.CharField(max_length=30)
+    receiver_name = models.CharField(max_length=30)
     receiver_phone_number = models.CharField(max_length=30)
     receiver_address = models.CharField(max_length=30)
     delivery_message = models.TextField()
@@ -46,7 +46,8 @@ class Order(models.Model):
 
 
 class OrderProduct(models.Model):
-    order = models.ForeignKey(Order, related_name='order_products', null=True, blank=True, db_column='order_id', on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, related_name='order_products', null=True, blank=True, db_column='order_id',
+                              on_delete=models.CASCADE)
     product_detail = models.ForeignKey(ProductDetail, null=True, db_column='product_detail_id',
                                        on_delete=models.CASCADE)
     product = models.ForeignKey(Product, null=False, db_column='product_id', on_delete=models.CASCADE)

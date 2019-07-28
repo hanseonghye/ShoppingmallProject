@@ -11,7 +11,7 @@ from .serializers import CategorySerializer
 from myModule import myMixins as mixins
 
 
-class CategoryListView(mixins.CreateModelMixin,
+class CategoryLV(mixins.CreateModelMixin,
                        mixins.ListModelMixin,
                        generics.GenericAPIView):
     queryset = Category.objects.all()
@@ -29,7 +29,7 @@ class CategoryListView(mixins.CreateModelMixin,
         return Response({"result": "success", "message": None, "data": data}, status=status.HTTP_201_CREATED)
 
 
-class CategoryDetailView(mixins.RetrieveModelMixin,
+class CategoryDV(mixins.RetrieveModelMixin,
                          mixins.UpdateModelMixin,
                          mixins.DestroyModelMixin,
                          mixins.ListModelMixin,
@@ -68,8 +68,8 @@ class CategoryDetailView(mixins.RetrieveModelMixin,
         return Response({"result": "success", "message": None, "data": data}, status=status.HTTP_200_OK)
 
 
-class CategoryProductView(mixins.RetrieveModelMixin,
-                          generics.GenericAPIView):
+class CategoryProductLV(mixins.RetrieveModelMixin,
+                        generics.GenericAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 

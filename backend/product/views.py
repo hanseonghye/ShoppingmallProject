@@ -22,11 +22,11 @@ class ProductListView(mixins.CreateModelMixin,
         return Response({"result": "success", "message": None, "data": data})
 
 
-class ProductDetailView(mixins.RetrieveModelMixin,
-                        mixins.UpdateModelMixin,
-                        mixins.DestroyModelMixin,
-                        mixins.ListModelMixin,
-                        generics.GenericAPIView):
+class ProductDV(mixins.RetrieveModelMixin,
+                mixins.UpdateModelMixin,
+                mixins.DestroyModelMixin,
+                mixins.ListModelMixin,
+                generics.GenericAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
@@ -66,7 +66,6 @@ class OptionValueListView(mixins.RetrieveModelMixin,
                           mixins.CreateModelMixin,
                           mixins.ListModelMixin,
                           generics.GenericAPIView):
-
     queryset = OptionDetail.objects.all()
     serializer_class = OptionDetailSerializer
     lookup_url_kwarg = 'optionpk'

@@ -1,10 +1,10 @@
 from django.urls import path
 
-from .views import ManagerUserListView, ManagerUserDetailView
+from .views import ManagerUserLV, ManagerUserDV
 
 app_name = 'manager'
 
 urlpatterns = [
-    path('', ManagerUserListView.as_view(), name='amdin-list'),
-    path('<int:pk>', ManagerUserDetailView.as_view(), name='admin-detail'),
+    path('', ManagerUserLV.as_view(), name='list'),
+    path('<int:pk>', ManagerUserDV.as_view(), name='detail'),
 ]

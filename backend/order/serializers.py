@@ -16,7 +16,7 @@ class OrderProductSerializer(serializers.ModelSerializer):
             'product_detail': {'required': False},
             'all_price': {'read_only': True}
         }
-        # depth = 0
+
 
     # def create(self, request):
     #
@@ -97,13 +97,12 @@ class OrdersSerializer(serializers.ModelSerializer):
 
     def create(self, request):
         order_products = request.pop('order_products')
-        if request['user'] is None:  # 비회원
-            if request['sender_name'] is None or request['sender_email'] is None \
-                    or request['sender_phone_number'] is None:
+
+        if 'user' not in request:  # 비회원
+            if not all(x in ['sender_name', 'sender_email', 'sender_phone_number'] for x in request):
                 raise serializers.ValidationError("null sender value")
 
-        if request['receiver_name'] is None or request['receiver_phone_number'] is None \
-                or request['receiver_address'] is None:
+        if not all(x in ['receiver_name', 'receiver_phone_number', 'receiver_address'] for x in request):
             raise serializers.ValidationError("null receiver value")
 
         order = Order.objects.create(status=0, price=0, **request)

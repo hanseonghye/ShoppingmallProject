@@ -34,7 +34,7 @@ class ProductDetail(models.Model):
     option_no = models.IntegerField('Option_No')
     option_name = models.CharField('Option_Name', max_length=30)
 
-    product = models.ForeignKey(Product, db_column='product_id', null=False, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product,related_name='product_details', db_column='product_id', null=False, on_delete=models.CASCADE)
 
     class Meta:
         db_table = "product_product_detail"

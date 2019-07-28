@@ -6,9 +6,9 @@ from myModule import myMixins as mixins
 from user.models import CustomUser as User
 
 
-class ManagerUserListView(mixins.CreateModelMixin,
-                          mixins.ListModelMixin,
-                          generics.GenericAPIView):
+class ManagerUserLV(mixins.CreateModelMixin,
+                    mixins.ListModelMixin,
+                    generics.GenericAPIView):
     serializer_class = ManagerUserSerializer
 
     def get_queryset(self):
@@ -27,11 +27,11 @@ class ManagerUserListView(mixins.CreateModelMixin,
         return Response({"result": "success", 'message': None, "data": data}, status=status.HTTP_201_CREATED)
 
 
-class ManagerUserDetailView(mixins.RetrieveModelMixin,
-                            mixins.UpdateModelMixin,
-                            mixins.DestroyModelMixin,
-                            mixins.ListModelMixin,
-                            generics.GenericAPIView):
+class ManagerUserDV(mixins.RetrieveModelMixin,
+                    mixins.UpdateModelMixin,
+                    mixins.DestroyModelMixin,
+                    mixins.ListModelMixin,
+                    generics.GenericAPIView):
     queryset = User.objects.filter(is_admin=True)
     serializer_class = ManagerUserSerializer
 

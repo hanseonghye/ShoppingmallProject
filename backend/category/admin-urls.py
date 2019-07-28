@@ -1,11 +1,11 @@
 from django.urls import path
 
-from category.views import CategoryListView, CategoryDetailView, CategoryProductView
+from category.views import CategoryLV, CategoryDV
 
 app_name = 'admin-category'
 
 urlpatterns = [
-    path('', CategoryListView.as_view(), name='category-list'),
-    path('<int:pk>/', CategoryDetailView.as_view(), name='category-detail'),
-    path('<str:name>/', CategoryDetailView.as_view(), name='category_list_name'),
+    path('', CategoryLV.as_view(), name='list'),
+    path('<int:pk>/', CategoryDV.as_view(), name='detail'),
+    path('<str:name>/', CategoryDV.as_view(), name='detail-name'),
 ]

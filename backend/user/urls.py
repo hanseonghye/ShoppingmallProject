@@ -6,11 +6,11 @@ app_name = 'user'
 
 
 urlpatterns = [
-    path('', UserAddView.as_view(), name='user-add'),
-    path('<int:pk>/', UserDetailView.as_view(), name='user-detail'),
-    path('<str:user_id>/', UserDetailView.as_view(), name='user-detail'),
-    path('<int:pk>/address/', UserAddressListView.as_view(), name='user-address'),
-    path('<str:user_id>/address/', UserAddressListView.as_view(), name='user-address'),
+    path('', UserAddView.as_view(), name='add'),
+    path('<int:pk>/', UserDetailView.as_view(), name='detail'),
+    path('<str:user_id>/', UserDetailView.as_view(), name='detail'),
+    path('<int:pk>/address/', UserAddressListView.as_view(), name='address-list'),
+    path('<str:user_id>/address/', UserAddressListView.as_view(), name='address-list-name'),
     # path('<int:pk>/address/<int:address_pk>/', UserAddressDetailView.as_view(), name='user-address'),
     # path('<str:user_id>/address/<int:address_pk>/', UserAddressDetailView.as_view(), name='user-address'),
     path('check/id/<str:user_id>', check_id, name='check-id'),
