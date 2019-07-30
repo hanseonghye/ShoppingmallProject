@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
@@ -28,8 +28,10 @@ urlpatterns = [
     path('docs/', schema_view.with_ui('redoc'), name='docs'),
     path('swagger/', schema_view.with_ui('swagger'), name='swagger'),
     path('oauth2/', include('user.auth'), name='oauth2_provider'),
+    # path('oauth2/', include('oauth2_provider.urls', namespace='oauth2_provider')),
 
     path('admin/', admin.site.urls, name='admin'),
+    path('accounts/', include('django.contrib.auth.urls')),
 
     path('api/v1/users/', include('user.urls'), name='user'),
     path('api/v1/admin/users/', include('user.admin-urls'), name='admin-user'),

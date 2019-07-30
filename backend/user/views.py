@@ -2,6 +2,7 @@ from django.db.models import Q
 from oauth2_provider.views.generic import ProtectedResourceView
 from rest_framework import generics, status
 from rest_framework.decorators import api_view
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from backend.permissions import IsAuthenticatedOrCreate
@@ -10,11 +11,13 @@ from .models import CustomUser as User, Address
 from myModule import myMixins as mixins
 
 
-class UserListView(mixins.CreateModelMixin,
+class UserListView(ProtectedResourceView,
+                   mixins.CreateModelMixin,
                    mixins.ListModelMixin,
                    generics.GenericAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
 
     def get(self, request, *args, **kwargs):
         data = self.list(request, *args, **kwargs)
@@ -26,7 +29,8 @@ class UserAddView(mixins.CreateModelMixin,
                   generics.GenericAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    # permission_classes = (IsAuthenticatedOrCreate,)
+
+    permission_classes = (IsAuthenticatedOrCreate,)
 
     def post(self, request, *args, **kwargs):
         try:

@@ -2,8 +2,7 @@ from django.conf import settings
 from django.urls import path
 import oauth2_provider.views as oauth2_views
 
-
-app_name ='oauth2_provider'
+app_name = 'oauth2_provider'
 
 urlpatterns = [
     path('authorize/', oauth2_views.AuthorizationView.as_view(), name='authorize'),

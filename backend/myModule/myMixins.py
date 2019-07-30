@@ -4,14 +4,17 @@ Basic building blocks for generic class based views.
 We don't bind behaviour to http method handlers yet,
 which allows mixin classes to be composed in interesting ways.
 """
+from rest_framework import status
+from rest_framework.response import Response
 from rest_framework.settings import api_settings
+
 
 class OrderCreateModelMixin:
     def create(self, request, many=False, *args, **kwargs):
 
-        if many :
+        if many:
             serializer = self.get_serializer(data=request, many=many)
-        else :
+        else:
             serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
@@ -27,19 +30,24 @@ class OrderCreateModelMixin:
         except (TypeError, KeyError):
             return {}
 
+
 class CreateModelMixin:
     """
     Create a model instance.
     """
 
     def create(self, request, many=False, *args, **kwargs):
-        if many :
+        if many:
             serializer = self.get_serializer(data=request, many=many)
-        else :
+        else:
             serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        return serializer.data
+
+        try:
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+        except Exception as e:
+            return Response({"result": "fail", "message": str(e), "data": None}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"result": "success", "message": None, "data": serializer.data}, status=status.HTTP_201_CREATED)
         # return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
     def perform_create(self, serializer):
@@ -66,7 +74,7 @@ class ListModelMixin:
             return self.get_paginated_response(serializer.data)
 
         serializer = self.get_serializer(queryset, many=True)
-        return serializer.data
+        return Response({"result": "success", "message": None, "data": serializer.data}, status=status.HTTP_200_OK)
         # return Response(serializer.data)
 
 
@@ -76,9 +84,12 @@ class RetrieveModelMixin:
     """
 
     def retrieve(self, request, *args, **kwargs):
-        instance = self.get_object()
-        serializer = self.get_serializer(instance)
-        return serializer.data
+        try:
+            instance = self.get_object()
+            serializer = self.get_serializer(instance)
+        except Exception as e:
+            return Response({"result": "fail", "message": str(e), "data": None}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"result": "success", "message": None, "data": serializer.data}, status=status.HTTP_200_OK)
         # return Response(serializer.data)
 
 
@@ -91,15 +102,20 @@ class UpdateModelMixin:
         partial = kwargs.pop('partial', False)
         instance = self.get_object()
         serializer = self.get_serializer(instance, data=request.data, partial=partial)
-        serializer.is_valid(raise_exception=True)
-        self.perform_update(serializer)
+        try:
+            serializer.is_valid(raise_exception=True)
+            self.perform_update(serializer)
 
-        if getattr(instance, '_prefetched_objects_cache', None):
-            # If 'prefetch_related' has been applied to a queryset, we need to
-            # forcibly invalidate the prefetch cache on the instance.
-            instance._prefetched_objects_cache = {}
-        return serializer.data
-        # return Response(serializer.data)
+            if getattr(instance, '_prefetched_objects_cache', None):
+                # If 'prefetch_related' has been applied to a queryset, we need to
+                # forcibly invalidate the prefetch cache on the instance.
+                instance._prefetched_objects_cache = {}
+        except Exception as e:
+            return Response({"result": "fail", "message": str(e), "data": None}, status=status.HTTP_400_BAD_REQUEST)
+
+        return Response({"result": "success", "message": None, "data": serializer.data}, status=status.HTTP_200_OK)
+
+    # return Response(serializer.data)
 
     def perform_update(self, serializer):
         serializer.save()
@@ -115,9 +131,14 @@ class DestroyModelMixin:
     """
 
     def destroy(self, request, *args, **kwargs):
-        instance = self.get_object()
-        self.perform_destroy(instance)
-        # return Response(status=status.HTTP_204_NO_CONTENT)
+        try:
+            instance = self.get_object()
+            self.perform_destroy(instance)
+        except Exception as e:
+            return Response({"result": "fail", "message": str(e), "data": None}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"result": "success", "message": None, "data": "ok"}, status=status.HTTP_200_OK)
+
+    # return Response(status=status.HTTP_204_NO_CONTENT)
 
     def perform_destroy(self, instance):
         instance.delete()
