@@ -37,7 +37,6 @@ class OrderProductSerializer(serializers.ModelSerializer):
     #
     #     return order_product
 
-
 class OrderSerializer(serializers.ModelSerializer):
     order_products = OrderProductSerializer(many=True, read_only=True)
     status = serializers.CharField(read_only=True)
