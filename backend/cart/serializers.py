@@ -16,15 +16,15 @@ class CartSerializer(serializers.ModelSerializer):
 
 
 class CartsSerializer(serializers.ModelSerializer):
-    cart_products = ProductSerializer(many=True)
+    # products = ProductSerializer(read_only=True)
 
     class Meta:
         model = Cart
-        fields = ('user', 'non_user', 'cart_products', 'product_detail', 'amount')
+        fields = ('user', 'non_user', 'product', 'product_detail', 'amount')
         extra_kwargs = {
             'amount': {'required': False},
-            'product': {'required': False},
             'product_detail': {'required': False},
+            'user': {'required': False},
             'non_user': {'required': False},
         }
 

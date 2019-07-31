@@ -41,6 +41,10 @@ class AddressSerializer(serializers.ModelSerializer):
         model = Address
         fields = ('address', 'user')
 
+        extra_kwargs = {
+            'user': {'write_only': True},
+        }
+
     def create(self, request):
         address = Address.objects.create(**request)
         address.save()

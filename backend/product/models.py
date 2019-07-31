@@ -56,7 +56,7 @@ class Option(models.Model):
 
 class OptionDetail(models.Model):
     name = models.CharField(max_length=30, null=False)
-    option = models.ForeignKey(Option, null=False, on_delete=models.CASCADE, db_column='option_id')
+    option = models.ForeignKey(Option, null=False, related_name='options_detail', on_delete=models.CASCADE, db_column='option_id')
 
     class Meta:
         db_table = "product_option_detail"

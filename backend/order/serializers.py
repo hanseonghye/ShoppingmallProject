@@ -17,7 +17,6 @@ class OrderProductSerializer(serializers.ModelSerializer):
             'all_price': {'read_only': True}
         }
 
-
     # def create(self, request):
     #
     #     product = Product.objects.get(id=request['product'].id)
@@ -87,13 +86,14 @@ class OrdersSerializer(serializers.ModelSerializer):
             'order_products'
         )
 
-        extra_kwargs = {'user': {'required': False},
-                        'sender_name': {'required': False},
-                        'sender_email': {'required': False},
-                        'sender_phone_number': {'required': False},
-                        'status': {'required': False},
-                        'order_products': {'required': False}
-                        }
+        extra_kwargs = {
+            'user': {'required': False, 'write_only': True},
+            'sender_name': {'required': False},
+            'sender_email': {'required': False},
+            'sender_phone_number': {'required': False},
+            'status': {'required': False},
+            'order_products': {'required': False}
+        }
 
     def create(self, request):
         order_products = request.pop('order_products')

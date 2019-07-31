@@ -1,9 +1,9 @@
 from django.urls import path
 
-from order.views import OrderListView, OrderDetailView
+from order.views import OrderLV, UserOrderUV
 
 app_name = 'admin-order'
 urlpatterns = [
-    path('', OrderListView.as_view(), name='list'),
-    path('<int:pk>', OrderDetailView.as_view(), name='detail'),
+    path('', OrderLV.as_view(), name='list'),
+    path('<int:pk>', UserOrderUV.as_view(), name='update'),
 ]

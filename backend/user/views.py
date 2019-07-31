@@ -1,153 +1,49 @@
 from django.db.models import Q
-from oauth2_provider.views.generic import ProtectedResourceView
 from rest_framework import generics, status
 from rest_framework.decorators import api_view
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-
-from backend.permissions import IsAuthenticatedOrCreate
+from myModule.myGenerics import *
 from .serializers import UserSerializer, AddressSerializer
 from .models import CustomUser as User, Address
 from myModule import myMixins as mixins
 
 
-class UserListView(ProtectedResourceView,
-                   mixins.CreateModelMixin,
-                   mixins.ListModelMixin,
-                   generics.GenericAPIView):
+class UserLV(ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
 
-    def get(self, request, *args, **kwargs):
-        data = self.list(request, *args, **kwargs)
-        return Response({"result": "success", "message": None, "data": data})
-
-
-class UserAddView(mixins.CreateModelMixin,
-                  mixins.ListModelMixin,
-                  generics.GenericAPIView):
-    queryset = User.objects.all()
+class UserCV(CreateAPIView):
     serializer_class = UserSerializer
-
-    permission_classes = (IsAuthenticatedOrCreate,)
-
-    def post(self, request, *args, **kwargs):
-        try:
-            data = self.create(request, *args, **kwargs)
-        except Exception as e:
-            return Response({"result": "fail", "message": str(e), "data": None}, status=status.HTTP_400_BAD_REQUEST)
-        return Response({"result": "success", "message": None, "data": data}, status=status.HTTP_201_CREATED)
 
 
 # ProtectedResourceView
-class UserDetailView(mixins.RetrieveModelMixin,
-                     mixins.UpdateModelMixin,
-                     mixins.DestroyModelMixin,
-                     mixins.ListModelMixin,
-                     generics.GenericAPIView):
+class UserDV(RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-    def get(self, request, *args, **kwargs):
-        try:
-            if 'user_id' in self.kwargs:
-                queryset = self.queryset.get(user_id=kwargs['user_id'])
-                serializer = self.get_serializer(queryset)
-                data = serializer.data
-            else:
-                data = self.retrieve(request, *args, **kwargs)
-        except Exception as e:
-            return Response({"result": "fail", "message": str(e), "data": None}, status=status.HTTP_400_BAD_REQUEST)
-        return Response({"result": "success", "message": None, "data": data}, status=status.HTTP_200_OK)
 
-    def put(self, request, *args, **kwargs):
-        try:
-            data = self.update(self, request, *args, **kwargs)
-        except Exception as e:
-            return Response({"result": "fail", "message": str(e), "data": None}, status=status.HTTP_400_BAD_REQUEST)
-        return Response({"result": "success", "message": None, "data": data}, status=status.HTTP_200_OK)
-
-    def delete(self, request, *args, **kwargs):
-        try:
-            self.destroy(self, request, *args, **kwargs)
-        except Exception:
-            return Response({"result": "fail", "message": None, "data": None}, status=status.HTTP_400_BAD_REQUEST)
-        return Response({"result": "success", "message": None, "data": "ok"}, status=status.HTTP_200_OK)
+class UserNameDV(RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    lookup_field = 'user_id'
+    lookup_url_kwarg = 'user_id'
 
 
-class UserAddressListView(mixins.CreateModelMixin,
-                          mixins.ListModelMixin,
-                          generics.GenericAPIView):
+class UserAddressLV(ListCreateAPIView):
     queryset = Address.objects.all()
     serializer_class = AddressSerializer
 
-    def get(self, request, *args, **kwargs):
-        try:
-
-            if 'user_id' in self.kwargs:
-                queryset = self.queryset.filter(user__user_id=kwargs['user_id'])
-                serializer = self.get_serializer(queryset, many=True)
-                data = serializer.data
-            else:
-                queryset = self.queryset.filter(user=kwargs['pk'])
-                serializer = self.get_serializer(queryset, many=True)
-                data = serializer.data
-        except Exception as e:
-            return Response({"result": "fail", "message": str(e), "data": None})
-        return Response({"result": "success", "message": None, "data": data})
-
-    def post(self, request, *args, **kwargs):
-        try:
-            data = self.create(request, *args, **kwargs)
-        except Exception as e:
-            return Response({"result": "fail", "message": str(e), "data": None}, status=status.HTTP_400_BAD_REQUEST)
-
-        return Response({"result": "success", "message": None, "data": data}, status=status.HTTP_201_CREATED)
+    def get_queryset(self):
+        return self.queryset.filter(user=self.kwargs['pk'])
 
 
-class UserAddressDetailView(mixins.RetrieveModelMixin,
-                            mixins.UpdateModelMixin,
-                            mixins.DestroyModelMixin,
-                            generics.GenericAPIView):
+class UserAddressNameLV(ListCreateAPIView):
     queryset = Address.objects.all()
     serializer_class = AddressSerializer
 
-    def get(self, request, *args, **kwargs):
-        try:
-            if 'user_id' in self.kwargs:
-                queryset = self.queryset.filter(Q(user__user_id=kwargs['user_id']))
-                serializer = self.get_serializer(queryset, many=True)
-                data = serializer.data
-            else:
-                queryset = self.queryset.filter(user=kwargs['pk'])
-                serializer = self.get_serializer(queryset, many=True)
-                data = serializer.data
-        except Exception as e:
-            return Response({"result": "fail", "message": str(e), "data": None})
-        return Response({"result": "success", "message": None, "data": data})
-
-    def post(self, request, *args, **kwargs):
-        try:
-            data = self.create(request, *args, **kwargs)
-        except Exception as e:
-            return Response({"result": "fail", "message": str(e), "data": None})
-
-        return Response({"result": "success", "message": None, "data": data})
-
-    def put(self, request, *args, **kwargs):
-        try:
-            data = self.update(request, *args, **kwargs)
-        except Exception as e:
-            return Response({"result": "fail", "message": str(e), "data": None})
-        return Response({"result": "success", "message": None, "data": data})
-
-    def delete(self, request, *args, **kwargs):
-        try:
-            self.destroy(self, request, *args, **kwargs)
-        except Exception:
-            return Response({"result": "fail", "message": None, "data": None})
-        return Response({"result": "success", "message": None, "data": "ok"})
+    def get_queryset(self):
+        return self.queryset.filter(user__user_id=self.kwargs['user_id'])
 
 
 def id_validator(user_id):

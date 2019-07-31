@@ -8,6 +8,12 @@ class ProductDetailSerializer(serializers.ModelSerializer):
         model = ProductDetail
         fields = '__all__'
 
+        extra_kwargs = {
+            'id': {'required': False},
+            'product': {'required': False},
+        }
+
+
     def create(self, request):
         product_dateil = ProductDetail.objects.create(**request)
         product_dateil.save()
@@ -20,7 +26,13 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = (
-        'name', 'price', 'is_stock', 'is_display', 'is_option', 'file_url', 'image_url', 'category', 'product_details')
+            'name', 'price', 'is_stock', 'is_display', 'is_option', 'file_url', 'image_url', 'category',
+            'product_details')
+
+        extra_kwargs = {
+            'is_option': {'write_only': True},
+            'is_display': {'write_only': True},
+        }
 
     def create(self, request):
         product = Product.objects.create(**request)
@@ -48,3 +60,16 @@ class OptionDetailSerializer(serializers.ModelSerializer):
         option_detail = OptionDetail.objects.create(**request)
         option_detail.save()
         return option_detail
+
+
+class OptionsSerializer(serializers.ModelSerializer):
+    options_detail = OptionDetailSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Option
+        fields = ('name', 'product', 'options_detail')
+
+    def create(self, request):
+        option = Option.objects.create(**request)
+        option.save()
+        return option
