@@ -1,6 +1,8 @@
-# API
+# API :happy:
 
-# 회원
+# 회원 :person_with_pouting_face:
+
+
 ## 회원 정보
 
 | API 목록         | URL                                   | 예상 일정 | 예상 소요 시간 | 개발 일정 | 개발 시간 | 작업 결과서                                                  |
@@ -8,13 +10,13 @@
 | 회원가입         | post : /users                         |           |                |           |           | [문서](https://github.com/hanseonghye/ShoppingmallProject/blob/master/docs/2.Swagger%26TDD/api/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85.md#%EA%B0%80%EC%9E%85-%EB%93%B1%EB%A1%9D-%EC%9A%94%EC%B2%AD) |
 | 아이디 중복 확인 | get : /users/check/id/{check_id}      |           |                |           |           | [문서](https://github.com/hanseonghye/ShoppingmallProject/blob/master/docs/2.Swagger%26TDD/api/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85.md#%EC%95%84%EC%9D%B4%EB%94%94-%EC%A4%91%EB%B3%B5-%EC%B2%B4%ED%81%AC-%EC%9A%94%EC%B2%AD) |
 | 로그인           |                                       |           |                |           |           |                                                              |
-| 회원정보조회     | get:/users/{user_id or id}            |           |                |           |           |                                                              |
-| 회원정보수정     | put : /users/{user_id or id}          |           |                |           |           |                                                              |
-| 회원탈퇴         | delete : /users/{user_id or id}       |           |                |           |           |                                                              |
-| 회원 배송지 조회 | get : /users/{user_id or id}/address  |           |                |           |           |                                                              |
-| 회원 주소 추가   | post : /users/{user_id or id}/address |           |                |           |           |                                                              |
-| 회원 주소 수정   |                                       |           |                |           |           |                                                              |
-| 회원 주소 삭제   |                                       |           |                |           |           |                                                              |
+| 로그아웃         |                                       |           |                |           |           |                                                              |
+| 회원정보조회     | get:/users/{user_id or pk}            |           |                |           |           |                                                              |
+| 회원정보수정     | put : /users/{user_id or pk}          |           |                |           |           |                                                              |
+| 회원탈퇴         | delete : /users/{user_id or pk}       |           |                |           |           |                                                              |
+| 회원 배송지 조회 | get : /users/{user_id or pk}/address  |           |                |           |           |                                                              |
+| 회원 주소 확인   | get : /users/{user_id or pk}/address  |           |                |           |           |                                                              |
+| 회원 주소 추가   | post : /users/{user_id or pk}/address |           |                |           |           |                                                              |
 
 
 
@@ -22,30 +24,28 @@
 
 | API 목록  | URL                  | 예상 일정 | 예상 소요 시간 | 개발 일정 | 개발 시간 | 작업 결과서 |
 | --------- | -------------------- | --------- | -------------- | --------- | --------- | ----------- |
-| 상품 조회 | get : /products/{id} |           |                |           |           |             |
+| 상품 조회 | get : /products/{pk} |           |                |           |           |             |
 
 
 
 ## 장바구니
 
-| API 목록      | URL                        | 예상 일정 | 예상 소요 시간 | 개발 일정 | 개발 시간 | 작업 결과서 |
-| ------------- | -------------------------- | --------- | -------------- | --------- | --------- | ----------- |
-| 장바구니 조회 | get : /carts/{id}          |           |                |           |           |             |
-| 장바구니 추가 | post : /carts/{id}         |           |                |           |           |             |
-| 장바구니 수정 | put : /carts/{id}/{id2}    |           |                |           |           |             |
-| 장바구니 삭제 | delete : /carts/{id}/{id2} |           |                |           |           |             |
-
-
+| API 목록      | URL                                 | 예상 일정 | 예상 소요 시간 | 개발 일정 | 개발 시간 | 작업 결과서 |
+| ------------- | ----------------------------------- | --------- | -------------- | --------- | --------- | ----------- |
+| 장바구니 조회 | get : /carts/{user-pk}              |           |                |           |           |             |
+| 장바구니 추가 | post : /carts/{user-pk}             |           |                |           |           |             |
+| 장바구니 수정 | put : /carts/{user-pk}/{cart-pk}    |           |                |           |           |             |
+| 장바구니 삭제 | delete : /carts/{user-pk}/{cart-pk} |           |                |           |           |             |
 
 
 
 ## 주문
 
-| API 목록 | URL                | 예상 일정 | 예상 소요 시간 | 개발 일정 | 개발 시간 | 작업 결과서 |
-| -------- | ------------------ | --------- | -------------- | --------- | --------- | ----------- |
-| 주문하기 | post : /orders     |           |                |           |           |             |
-| 주문조회 | get : /orders/{id} |           |                |           |           |             |
-|          |                    |           |                |           |           |             |
+| API 목록      | URL                                           | 예상 일정 | 예상 소요 시간 | 개발 일정 | 개발 시간 | 작업 결과서 |
+| ------------- | --------------------------------------------- | --------- | -------------- | --------- | --------- | ----------- |
+| 주문하기      | post : /orders                                |           |                |           |           |             |
+| 주문 조회     | get : /orders/{user-pk or user_id}            |           |                |           |           |             |
+| 특정 주문조회 | get : /orders/{user-pk or user_id}/{order-pk} |           |                |           |           |             |
 
 
 
@@ -57,7 +57,15 @@
 
 
 
-# 관리자
+------
+
+----
+
+
+
+# 관리자 :information_desk_person:
+
+
 
 ## 관리자 정보
 
@@ -85,16 +93,16 @@
 | API 목록          | URL                                 | 예상 일정 | 예상 소요 시간 | 개발 일정 | 개발 시간 | 작업 결과서 |
 | ----------------- | ----------------------------------- | --------- | -------------- | --------- | --------- | ----------- |
 | 상품 등록         | post : /admin/products              |           |                |           |           |             |
-| 상품 조회         | get : /admin/products/{id}          |           |                |           |           |             |
-| 상품 수정         | put : /admin/products/{id}          |           |                |           |           |             |
-| 상품 삭제         | delete : /admin/products/{id}       |           |                |           |           |             |
+| 상품 조회         | get : /admin/products/{pk}          |           |                |           |           |             |
+| 상품 수정         | put : /admin/products/{pk}          |           |                |           |           |             |
+| 상품 삭제         | delete : /admin/products/{pk}       |           |                |           |           |             |
 | 상품 옵션명 조회  | get : /admin/products/{id}/options  |           |                |           |           |             |
 | 상품 옵션명 추가  | post : /admin/products/{id}/options |           |                |           |           |             |
 | 상품 옵셩 값 조회 |                                     |           |                |           |           |             |
 
 
 
-주문
+## 주문
 
 | API 목록  | URL                      | 예상 일정 | 예상 소요 시간 | 개발 일정 | 개발 시간 | 작업 결과서 |
 | --------- | ------------------------ | --------- | -------------- | --------- | --------- | ----------- |
@@ -110,6 +118,6 @@
 | ------------------ | ------------------------------------- | --------- | -------------- | --------- | --------- | ----------- |
 | 전체 카테고리 조회 | get : /admin/category                 |           |                |           |           |             |
 | 카테고리 추가      | post : /admin/category                |           |                |           |           |             |
-| 카테고리 수정      | put : /admin/category/{id or name}    |           |                |           |           |             |
-| 카테고리 삭제      | delete : /admin/category/{id or name} |           |                |           |           |             |
+| 카테고리 수정      | put : /admin/category/{pk or name}    |           |                |           |           |             |
+| 카테고리 삭제      | delete : /admin/category/{pk or name} |           |                |           |           |             |
 
