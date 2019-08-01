@@ -39,4 +39,8 @@ class CategoryProductLV(ListAPIView):
     serializer_class = ProductSerializer
 
     def get_queryset(self):
+        if getattr(self, 'swagger_fake_view', False):
+            # queryset just for schema generation metadata
+            return Product.objects.none()
+
         return self.queryset.filter(Q(category=self.kwargs['pk']) | Q(category__parent=self.kwargs['pk']))

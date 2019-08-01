@@ -6,8 +6,8 @@ app_name = 'order'
 
 urlpatterns = [
     path('', OrderManyCV.as_view(), name='add'),
-    path('<int:pk>/', UserOrderLV.as_view(), name='list'),
-    path('<str:user_id>/', UserOrderNameLV.as_view(), name='name-list'),
-    path('<int:pk>/<int:orderpk>', UserOrderRV.as_view(), name='detail'),
-    path('<str:user_id>/<int:orderpk>', UserOrderRV.as_view()),
+    path('user/<int:pk>/', UserOrderLV.as_view(), name='list'),
+    path('user/<str:user_id>/', UserOrderNameLV.as_view(), name='name-list'),
+    path('user/<int:pk>/<int:orderpk>', UserOrderRV.as_view(), name='detail'),
+    path('user/<str:user_id>/<int:orderpk>', UserOrderRV.as_view()),
 ]

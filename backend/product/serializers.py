@@ -13,11 +13,59 @@ class ProductDetailSerializer(serializers.ModelSerializer):
             'product': {'required': False},
         }
 
-
     def create(self, request):
         product_dateil = ProductDetail.objects.create(**request)
         product_dateil.save()
         return product_dateil
+
+
+class OptionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Option
+        fields = ('name', 'product')
+
+    def create(self, request):
+        option = Option.objects.create(**request)
+        option.save()
+        return option
+
+
+class OptionDetailSerializer(serializers.ModelSerializer):
+    # option = OptionSerializer(read_only=True)
+
+    class Meta:
+        model = OptionDetail
+        fields = ('name', 'option')
+
+    def create(self, request):
+        option_detail = OptionDetail.objects.create(**request)
+        option_detail.save()
+        return option_detail
+
+
+class OptionsSerializer(serializers.ModelSerializer):
+    option_details = OptionDetailSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Option
+        fields = ('name', 'product', 'option_details')
+
+    def create(self, request):
+        option = Option.objects.create(**request)
+        option.save()
+        return option
+
+
+class ProductAdminSerializer(serializers.ModelSerializer):
+    product_details = ProductDetailSerializer(many=True, read_only=True)
+    product_options = OptionsSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Product
+        fields = (
+            'name', 'price', 'is_stock', 'is_display', 'is_option', 'file_url', 'image_url', 'category',
+            'product_details',
+            'product_options')
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -38,38 +86,3 @@ class ProductSerializer(serializers.ModelSerializer):
         product = Product.objects.create(**request)
         product.save()
         return product
-
-
-class OptionSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Option
-        fields = ('name', 'product')
-
-    def create(self, request):
-        option = Option.objects.create(**request)
-        option.save()
-        return option
-
-
-class OptionDetailSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = OptionDetail
-        fields = ('name', 'option')
-
-    def create(self, request):
-        option_detail = OptionDetail.objects.create(**request)
-        option_detail.save()
-        return option_detail
-
-
-class OptionsSerializer(serializers.ModelSerializer):
-    options_detail = OptionDetailSerializer(many=True, read_only=True)
-
-    class Meta:
-        model = Option
-        fields = ('name', 'product', 'options_detail')
-
-    def create(self, request):
-        option = Option.objects.create(**request)
-        option.save()
-        return option

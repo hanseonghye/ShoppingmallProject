@@ -3,6 +3,7 @@ from rest_framework import serializers
 
 from cart.models import Cart
 from product.serializers import ProductSerializer
+from user.serializers import UserSerializer
 
 
 class CartSerializer(serializers.ModelSerializer):
@@ -10,13 +11,20 @@ class CartSerializer(serializers.ModelSerializer):
         model = Cart
         fields = ('user', 'non_user', 'product', 'product_detail', 'amount')
 
+        extra_kwargs = {
+            'user': {'write_only': True},
+            'non_user': {'write_only': True},
+
+        }
+
     def create(self, request):
         cart = Cart.objects.create(expiry_date=timezone.now(), **request)
         return cart
 
 
 class CartsSerializer(serializers.ModelSerializer):
-    # products = ProductSerializer(read_only=True)
+    # user = UserSerializer(write_only=True)
+    # non_user = CartSerializer(write_only=True)
 
     class Meta:
         model = Cart

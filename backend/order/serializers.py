@@ -17,25 +17,25 @@ class OrderProductSerializer(serializers.ModelSerializer):
             'all_price': {'read_only': True}
         }
 
-    # def create(self, request):
-    #
-    #     product = Product.objects.get(id=request['product'].id)
-    #     order_product = OrderProduct.objects.create(**request)
-    #     if Product.objects.get(id=request['product'].id).is_option:
-    #         order_product.price = 1
-    #     else:
-    #         order_product.price = product.price
-    #     order_product.all_price = order_product.price * order_product.amount
-    #     order_product.date = timezone.now()
-    #     order_product.save()
-    #
-    #     order = Order.objects.get(id=order_product.order)
-    #     order.price += order_product.all_price
-    #     if order.status is 0:
-    #         order.status = 1
-    #     order.save()
-    #
-    #     return order_product
+    def create(self, request):
+
+        product = Product.objects.get(id=request['product'].id)
+        order_product = OrderProduct.objects.create(**request)
+        if not Product.objects.get(id=request['product'].id).is_option:
+            order_product.price = product.price
+
+        order_product.all_price = order_product.price * order_product.amount
+        order_product.date = timezone.now()
+        order_product.save()
+
+        order = Order.objects.get(id=order_product.order)
+        order.price += order_product.all_price
+        if order.status is 0:
+            order.status = 1
+        order.save()
+
+        return order_product
+
 
 class OrderSerializer(serializers.ModelSerializer):
     order_products = OrderProductSerializer(many=True, read_only=True)

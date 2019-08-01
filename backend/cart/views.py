@@ -13,9 +13,7 @@ class CartLV(mixins.CreateModelMixin,
     serializer_class = CartsSerializer
 
     def get_queryset(self):
-        if 'pk' in self.kwargs:
-            return self.queryset.filter(user=self.kwargs['pk'])
-        return self.queryset.none()
+        return self.queryset.filter(user=self.kwargs['pk'])
 
     def post(self, request, *args, **kwargs):
         try:
