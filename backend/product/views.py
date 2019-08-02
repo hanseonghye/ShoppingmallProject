@@ -44,6 +44,9 @@ class OptionDetailLV(ListCreateAPIView):
     serializer_class = OptionDetailSerializer
 
     def get_queryset(self):
+        if getattr(self, 'swagger_fake_view', False):
+            # queryset just for schema generation metadata
+            return OptionDetail.objects.none()
         return self.queryset.filter(option=self.kwargs['optionpk'])
 
 

@@ -42,3 +42,10 @@ class UserOrderNameLV(ListCreateAPIView):
     def get_queryset(self):
         return self.queryset.filter(user__user_id=self.kwargs['user_id'], )
 
+
+class NoneUserOrderRV(ListAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
+    def get_queryset(self):
+        return self.queryset.filter(non_user = self.kwargs['nonuser_id'])

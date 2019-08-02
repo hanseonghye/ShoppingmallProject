@@ -44,24 +44,8 @@ class TestUser(TestCase):
         json_response = json.loads(response.content)
         self.assertEqual(json_response['result'], 'fail')
 
-    def _test_회원정보수정_성공(self):
-        response = self.client.post('/api/v1/users/',
-                                    {"username": "한성혜", "user_id": "test_1", "password": "testdkdk!",
-                                     "email": "hans12312@naver.com",
-                                     "phone_number": "01072163428"})
-        self.assertEqual(response.status_code, 200)
-        json_response = json.loads(response.content)
-        self.assertEqual(json_response['data']['phone_number'], "01072163428")
 
-        response = self.client.put("/api/v1/users/2/",
-                                   {"username": "한성혜", "user_id": "test_1", "password": "testdkdk!",
-                                    "email": "hans12312@naver.com",
-                                    "phone_number": "01072163428"})
-        self.assertEqual(response.status_code, 200)
-        json_response = json.loads(response.content)
-        self.assertEqual(json_response['data']['phone_number'], "01000000000")
-
-    # 항상 성공. data값으로 중복 여부 확인할 수 있다.
+    # data값으로 중복 여부 확인할 수 있다.
     def test_이메일중복확인_성공(self):
         response = self.client.get('/api/v1/users/check/email/hans123@naver.com')
         self.assertEqual(response.status_code, 200)

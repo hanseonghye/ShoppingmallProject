@@ -28,6 +28,7 @@ class Order(models.Model):
     status = models.CharField(max_length=2, choices=ORDER_TYPE)
 
     user = models.ForeignKey(User, null=True, db_column='user_id', on_delete=models.CASCADE)
+    non_user = models.CharField(max_length=30,null=True)
     sender_name = models.CharField(max_length=30)
     sender_email = models.EmailField()
     sender_phone_number = models.CharField(max_length=30)
