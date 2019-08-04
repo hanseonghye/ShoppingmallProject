@@ -7,6 +7,6 @@
 
 [2주차 api](https://github.com/hanseonghye/ShoppingmallProject/blob/master/docs/2.Swagger%26TDD/API.md)
 
-- [api](https://github.com/hanseonghye/ShoppingmallProject/blob/master/docs/2.Swagger%26TDD/API.md)
-- [swagger](https://github.com/hanseonghye/ShoppingmallProject/blob/master/docs/2.Swagger%26TDD/Swagger.md)
+- [api](https://github.com/hanseonghye/ShoppingmallProject/blob/master/docs/2.API/API.md)
+- [swagger](https://github.com/hanseonghye/ShoppingmallProject/blob/master/docs/2.API/Swagger.md)
 
