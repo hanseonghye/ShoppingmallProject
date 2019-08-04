@@ -117,7 +117,7 @@
 
 해당 앞에서 swagger에 들어가기 위한 url로 들어가면 이렇게 보여준다.
 
-![swagger ui](./img/img1.png)
+![swagger ui](https://github.com/hanseonghye/ShoppingmallProject/blob/master/docs/2.Swagger%26TDD/img/img1.png)
 
 
 
