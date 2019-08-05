@@ -20,28 +20,29 @@
 <body>
 <div id="wrapper">
     <div class="slide_01" style="left:-485px; display:block;"></div>
-    <v-layout class="boxOuter">
-        <v-layout align-end>
-            <v-flex text-xs-right text-sm-left class="search">
-                <div>Sample3</div>
-            </v-flex>
-        </v-layout>
-    </v-layout>
+
     <div id="wrap">
         <div class="logo_top01" id="header">
             <v-app class="logo_top01-1">
                 <h1 class="logo_text">awesome shop</h1>
 
-                <div class="tabs bottom ">
-                    <v-tabs background-color="#1ecfff" centered>
+                <div class="tabs">
+                    <template>
+                    <v-tabs v-model="tab" background-color="#1ecfff" centered>
+                        <v-tab
+                            v-for="category in categorys"
+                            :key="category">
+                            {{ category }}
+                        </v-tab>
                         <v-tab>아우터</v-tab>
-                        <v-tab>상의</v-tab>
-                        <v-tab>블라우스</v-tab>
-                        <v-tab>드레스</v-tab>
-                        <v-tab>바지</v-tab>
-                        <v-tab>치마</v-tab>
-                        <v-tab>가방&신발</v-tab>
+<!--                        <v-tab>상의</v-tab>-->
+<!--                        <v-tab>블라우스</v-tab>-->
+<!--                        <v-tab>드레스</v-tab>-->
+<!--                        <v-tab>바지</v-tab>-->
+<!--                        <v-tab>치마</v-tab>-->
+<!--                        <v-tab>가방&신발</v-tab>-->
                     </v-tabs>
+                    </template>
                 </div>
             </v-app>
         </div>

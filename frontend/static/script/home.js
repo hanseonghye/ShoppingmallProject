@@ -5,6 +5,7 @@ var content = new Vue({
     data() {
         return {
 
+
         }
     },
     computed: {

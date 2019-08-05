@@ -19,9 +19,9 @@
 | 회원정보조회     | get:/users/{user_id or pk}            | 7/19 | 10m      | O         | [문서](https://github.com/hanseonghye/ShoppingmallProject/blob/master/docs/2.API/api/%ED%9A%8C%EC%9B%90%EC%A0%95%EB%B3%B4%EC%A1%B0%ED%9A%8C%2B%EC%88%98%EC%A0%95%2B%ED%83%88%ED%87%B4.md) |
 | 회원정보수정     | put : /users/{user_id or pk}          | 7/19 | 10m      | O         | [문서](https://github.com/hanseonghye/ShoppingmallProject/blob/master/docs/2.API/api/%ED%9A%8C%EC%9B%90%EC%A0%95%EB%B3%B4%EC%A1%B0%ED%9A%8C%2B%EC%88%98%EC%A0%95%2B%ED%83%88%ED%87%B4.md) |
 | 회원탈퇴         | delete : /users/{user_id or pk}       | 7/19 | 10m      | O         | [문서](https://github.com/hanseonghye/ShoppingmallProject/blob/master/docs/2.API/api/%ED%9A%8C%EC%9B%90%EC%A0%95%EB%B3%B4%EC%A1%B0%ED%9A%8C%2B%EC%88%98%EC%A0%95%2B%ED%83%88%ED%87%B4.md) |
-| 회원 주소 확인   | get : /users/{user_id or pk}/address  | 7/22 | 30m      | O         | [문서](https://github.com/hanseonghye/ShoppingmallProject/blob/master/docs/2.API/api/%ED%9A%8C%EC%9B%90%EB%B0%B0%EC%86%A1%EC%A7%80%EC%A1%B0%ED%9A%8C%2B%EC%B6%94%EA%B0%80.md) |
-| 회원 주소 추가   | post : /users/{user_id or pk}/address | 7/22 | 30m      | O         | [문서](https://github.com/hanseonghye/ShoppingmallProject/blob/master/docs/2.API/api/%ED%9A%8C%EC%9B%90%EB%B0%B0%EC%86%A1%EC%A7%80%EC%A1%B0%ED%9A%8C%2B%EC%B6%94%EA%B0%80.md) |
-| 회원 주소 삭제   |                                       | 7/22 | 10m      | X         |                                                              |
+| 회원 배송지 확인 | get : /users/{user_id or pk}/address  | 7/22 | 30m      | O         | [문서](https://github.com/hanseonghye/ShoppingmallProject/blob/master/docs/2.API/api/%ED%9A%8C%EC%9B%90%EB%B0%B0%EC%86%A1%EC%A7%80%EC%A1%B0%ED%9A%8C%2B%EC%B6%94%EA%B0%80.md) |
+| 회원 배송지 추가 | post : /users/{user_id or pk}/address | 7/22 | 30m      | O         | [문서](https://github.com/hanseonghye/ShoppingmallProject/blob/master/docs/2.API/api/%ED%9A%8C%EC%9B%90%EB%B0%B0%EC%86%A1%EC%A7%80%EC%A1%B0%ED%9A%8C%2B%EC%B6%94%EA%B0%80.md) |
+| 회원 배송지 삭제 |                                       | 7/22 | 10m      | X         |                                                              |
 
 
 
