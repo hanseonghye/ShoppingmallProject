@@ -1,213 +1,99 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+{% extends "base.html" %}
+{% block title %}home.html{% endblock %}
 
-</head>
-<body>
+{% load staticfiles %}
+{% block content %}
+<div id="content">
+    <v-content>
 
-<div id="app">
-    <v-app>
-        <div>
-            <h1>쇼핑몰</h1>
-        </div>
+        <!-- Provides the application the proper gutter -->
+        <v-container grid-list-md class="mt-10">
+            <v-layout wrap>
+                <v-flex xs3>
+                    <v-card>
+                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
+                        <v-card-title>상품</v-card-title>
+                        <v-card-text>10000원</v-card-text>
+                    </v-card>
+                </v-flex>
+                <v-flex xs3>
+                    <v-card>
+                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
+                        <v-card-title>상품</v-card-title>
+                        <v-card-text>10000원</v-card-text>
+                    </v-card>
+                </v-flex>
+                <v-flex xs3>
+                    <v-card>
+                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
+                        <v-card-title>상품</v-card-title>
+                        <v-card-text>10000원</v-card-text>
+                    </v-card>
+                </v-flex>
+                <v-flex xs3>
+                    <v-card>
+                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
+                        <v-card-title>상품</v-card-title>
+                        <v-card-text>10000원</v-card-text>
+                    </v-card>
+                </v-flex>
+                <v-flex xs3>
+                    <v-card>
+                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
+                        <v-card-title>상품</v-card-title>
+                        <v-card-text>10000원</v-card-text>
+                    </v-card>
+                </v-flex>
+                <v-flex xs3>
+                    <v-card>
+                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
+                        <v-card-title>상품</v-card-title>
+                        <v-card-text>10000원</v-card-text>
+                    </v-card>
+                </v-flex>
+                <v-flex xs3>
+                    <v-card>
+                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
+                        <v-card-title>상품</v-card-title>
+                        <v-card-text>10000원</v-card-text>
+                    </v-card>
+                </v-flex>
+                <v-flex xs3>
+                    <v-card>
+                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
+                        <v-card-title>상품</v-card-title>
+                        <v-card-text>10000원</v-card-text>
+                    </v-card>
+                </v-flex>
+                <v-flex xs3>
+                    <v-card>
+                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
+                        <v-card-title>상품</v-card-title>
+                        <v-card-text>10000원</v-card-text>
+                    </v-card>
+                </v-flex>
+                <v-flex xs3>
+                    <v-card>
+                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
+                        <v-card-title>상품</v-card-title>
+                        <v-card-text>10000원</v-card-text>
+                    </v-card>
+                </v-flex>
+                <v-flex xs3>
+                    <v-card>
+                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
+                        <v-card-title>상품</v-card-title>
+                        <v-card-text>10000원</v-card-text>
+                    </v-card>
+                </v-flex>
 
-        <v-tabs centered>
-            <v-tab>아우터</v-tab>
-            <v-tab>상의</v-tab>
-            <v-tab>하의</v-tab>
-        </v-tabs>
-
-        <!-- Sizes your content based upon application components -->
-        <v-content>
-
-            <!-- Provides the application the proper gutter -->
-            <v-container class="mb-12">
-                <v-layout row>
-                    <v-flex xs4>
-                        <v-sheet
-                                :color="color_1"
-                                height="100%"
-                                tile>
-                            <v-layout
-                                    align-center
-                                    fill-height
-                                    justify-center>
-                            </v-layout>
-                        </v-sheet>
-                    </v-flex>
-                    <v-flex xs4>
-
-                        <v-carousel v-model="model" @change="change">
-                            <v-carousel-item
-                                    v-for="(color, i) in colors"
-                                    :key="color">
-                                <v-sheet
-                                        :color="color"
-                                        height="100%"
-                                        tile>
-                                    <v-layout
-                                            align-center
-                                            fill-height
-                                            justify-center>
-                                        <div class="display-3">Slide</div>
-                                    </v-layout>
-                                </v-sheet>
-                            </v-carousel-item>
-                        </v-carousel>
-                    </v-flex>
-                    <v-flex xs4>
-                        <v-sheet
-                                :color="color_2"
-                                height="100%"
-                                tile>
-                            <v-layout
-                                    align-center
-                                    fill-height
-                                    justify-center>
-                            </v-layout>
-                        </v-sheet>
-                    </v-flex>
-                </v-layout>
-            </v-container>
-            <v-container grid-list-md class="mt-10">
-                <v-layout wrap>
-                    <v-flex xs3>
-                        <v-card>
-                            <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                            <v-card-title>상품</v-card-title>
-                            <v-card-text>10000원</v-card-text>
-                        </v-card>
-                    </v-flex>
-                    <v-flex xs3>
-                        <v-card>
-                            <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                            <v-card-title>상품</v-card-title>
-                            <v-card-text>10000원</v-card-text>
-                        </v-card>
-                    </v-flex>
-                    <v-flex xs3>
-                        <v-card>
-                            <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                            <v-card-title>상품</v-card-title>
-                            <v-card-text>10000원</v-card-text>
-                        </v-card>
-                    </v-flex>
-                    <v-flex xs3>
-                        <v-card>
-                            <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                            <v-card-title>상품</v-card-title>
-                            <v-card-text>10000원</v-card-text>
-                        </v-card>
-                    </v-flex>
-                    <v-flex xs3>
-                        <v-card>
-                            <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                            <v-card-title>상품</v-card-title>
-                            <v-card-text>10000원</v-card-text>
-                        </v-card>
-                    </v-flex>
-                    <v-flex xs3>
-                        <v-card>
-                            <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                            <v-card-title>상품</v-card-title>
-                            <v-card-text>10000원</v-card-text>
-                        </v-card>
-                    </v-flex>
-                    <v-flex xs3>
-                        <v-card>
-                            <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                            <v-card-title>상품</v-card-title>
-                            <v-card-text>10000원</v-card-text>
-                        </v-card>
-                    </v-flex>
-                    <v-flex xs3>
-                        <v-card>
-                            <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                            <v-card-title>상품</v-card-title>
-                            <v-card-text>10000원</v-card-text>
-                        </v-card>
-                    </v-flex>
-                    <v-flex xs3>
-                        <v-card>
-                            <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                            <v-card-title>상품</v-card-title>
-                            <v-card-text>10000원</v-card-text>
-                        </v-card>
-                    </v-flex>
-                    <v-flex xs3>
-                        <v-card>
-                            <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                            <v-card-title>상품</v-card-title>
-                            <v-card-text>10000원</v-card-text>
-                        </v-card>
-                    </v-flex>
-                    <v-flex xs3>
-                        <v-card>
-                            <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                            <v-card-title>상품</v-card-title>
-                            <v-card-text>10000원</v-card-text>
-                        </v-card>
-                    </v-flex>
-
-                </v-layout>
-            </v-container>
-        </v-content>
-
-        <v-footer app>
-            <!-- -->
-        </v-footer>
-    </v-app>
+            </v-layout>
+        </v-container>
+    </v-content>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-<script>
-    new Vue({
-        el: '#app',
-        vuetify: new Vuetify(),
-        data() {
-            return {
-                colors: [
-                    'primary',
-                    'secondary',
-                    'yellow darken-2',
-                    'red',
-                    'orange',
-                ],
-                model: 1
-            }
-        },
-        computed: {
-            color_1 () {
-                if( this.model == 0 ) {
-                    return this.colors[this.colors.length-1]
-                }
-                return this.colors[this.model-1]
-            },
-            color_2(){
-                if (this.model == this.colors.length-1){
-                    return this.colors[0]
-                }
-                return this.colors[this.model+1]
-            }
-        },
-        watch: {
-            color_1: function (val) {
-                console.log(val);
-            }
-        },
-        methods: {
-            change(n) {
+{% endblock content%}
 
-            }
-        }
-    })
-
-
-</script>
-</body>
-</html>
+{% block extrascript %}
+{% static "script/home.js" %}
+{% endblock %}

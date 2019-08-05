@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href='{% static "css/base.css" %}'/>
+    <link rel="stylesheet" type="text/css" href='{% static "css/vuetify.css" %}'/>
+    <link rel="stylesheet" type="text/css" href='{% block extrastyle %}{% endblock %}'/>
+    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+    <script src='{% static "script/vue.js" %}'></script>
+    <script src='{% static "script/vuetify.js" %}'></script>
+    <script src='{% block extrascript %}{% endblock %}'></script>
+
+</head>
+<body>
+<div id="wrapper">
+    <div class="slide_01" style="left:-485px; display:block;"></div>
+    <v-layout class="boxOuter">
+        <v-layout align-end>
+            <v-flex text-xs-right text-sm-left class="search">
+                <div>Sample3</div>
+            </v-flex>
+        </v-layout>
+    </v-layout>
+    <div id="wrap">
+        <div class="logo_top01" id="header">
+            <v-app class="logo_top01-1">
+                <h1 class="logo_text">awesome shop</h1>
+
+                <div class="tabs bottom ">
+                    <v-tabs background-color="#1ecfff" centered>
+                        <v-tab>아우터</v-tab>
+                        <v-tab>상의</v-tab>
+                        <v-tab>블라우스</v-tab>
+                        <v-tab>드레스</v-tab>
+                        <v-tab>바지</v-tab>
+                        <v-tab>치마</v-tab>
+                        <v-tab>가방&신발</v-tab>
+                    </v-tabs>
+                </div>
+            </v-app>
+        </div>
+
+
+        {% block content%}{% endblock %}
+        {% block footer %}{% endblock %}
+    </div>
+</div>
+
+<script src='{% static "script/base.js" %}'>
+</script>
+</body>
+</html>

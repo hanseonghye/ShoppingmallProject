@@ -7,6 +7,7 @@ from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 import oauth2_provider.views as oauth2_views
 
+from backend import oauth
 from backend.views import test
 
 schema_view = get_schema_view(
@@ -27,8 +28,7 @@ urlpatterns = [
     url(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('docs/', schema_view.with_ui('redoc'), name='docs'),
     path('swagger/', schema_view.with_ui('swagger'), name='swagger'),
-    path('oauth2/', include('user.auth'), name='oauth2_provider'),
-    # path('oauth2/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+    path('oauth2/', include('backend.oauth'), name='oauth2_provider'),
 
     path('admin/', admin.site.urls, name='admin'),
     path('accounts/', include('django.contrib.auth.urls')),

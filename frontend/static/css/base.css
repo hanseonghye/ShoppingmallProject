@@ -1,0 +1,87 @@
+@CHARSET "UTF-8";
+
+/* reset */
+*				{ margin:0; padding:0 }
+
+body{
+    display : block;
+    background: #FFDBE5;
+}
+
+div#wrapper{
+    background: #FFDBE5;
+}
+
+div#wrapper .slide_01{
+padding-top:5%;
+max-padding-top : 10px;
+}
+
+div#wrapper div#wrap{
+    width:80%;
+    margin: 0 auto;
+}
+
+div#wrapper div#wrap div.logo_top01{
+    width: 1150px;
+    height: 200px;
+    margin: 0 auto 40px;
+    text-align : center;
+    padding-top:30x;
+    z-index=9;
+    position: relative;
+}
+div#wrapper div#wrap div.logo_top01 div.logo_top01-1{
+    background: #FFDBE5;
+}
+
+div#wrapper div#wrap div.logo_top01 div.logo_top01-1 h1.logo_text{
+    width: auto;
+    height: 120px;
+    text-align: center;
+    margin: 0 auto;
+    font-family: 'Anton',sans-serif;
+    font-weight: 400;
+    font-size: 50px;
+    margin-top: 0px;
+    z-index: 9;
+    padding: 40px 0px 0;
+    width: auto;
+    display: block;
+    text-align: center;
+    line-height: 35px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #fba6b2;
+    text-shadow: -1px -1px 0px #fff, 2px 2px 0px #fff, 0px 7px 0 #faceda;
+}
+
+div#wrapper div#wrap div.logo_top01 div.logo_top01-1 .tabs{
+
+    margin: 2%  auto;
+    width:80%;
+    position:relative;
+    height :52px;
+    background-color:#FFEDA5;
+}
+
+div#wrapper div#wrap div.logo_top01 div.logo_top01-1 .v-tabs{
+  /*  background:#1ecfff;*/
+}
+
+div#wrapper div#wrap div.logo_top01 div.logo_top01-1 .v-tabs .v-tab{
+    color: white;
+    font-weight: bold;
+}
+
+div#content{
+    background-color: #FFDBE5;
+    margin: 2%  auto;
+    width: 80%;
+}
+
+
+.search{
+display:block;
+padding:10px;
+}
