@@ -1,23 +1,23 @@
-div#content div.user-box{
-    min-width:1000px;
-    max-width:1000px;
-    margin:0 auto;
-    width:100%
-    background:white;
-    background-color:white;
-    border : 5px solid #FBA6B2;
+div#content div.user-box {
+    min-width: 1000px;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    background: white;
+    background-color: white;
+    border: 5px solid #FBA6B2;
 }
 
-div#content div.user-box div.titleArea{
+div#content div.user-box div.titleArea {
 
 }
 
-div#content div.user-box div.titleArea h2{
+div#content div.user-box div.titleArea h2 {
     display: inline-block;
     margin: 0px;
     color: #000;
     *zoom: 1;
-    font-family: 'Noto Sans KR',sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     font-weight: 600;
     font-size: 15px;
     border: 3px solid #000;
@@ -27,12 +27,17 @@ div#content div.user-box div.titleArea h2{
 
 div.user-box div.join-box {
     position: relative;
-    height:auto;
-    min-height:30px;
+    height: auto;
+    min-height: 30px;
     margin: 0px auto 0px;
-    padding : 50px 2% 50px;
+    padding: 50px 2% 50px;
 }
-div.user-box div.join table{
+
+div.user-box div.join-table {
+    margin-top: 10px;
+}
+
+div.user-box div.join-table table {
     margin: 30px 0 0;
     border: 1px solid #444;
     border-top-color: #444;
@@ -42,27 +47,40 @@ div.user-box div.join table{
     border: 0;
     border-spacing: 0;
     border-collapse: collapse;
-}
-
-div.user-box div.join table{
     display: table-row-group;
     vertical-align: middle;
     border-color: inherit;
 }
 
-div.user-box div.join table tr{
+div.user-box div.join-table table tr {
     display: table-row;
     vertical-align: inherit;
     border-color: inherit;
 }
 
-div.user-box div.join table tr th{
-    padding: 11px 0 10px 18px;
+div.user-box div.join-table table tr th {
+    padding: 10px 20px;
     border: 1px solid #444;
     border-bottom-width: 0;
     color: #000;
     text-align: left;
     font-weight: normal;
     vertical-align: top;
-    display:table-cell;
+    display: table-cell;
+    font-size: 0.75em;
+
+}
+
+div.user-box div.join-table table tr th img {
+    border: none;
+    vertical-align: top;
+    vertical-align: middle;
+}
+
+div.user-box div.join-table table tr td {
+    padding: 11px 30px 10px;
+    border-top: 1px solid #444;
+    color: #000;
+    vertical-align: middle;
+    font-size: 0.75em;
 }

@@ -40,13 +40,13 @@ class LoginView(View):
 
 class JoinView(View):
     def get(self, request):
-        response = requests.get(root_url + api_url + "categorys/")
-        if response.status_code is not 200:
-            return render(request, 'home.html', data=dict())
+        # response = requests.get(root_url + api_url + "categorys/")
+        # if response.status_code is not 200:
+        #     return render(request, 'home.html', data=dict())
 
         data = {
             "shop_name": "AWESOME SHOP",
-            "categorys": response.json()["data"]
+            "categorys": []
         }
         return render(request, 'user/join.html', data)
 
