@@ -2,95 +2,46 @@
 {% block title %}home.html{% endblock %}
 
 {% load staticfiles %}
-<!--{% static "css/home.css" %}-->
+{% block extrastyle %}
+{% static "css/home.css" %}
+{% endblock %}
 {% block content %}
 <div id="content">
-    <v-content>
+    <div id="color_main">
+        <div id="color_main1">
+            <h2>PRODUCT LIST</h2>
+            <div class="gallery">
+                <ul class="productList column4">
+                    {% load custom_tags %}
+                    {% for product in products %}
+                        <li class="item">
+                            <div class="box">
+                                <div class="line">
+                                    <div class="gallery-item">
+                                        <div class="gallery-item-image">
+                                            <a href="{% url 'product:detail' product.id %}">
+                                                <img src="{{ product.image_url }}">
+                                            </a>
+                                        </div>
+                                        <div class="gallery-item-description">
+                                            <p class="name">
+                                                {{ product.name }}
+                                            </p>
+                                            <p class="price">
+                                                {{ product.price }} 원
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
 
-        <!-- Provides the application the proper gutter -->
-        <v-container grid-list-md class="mt-10">
-            <v-layout wrap>
-                <v-flex xs3>
-                    <v-card>
-                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                        <v-card-title>상품</v-card-title>
-                        <v-card-text>10000원</v-card-text>
-                    </v-card>
-                </v-flex>
-                <v-flex xs3>
-                    <v-card>
-                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                        <v-card-title>상품</v-card-title>
-                        <v-card-text>10000원</v-card-text>
-                    </v-card>
-                </v-flex>
-                <v-flex xs3>
-                    <v-card>
-                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                        <v-card-title>상품</v-card-title>
-                        <v-card-text>10000원</v-card-text>
-                    </v-card>
-                </v-flex>
-                <v-flex xs3>
-                    <v-card>
-                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                        <v-card-title>상품</v-card-title>
-                        <v-card-text>10000원</v-card-text>
-                    </v-card>
-                </v-flex>
-                <v-flex xs3>
-                    <v-card>
-                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                        <v-card-title>상품</v-card-title>
-                        <v-card-text>10000원</v-card-text>
-                    </v-card>
-                </v-flex>
-                <v-flex xs3>
-                    <v-card>
-                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                        <v-card-title>상품</v-card-title>
-                        <v-card-text>10000원</v-card-text>
-                    </v-card>
-                </v-flex>
-                <v-flex xs3>
-                    <v-card>
-                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                        <v-card-title>상품</v-card-title>
-                        <v-card-text>10000원</v-card-text>
-                    </v-card>
-                </v-flex>
-                <v-flex xs3>
-                    <v-card>
-                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                        <v-card-title>상품</v-card-title>
-                        <v-card-text>10000원</v-card-text>
-                    </v-card>
-                </v-flex>
-                <v-flex xs3>
-                    <v-card>
-                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                        <v-card-title>상품</v-card-title>
-                        <v-card-text>10000원</v-card-text>
-                    </v-card>
-                </v-flex>
-                <v-flex xs3>
-                    <v-card>
-                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                        <v-card-title>상품</v-card-title>
-                        <v-card-text>10000원</v-card-text>
-                    </v-card>
-                </v-flex>
-                <v-flex xs3>
-                    <v-card>
-                        <v-img src="http://mblogthumb2.phinf.naver.net/20160813_161/h8275818_1471094359995y2Yww_JPEG/1471093945126.jpg?type=w800"></v-img>
-                        <v-card-title>상품</v-card-title>
-                        <v-card-text>10000원</v-card-text>
-                    </v-card>
-                </v-flex>
+            </div>
 
-            </v-layout>
-        </v-container>
-    </v-content>
+        </div>
+    </div>
 </div>
 
 {% endblock content%}

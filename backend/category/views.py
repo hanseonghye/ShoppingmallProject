@@ -1,4 +1,6 @@
 from django.db.models import Q
+from oauth2_provider.views import ProtectedResourceView
+
 from product.models import Product
 from product.serializers import ProductSerializer
 from .models import Category

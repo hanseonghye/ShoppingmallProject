@@ -1,5 +1,7 @@
 div#content div.user-box{
     min-width:1000px;
+    max-width:1000px;
+    margin:0 auto;
     width:100%
     background:white;
     background-color:white;
@@ -13,11 +15,11 @@ div#content div.user-box div.titleArea{
     margin: 0px auto 0px;
     padding : 50px 2% 50px;
 }
+
 div#content div.user-box div.titleArea h2{
     display: inline-block;
     margin: 0px;
     color: #000;
-
     *zoom: 1;
     font-family: 'Noto Sans KR',sans-serif;
     font-weight: 600;
@@ -38,18 +40,18 @@ div#content div.user-box div.login fieldset{
     width: 380px;
     margin: 0 auto;
     position: relative;
-    border: none;
     vertical-align: top;
     display: block;
     min-inline-size: min-content;
-/*    border-width: 2px;
-    border-style: groove;
-    border-color: threedface;
-    border-image: initial;*/
+}
+
+div#content div.user-box div.login fieldset input#member_id{
+    border: none;
 }
 
 div#content div.user-box div.login fieldset input#member_password{
     margin-top:25px;
+    border: none;
 }
 
 div#content div.user-box div.login fieldset legend{
@@ -93,21 +95,16 @@ input[type=text]{
     color: #000;
 }
 
-.login_button a{
-
+.login_button{
     background: none;
     margin: 5px 3px;
     overflow: hidden;
     display: inline-block;
     padding: 10px 20px 10px;
-    border: 1px solid #000;
+    border: 2px solid black;
     font-family: 'Noto Sans KR',sans-serif;
     font-weight: 600;
     font-size:0.75em;
     text-align: center;
     color: #000;
-    -moz-transition: ease-out 0.3s;
-    -o-transition: ease-out 0.3s;
-    -webkit-transition: ease-out 0.3s;
-    transition: ease-out 0.3s;
 }

@@ -7,7 +7,8 @@ class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Category
-        fields = ('name', 'parent')
+        fields = ('name', 'parent','order')
+        ordering = ['order',]
 
     def create(self, request):
         category = Category.objects.create(**request)

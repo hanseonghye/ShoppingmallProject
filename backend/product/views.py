@@ -7,6 +7,9 @@ from product.models import Product, Option, OptionDetail, ProductDetail
 from .serializers import *
 from myModule import myMixins as mixins
 
+class ProductLV(ListAPIView):
+    queryset = Product.objects.filter(is_display=True)
+    serializer_class = ProductSimpleSerializer
 
 class ProductCV(CreateAPIView):
     serializer_class = ProductSerializer

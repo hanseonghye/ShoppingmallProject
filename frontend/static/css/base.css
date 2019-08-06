@@ -14,7 +14,7 @@ div#wrapper{
 
 div#wrapper .slide_01{
 padding-top:2%;
-max-padding-top : 10px;
+max-padding-top : 5px;
 }
 
 div#wrapper div#wrap{
@@ -25,9 +25,8 @@ div#wrapper div#wrap{
 div#wrapper div#wrap div.logo_top01{
     width: 1150px;
     height: 200px;
-    margin: 0 auto 40px;
+    margin: 0 auto;
     text-align : center;
-    padding-top:30x;
     z-index=9;
     position: relative;
 }
@@ -35,6 +34,10 @@ div#wrapper div#wrap div.logo_top01 div.logo_top01-1{
     background: #FFDBE5;
 }
 
+div#wrapper div#wrap div.logo_top01 div.logo_top01-1 h1.logo_text a{
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+}
 div#wrapper div#wrap div.logo_top01 div.logo_top01-1 h1.logo_text{
     width: auto;
     height: 120px;
@@ -45,7 +48,7 @@ div#wrapper div#wrap div.logo_top01 div.logo_top01-1 h1.logo_text{
     font-size: 50px;
     margin-top: 0px;
     z-index: 9;
-    padding: 40px 0px 0;
+    padding: 55px 0px 0;
     width: auto;
     display: block;
     text-align: center;
@@ -57,26 +60,118 @@ div#wrapper div#wrap div.logo_top01 div.logo_top01-1 h1.logo_text{
 }
 
 div#wrapper div#wrap div.logo_top01 div.logo_top01-1 .tabs{
-
     margin: 2%  auto;
     width:80%;
     position:relative;
-    height :52px;
-    background-color:#FFEDA5;
+    height :40px;
+    background-color:#1ecfff;
+    box-shadow: 0px 5px 0 #ffeda5
 }
 
-div#wrapper div#wrap div.logo_top01 div.logo_top01-1 .v-tabs{
+div#wrapper div#wrap div.logo_top01 div.search-bar{
+    position: absolute;
+    width: 205px;
+    height:30px;
+    right: 10%;
+    max-right : 30px;
+    padding: 0 3px;
+    background: #fff;
 }
 
-div#wrapper div#wrap div.logo_top01 div.logo_top01-1 .v-tabs .v-tab{
+div#wrapper div#wrap div.logo_top01 div.member-bar{
+    position: relative;
+    width: 205px;
+    height:30px;
+    left: 72%;
+    max-right: 30px;
+    padding: 0px 3px;
+    margin-bottom : 10px;
+    background: #ffbdc8;
+
+/*        position: relative;
+    width: auto;
+    margin: 0px auto 5px;
+    height: 30px;
+    background: #ffbdc8;
+    display: inline-block;
+    padding: 20px 20px 0;*/
+}
+
+div#wrapper div#wrap div.logo_top01 div.member-bar ul{
+    float: right;
+    left: -50%;
+    position: relative;
+}
+
+div#wrapper div#wrap div.logo_top01 div.member-bar ul li{
+    float: left;
+    left: 55%;
+    position: relative;
+    margin:2px 0px;
+    list-style: none;
+    text-align:center;
+    padding-right:20px;
+}
+
+div#wrapper div#wrap div.logo_top01 div.member-bar ul li a{
+    display: block;
+    font-family: 'Bitter',Noto Sans KR;
+    font-weight: 400;
+    font-size: 13px;
+    color: #fff;
+    margin: 0 0 0 0px;
+    text-decoration: none;
+    height: auto;
+}
+
+div#wrapper div#wrap div.logo_top01 div.search-bar fieldset {
+    position: absolute;
+    border : none;
+    vertical-align: top;
+    background:white;
+}
+div#wrapper div#wrap div.logo_top01 div.search-bar input#keyword{
+    background: none;
+    width: 177px;
+    height: 20px;
+    padding: 0 0 0 0px;
+    border: 0;
+    line-height: 20px;
+    font-size: 12px;
+    color: #000;
+}
+div#wrapper div#wrap div.logo_top01 div.search-bar input#keyword img{
+    cursor : pointer;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+
+div#wrapper div#wrap div.logo_top01 div.logo_top01-1 .nav{
+}
+
+div#wrapper div#wrap div.logo_top01 div.logo_top01-1 .nav .nav-item a.nav-link{
     color: white;
-    font-weight: bold;
+    float: left;
+    display: block;
+    padding: 0px 0px 0px;
+    font-family: 'Noto Sans KR',sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px 10px 0;
+    height: 26px;
+}
+div#wrapper div#wrap div.logo_top01 div.logo_top01-1 .nav .nav-item{
+    display: table;
+    margin: 0 auto;
 }
 
 div#content{
     background-color: #FFDBE5;
     margin: 2%  auto;
-    width: 80%;
+    width: 90%;
 }
 div#content .v-content{
     /*background-color: #FFDBE5;*/
@@ -88,4 +183,8 @@ div#content .v-content{
 .search{
 display:block;
 padding:10px;
+}
+
+div#content{
+    margin-top : 70px;
 }

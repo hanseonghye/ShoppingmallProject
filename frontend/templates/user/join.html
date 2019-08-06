@@ -1,0 +1,371 @@
+{% extends "base.html" %}
+{% block title %}login.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}
+{% static "css/user/join.css" %}
+{% endblock %}
+{% block content %}
+
+<div id="content">
+<h3 class="displaynone ">추가정보</h3>
+<div class="ec-base-table typeWrite displaynone">
+        <table border="1" summary="">
+<caption>회원 추가정보</caption>
+        <colgroup>
+<col style="width:150px;"/>
+<col style="width:auto;"/>
+</colgroup>
+<tbody>
+<tr class="displaynone">
+<th scope="row">별명 <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td><input id="nick_name" name="nick_name" fw-filter="" fw-label="별명" fw-msg="" class="inputTypeText" placeholder="" maxlength="20" value="" type="text"  /> <p id="nickMsg"></p>
+</td>
+            </tr>
+<tr class="displaynone">
+<th scope="row">성별 <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td><input id="is_sex0" name="is_sex" fw-filter="" fw-label="성별" fw-msg="" value="M" type="radio"  /><label for="is_sex0" >남자</label>
+<input id="is_sex1" name="is_sex" fw-filter="" fw-label="성별" fw-msg="" value="F" type="radio"  /><label for="is_sex1" >여자</label></td>
+            </tr>
+<tr class="">
+<th scope="row">생년월일 <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td><input id="birth_year" name="birth_year" fw-filter="" fw-label="생년월일" fw-msg="" class="inputTypeText" placeholder="" maxlength="4" value="" type="text"  /> 년 <input id="birth_month" name="birth_month" fw-filter="" fw-label="생년월일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"  /> 월 <input id="birth_day" name="birth_day" fw-filter="" fw-label="생년월일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"  /> 일 <span class="gIndent20 "><input id="is_solar_calendar0" name="is_solar_calendar" fw-filter="" fw-label="생년월일" fw-msg="" value="T" type="radio" checked="checked"  /><label for="is_solar_calendar0" >양력</label>
+<input id="is_solar_calendar1" name="is_solar_calendar" fw-filter="" fw-label="생년월일" fw-msg="" value="F" type="radio"  /><label for="is_solar_calendar1" >음력</label></span>
+</td>
+            </tr>
+<tr class="">
+<th scope="row">결혼기념일 <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td><input id="marry_year" name="marry_year" fw-filter="" fw-label="결혼 기념일" fw-msg="" class="inputTypeText" placeholder="" maxlength="4" value="" type="text"  /> 년 <input id="marry_month" name="marry_month" fw-filter="" fw-label="결혼 기념일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"  /> 월 <input id="marry_day" name="marry_day" fw-filter="" fw-label="결혼 기념일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"  /> 일</td>
+            </tr>
+<tr class="">
+<th scope="row">배우자생일 <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td><input id="partner_year" name="partner_year" fw-filter="" fw-label="배우자 생일" fw-msg="" class="inputTypeText" placeholder="" maxlength="4" value="" type="text"  /> 년 <input id="partner_month" name="partner_month" fw-filter="" fw-label="배우자 생일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"  /> 월 <input id="partner_day" name="partner_day" fw-filter="" fw-label="배우자 생일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value="" type="text"  /> 일</td>
+            </tr>
+<tr class="displaynone">
+<th scope="row">자녀 <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td><select id="child" name="child" fw-filter="isFill" fw-label="child" fw-msg="" >
+<option value="child_00">선택</option>
+<option value="child_01">없음</option>
+<option value="child_02">1</option>
+<option value="child_03">2</option>
+<option value="child_04">3</option>
+<option value="child_05">4</option>
+<option value="child_06">5</option>
+<option value="child_07">6</option>
+<option value="child_08">7</option>
+<option value="child_09">8</option>
+<option value="child_10">9</option>
+<option value="child_11">10 이상</option>
+</select></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row">최종학력 <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td><select id="school" name="school" fw-filter="isFill" fw-label="school" fw-msg="" >
+<option value="school_00">선택</option>
+<option value="school_01">초등학교재학</option>
+<option value="school_02">초등학교졸업</option>
+<option value="school_03">중학교재학</option>
+<option value="school_04">중학교졸업</option>
+<option value="school_05">고등학교재학</option>
+<option value="school_06">고등학교졸업</option>
+<option value="school_07">대학교재학</option>
+<option value="school_08">대학교졸업</option>
+<option value="school_09">대학원재학</option>
+<option value="school_10">대학원졸업이상</option>
+</select></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row">직종 <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td><select id="job_class" name="job_class" fw-filter="isFill" fw-label="직종" fw-msg="" >
+<option value="job_class_04">선택</option>
+<option value="job_class_05">서비스</option>
+<option value="job_class_06">교육</option>
+<option value="job_class_07">부동산/운송</option>
+<option value="job_class_08">농/임/수/광업</option>
+<option value="job_class_09">금융</option>
+<option value="job_class_10">유통</option>
+<option value="job_class_11">예술</option>
+<option value="job_class_12">의료</option>
+<option value="job_class_13">법률</option>
+<option value="job_class_14">제조/무역</option>
+<option value="job_class_15">건설업</option>
+</select></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row">직업 <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td><select id="job" name="job" fw-filter="isFill" fw-label="직업" fw-msg="" >
+<option value="job_00">선택</option>
+<option value="job_01">학생</option>
+<option value="job_02">회사원</option>
+<option value="job_03">자영업</option>
+<option value="job_04">무직</option>
+<option value="job_05">기타</option>
+</select></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row">연소득 <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td><select id="earning" name="earning" fw-filter="isFill" fw-label="earning" fw-msg="" >
+<option value="earning_00">선택</option>
+<option value="earning_01">없음</option>
+<option value="earning_02">1000만원 이하</option>
+<option value="earning_03">1200만원 이하</option>
+<option value="earning_04">1500만원 이하</option>
+<option value="earning_05">1800만원 이하</option>
+<option value="earning_06">2000만원 이하</option>
+<option value="earning_07">2500만원 이하</option>
+<option value="earning_08">3000만원 이하</option>
+<option value="earning_09">4000만원 이하</option>
+<option value="earning_10">5000만원 이하</option>
+<option value="earning_11">5000만원 이상</option>
+<option value="earning_12">기타</option>
+</select></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row">자동차 <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td><select id="car" name="car" fw-filter="isFill" fw-label="car" fw-msg="" >
+<option value="car_00">선택</option>
+<option value="car_01">없음</option>
+<option value="car_02">1000cc 이하</option>
+<option value="car_03">1000cc ~ 1500cc</option>
+<option value="car_04">1500cc ~ 2000cc</option>
+<option value="car_05">2000cc ~ 3000cc</option>
+<option value="car_06">3000cc ~ 4000cc</option>
+<option value="car_07">4000cc 이상</option>
+</select></td>
+            </tr>
+<tr class="">
+<th scope="row">지역 <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td><select id="region" name="region" fw-filter="isFill" fw-label="region" fw-msg="" >
+<option value="region_00">선택</option>
+<option value="region_01">경기</option>
+<option value="region_02">서울</option>
+<option value="region_03">인천</option>
+<option value="region_04">강원</option>
+<option value="region_05">충남</option>
+<option value="region_06">충북</option>
+<option value="region_07">대전</option>
+<option value="region_08">경북</option>
+<option value="region_09">경남</option>
+<option value="region_10">대구</option>
+<option value="region_11">부산</option>
+<option value="region_12">울산</option>
+<option value="region_13">전북</option>
+<option value="region_14">전남</option>
+<option value="region_15">광주</option>
+<option value="region_16">제주</option>
+<option value="region_17">해외</option>
+</select></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row">인터넷 이용장소 <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td><select id="internet" name="internet" fw-filter="isFill" fw-label="internet" fw-msg="" >
+<option value="internet_00">선택</option>
+<option value="internet_01">집</option>
+<option value="internet_02">회사</option>
+<option value="internet_03">PC방</option>
+<option value="internet_04">기타</option>
+</select></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row">관심분야 <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td>
+                    <div class="interest"><input id="inter_check0" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="0" type="checkbox"  /><label for="inter_check0" >애니메이션</label>
+<input id="inter_check1" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="1" type="checkbox"  /><label for="inter_check1" >영화/연극</label>
+<input id="inter_check2" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="2" type="checkbox"  /><label for="inter_check2" >놀이공원</label>
+<input id="inter_check3" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="3" type="checkbox"  /><label for="inter_check3" >경품정보</label>
+<input id="inter_check4" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="4" type="checkbox"  /><label for="inter_check4" >미술전시회</label>
+<input id="inter_check5" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="5" type="checkbox"  /><label for="inter_check5" >클래식 콘서트</label>
+<input id="inter_check6" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="6" type="checkbox"  /><label for="inter_check6" >패션/미용</label>
+<input id="inter_check7" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="7" type="checkbox"  /><label for="inter_check7" >정치</label>
+<input id="inter_check8" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="8" type="checkbox"  /><label for="inter_check8" >IT/정보통신</label>
+<input id="inter_check9" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="9" type="checkbox"  /><label for="inter_check9" >스포츠</label>
+<input id="inter_check10" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="10" type="checkbox"  /><label for="inter_check10" >요리/음식</label>
+<input id="inter_check11" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="11" type="checkbox"  /><label for="inter_check11" >연예인</label>
+<input id="inter_check12" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="12" type="checkbox"  /><label for="inter_check12" >여성/주부</label>
+<input id="inter_check13" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="13" type="checkbox"  /><label for="inter_check13" >육아</label>
+<input id="inter_check14" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="14" type="checkbox"  /><label for="inter_check14" >비즈니스/금융/부동산</label>
+<input id="inter_check15" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="15" type="checkbox"  /><label for="inter_check15" >주식/증권</label>
+<input id="inter_check16" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="16" type="checkbox"  /><label for="inter_check16" >스포츠/레져/취미</label>
+<input id="inter_check17" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="17" type="checkbox"  /><label for="inter_check17" >경매/공동구매</label>
+<input id="inter_check18" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="18" type="checkbox"  /><label for="inter_check18" >뉴스/정보</label>
+<input id="inter_check19" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="19" type="checkbox"  /><label for="inter_check19" >컴퓨터/게임</label>
+<input id="inter_check20" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="20" type="checkbox"  /><label for="inter_check20" >대학교/대학원정보</label>
+<input id="inter_check21" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="21" type="checkbox"  /><label for="inter_check21" >건강/의료</label>
+<input id="inter_check22" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="22" type="checkbox"  /><label for="inter_check22" >자동차/여행</label>
+<input id="inter_check23" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="23" type="checkbox"  /><label for="inter_check23" >쇼핑/전자상거래</label>
+<input id="inter_check24" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="24" type="checkbox"  /><label for="inter_check24" >구인/구직</label>
+<input id="inter_check25" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="25" type="checkbox"  /><label for="inter_check25" >어학강좌</label>
+<input id="inter_check26" name="inter_check[]" fw-filter="" fw-label="inter_check" fw-msg="" value="26" type="checkbox"  /><label for="inter_check26" >기타등등</label></div>
+                </td>
+            </tr>
+<tr class="displaynone">
+<th scope="row"> <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row"> <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row"> <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row"> <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row"> <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row"> <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row"> <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row"> <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row"> <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row"> <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row"> <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row"> <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row"> <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row"> <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row"> <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row">추천인 아이디 <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td><input id="reco_id" name="reco_id" fw-filter="" fw-label="추천인 ID" fw-msg="" class="inputTypeText" placeholder="" value="" type="text"  /></td>
+            </tr>
+<tr class="displaynone">
+<th scope="row">환불계좌 정보 <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class="displaynone" alt="필수"/></th>
+                <td>
+                    <dl class="ec-base-desc typeBullet">
+<dt>예금주</dt>
+                        <dd><input id="bank_account_owner" name="bank_account_owner" fw-filter="" fw-label="예금주" fw-msg="" class="inputTypeText" placeholder="" autocomplete="off" value="" type="text"  /></dd>
+                        <dt>은행명</dt>
+                        <dd><select id="refund_bank_code" name="refund_bank_code" fw-filter="" fw-label="은행명" fw-msg="" >
+<option value="" selected="selected">- 은행선택 -</option>
+<option value="bank_02">산업은행</option>
+<option value="bank_03">기업은행</option>
+<option value="bank_04">국민은행</option>
+<option value="bank_05">외환은행</option>
+<option value="bank_07">수협중앙회</option>
+<option value="bank_11">농협중앙회</option>
+<option value="bank_12">농협개인</option>
+<option value="bank_13">농협</option>
+<option value="bank_20">우리은행</option>
+<option value="bank_209">유안타증권</option>
+<option value="bank_218">KB증권</option>
+<option value="bank_23">SC제일은행</option>
+<option value="bank_230">미래에셋증권</option>
+<option value="bank_238">대우증권</option>
+<option value="bank_240">삼성증권</option>
+<option value="bank_243">한국투자증권</option>
+<option value="bank_26">신한은행</option>
+<option value="bank_261">교보증권</option>
+<option value="bank_262">하이투자증권</option>
+<option value="bank_263">현대차증권</option>
+<option value="bank_266">SK증권</option>
+<option value="bank_267">대신증권</option>
+<option value="bank_269">한화증권</option>
+<option value="bank_270">하나대투증권</option>
+<option value="bank_278">신한금융투자</option>
+<option value="bank_279">동부증권</option>
+<option value="bank_280">유진투자증권</option>
+<option value="bank_287">메리츠증권</option>
+<option value="bank_289">NH투자증권</option>
+<option value="bank_291">신영증권</option>
+<option value="bank_292">케이뱅크</option>
+<option value="bank_293">카카오뱅크</option>
+<option value="bank_295">OK저축은행</option>
+<option value="bank_31">대구은행</option>
+<option value="bank_32">부산은행</option>
+<option value="bank_34">광주은행</option>
+<option value="bank_35">제주은행</option>
+<option value="bank_37">전북은행</option>
+<option value="bank_39">경남은행</option>
+<option value="bank_52">모건스탠리은행</option>
+<option value="bank_53">씨티은행</option>
+<option value="bank_57">유에프제이은행</option>
+<option value="bank_58">미즈호코퍼레이트은행</option>
+<option value="bank_59">미쓰비시도쿄은행</option>
+<option value="bank_60">뱅크오브아메리카</option>
+<option value="bank_71">우체국</option>
+<option value="bank_76">신용보증기금</option>
+<option value="bank_77">기술신용보증기금</option>
+<option value="bank_81">KEB하나은행</option>
+<option value="bank_82">농협회원조합</option>
+<option value="bank_83">도이치은행</option>
+<option value="bank_84">상호저축은행</option>
+<option value="bank_85">새마을금고</option>
+<option value="bank_86">수출입은행</option>
+<option value="bank_87">신용협동조합</option>
+<option value="bank_89">홍콩상하이은행(HSBC)</option>
+<option value="bank_90">에이비엔암로은행</option>
+<option value="bank_91">산림조합</option>
+<option value="bank_93">한국주택금융공사</option>
+<option value="bank_94">서울보증보험</option>
+<option value="bank_95">경찰청</option>
+<option value="bank_99">금융결제원</option>
+</select></dd>
+                        <dt>계좌번호</dt>
+                        <dd><input id="bank_account_no" name="bank_account_no" fw-filter="" fw-label="계좌번호" fw-msg="" class="inputTypeText" placeholder="" autocomplete="off" value="" type="text"  /> ('-'와 숫자만 입력해주세요.)</dd>
+                    </dl>
+</td>
+            </tr>
+</tbody>
+    <div class="user-box">
+        <div class="join-box">
+            <div class="titleArea">
+                <h2>JOIN</h2>
+            </div>
+            <form action="." method="post">{% csrf_token %}
+                <div class="join">
+                    <table border="1" summary>
+                        <tr>
+                            <th scopr="now">
+                                아이디
+                            </th>
+                            <td>
+                                <input id="member_id" name="member_id">
+                                <span id="idMsg"></span>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content %}
+
+{% block extrascript %}
+{% endblock %}

@@ -86,3 +86,17 @@ class ProductSerializer(serializers.ModelSerializer):
         product = Product.objects.create(**request)
         product.save()
         return product
+
+
+class ProductSimpleSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Product
+        fields = (
+            'id','name', 'price','file_url', 'image_url')
+
+        extra_kwargs = {
+            'is_option': {'write_only': True},
+            'is_display': {'write_only': True},
+        }
+

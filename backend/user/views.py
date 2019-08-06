@@ -1,11 +1,9 @@
-from django.db.models import Q
 from rest_framework import generics, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from myModule.myGenerics import *
 from .serializers import UserSerializer, AddressSerializer
 from .models import CustomUser as User, Address
-from myModule import myMixins as mixins
 
 
 class UserLV(ListAPIView):
@@ -48,6 +46,11 @@ class UserAddressNameLV(ListCreateAPIView):
 
     def get_queryset(self):
         return self.queryset.filter(user__user_id=self.kwargs['user_id'])
+#
+# class Login(LoginView):
+#     def get_response(self):
+#         orginam_response = super().get_response()
+#         return orginam_response
 
 
 def id_validator(user_id):
@@ -68,3 +71,11 @@ def check_id(request, user_id=''):
 def check_email(request, email=''):
     result = User.objects.filter(email=email).exists()
     return Response({"result": "success", "message": None, "data": result})
+
+#
+# @api_view(['POST'])
+# def login(request):
+#     user =User.objects.filter(user_id=request.POST['user_id'], password=request.POST['password'])
+#     if not user:
+#         return Response({"result":"fail", "message":"아이디또는 패스워드를 다시 확인해 주세요.", "data":None})
+#     return Response({"result":"success", "message":None, "data":user})

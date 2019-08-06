@@ -1,0 +1,77 @@
+div#content div.user-box{
+    min-width:1200px;
+    max-width:1200px;
+    margin:0 auto;
+    width:100%
+    background:white;
+    background-color:white;
+    border : 5px solid #FBA6B2;
+}
+
+
+div.user-box div.product-detail{
+    position: relative;
+    margin: 0px auto 0px;
+    padding: 80px 0px 50px;
+    width: 100%;
+}
+
+
+div.user-box div.product-detail div.detailArea{
+    padding: 0 0 0 540px;
+    width:100%;
+    margin : 0px auto 0px;
+}
+
+
+
+div.user-box div.product-detail div.detailArea{
+
+}
+div.user-box div.product-detail div.detailArea div.product-image{
+    float: left;
+    width: 450px;
+    margin: 0 0 0 -450px;
+}
+
+div.user-box div.product-detail div.detailArea div.product-image img.BigImage{
+    max-width: 400px;
+    cursor: pointer;
+    box-shadow: 6px 6px 0px #000;
+    -moz-box-shadow: 6px 6px 0px #000;
+    -webkit-box-shadow: 6px 6px 0px #000;
+    border: none;
+    vertical-align: top;
+    left:10px;
+    margin:0;
+    padding:0;
+    background:#E4E4E4;
+}
+
+div.detailArea table {
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-left:100px;
+}
+div.detailArea table tr td{
+    display : table-cell;
+}
+div.detailArea table tr td.name {
+    padding: 2px 6px 10px 9px;
+    vertical-align: middle;
+    font-family: 'Noto Sans KR',sans-serif;
+    font-weight: 700;
+}
+
+
+div.product-detail div#productDetail{
+}
+
+div.product-detail div#productDetail p.file_url img{
+    margin-top:100px;
+    width: 850px;
+    height:2200px;
+}

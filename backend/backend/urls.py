@@ -29,6 +29,7 @@ urlpatterns = [
     path('docs/', schema_view.with_ui('redoc'), name='docs'),
     path('swagger/', schema_view.with_ui('swagger'), name='swagger'),
     path('oauth2/', include('backend.oauth'), name='oauth2_provider'),
+    # path('api/v1/rest-auth/', include('rest_auth.urls')),
 
     path('admin/', admin.site.urls, name='admin'),
     path('accounts/', include('django.contrib.auth.urls')),

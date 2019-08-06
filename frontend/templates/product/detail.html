@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}productDetail.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}
+{% static "css/product/detail.css" %}
+{% endblock %}
+{% block content %}
+
+<div id="content">
+
+    <div class="user-box">
+        <div class="product-detail">
+            <div class="detailArea">
+                <div class="product-image imgArea">
+                    <img src="{{ product.image_url }}" class="BigImage">
+                </div>
+
+                <div class="infoArea">
+                    <table border="1" summary>
+                        <tbody>
+                            <tr class="record">
+                                <td class="name" colspan="2">
+                                    <span style="font-size:16px; color:#555555;">{{ product.name }}</span></td>
+                            </tr>
+
+                            <tr class="record">
+                                <th scopr="row">
+                                    <span style="color:#008BCC; font-weight:bold;">가격</span>
+                                </th>
+                                <td>
+                                    <span style="color:#008BCC; font-weight:bold;">
+                                        {{ product.price }}
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="productDetail">
+                <p class="file_url" align="center">
+                    <img vsapce="0" hspace="5" src="{{ product.file_url }}">
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extrascript %}
+{% endblock %}
