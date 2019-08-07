@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href='{% block extrastyle %}{% endblock %}'/>
     <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Patua+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bitter&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -30,12 +32,11 @@
                 <ul>
                     <li><a href="{% url 'user:login' %}" >login</a></li>
                     <li><a href="{% url 'user:join' %}" >join</a></li>
-                    <li><a href="" >cart</a></li>
+                    <li><a href="{% url 'user:cart'  %}" >cart</a></li>
                     <li><a href="" >order</a></li>
 
                 </ul>
             </div>
-
 
             <div class="search-bar">
                 <fieldset>
@@ -48,10 +49,10 @@
                 <h1 class="logo_text"><a href="{% url 'home' %}">{{ shop_name }}</a></h1>
                 <div class="nav tabs">
                     {% load custom_tags %}
-                    {% for category in categorys|sort_by:'order' %}
+                    {% for category in categorys|sort_by:'priority' %}
                         {% if category.parent == None %}
                             <div class="nav-item">
-                                <a class="nav-link" href="#">{{ category.name }}</a>
+                                <a class="nav-link" href="{% url 'category' category.pk %}">{{ category.name }}</a>
                             </div>
                         {% endif %}
                     {% endfor %}

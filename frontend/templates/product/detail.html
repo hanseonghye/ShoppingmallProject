@@ -19,23 +19,53 @@
                 <div class="infoArea">
                     <table border="1" summary>
                         <tbody>
-                            <tr class="record">
-                                <td class="name" colspan="2">
-                                    <span style="font-size:16px; color:#555555;">{{ product.name }}</span></td>
-                            </tr>
+                        <tr class="record">
+                            <td class="name" colspan="2">
+                                <p class="name">{{ product.name }}</p>
+                            </td>
+                        </tr>
 
+                        <tr class="record">
+                            <th scope="row">
+                                <p>가격</p>
+                            </th>
+                            <td>
+                                <p>{{ product.price }} </p>
+                            </td>
+                        </tr>
+
+                        {% if product.is_option %}
+
+                            {% for option in product.product_options %}
+                                <tr class="record">
+                                    <th scope="row">
+                                        <p>{{ option.name }}</p>
+                                    </th>
+                                    <td>
+                                        <select name="{{ option.pk }}">
+                                            {% for option_detail in option.option_details %}
+                                                <option value="{{ option_detail.pk }}">{{ option_detail.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                </tr>
+                            {% endfor %}
                             <tr class="record">
-                                <th scopr="row">
-                                    <span style="color:#008BCC; font-weight:bold;">가격</span>
+                                <th scope="row">
+                                    <p></p>
                                 </th>
-                                <td>
-                                    <span style="color:#008BCC; font-weight:bold;">
-                                        {{ product.price }}
-                                    </span>
-                                </td>
                             </tr>
+                        {% endif %}
+
                         </tbody>
                     </table>
+
+                    <div class="product-order-list">
+                        <input type="button" id="btn-buy" value="구매하기"/>
+                        <input type="button" id="btn-cart" value="장바구니 추가"/>
+                    </div>
+
+
                 </div>
             </div>
 
@@ -50,4 +80,5 @@
 {% endblock content %}
 
 {% block extrascript %}
+{% static "script/user/cart.js" %}
 {% endblock %}

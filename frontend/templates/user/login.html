@@ -3,35 +3,40 @@
 
 {% load staticfiles %}
 {% block extrastyle %}
-    {% static "css/user/login.css" %}
+{% static "css/user/login.css" %}
 {% endblock %}
 {% block content %}
 
 <div id="content">
 
     <div class="user-box">
-        <div class="titleArea">
-            <h2>LOGIN</h2>
-        </div>
-        <form action="." method="post">{% csrf_token %}
-        <div class="login">
-            <fieldset>
-                <legend>회원로그인</legend>
-                <span class="id01">ID</span>
-                <label class="id ePlaceholder">
-                    <input id="member_id" name="member_id" type="text">
-                </label>
 
-                <span class="id02">PASS</span>
-                <label class="password password ePlaceholder">
-                    <input id="member_password" name="member_password" type="text">
-                </label>
+        <div class="user-box1">
+            <div class="titleArea">
+                <h2>LOGIN</h2>
+            </div>
+            <hr class="black-hr"/>
+            <form action="." method="post">{% csrf_token %}
+                <div class="login">
+                    <fieldset>
+                        <legend>회원로그인</legend>
+                        <span class="id01">ID</span>
+                        <label class="id ePlaceholder">
+                            <input id="member_id" name="member_id" type="text">
+                        </label>
 
-                <input type="submit" value="로그인" class="login_button"/>
-                <hr>
-            </fieldset>
+                        <span class="id02">PASS</span>
+                        <label class="password password ePlaceholder">
+                            <input id="member_password" name="member_password" type="text">
+                        </label>
+
+                        <input type="submit" value="로그인" class="login_button"/>
+                        <input type="submit" value="회원가입" class="login_button"/>
+                        <hr>
+                    </fieldset>
+                </div>
+            </form>
         </div>
-        </form>
     </div>
 </div>
 </div>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% load custom_tags %}
+            {% for member in members|sort_by:'pk' %}
+            <tr>
+                <td>{{ member.pk }}</td>
+                <td>{{ member.username }}</td>
+                <td>{{ member.user_id }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

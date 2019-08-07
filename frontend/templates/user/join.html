@@ -7,80 +7,78 @@
 {% endblock %}
 {% block content %}
 
-    <div id="content">
-        <div class="user-box">
-            <div class="join-box">
-                <div class="titleArea">
-                    <h2>JOIN</h2>
-                </div>
-                <form action="." method="post">{% csrf_token %}
-                    <div class="join-table">
-                        <table border="1" summary>
-                            <tr>
-                                <th scope="row">
-                                    아이디
-                                    <img src="{% static 'img/required.gif' %}">
-                                </th>
-                                <td>
-                                    <input id="member_id" name="member_id">
-                                    <span id="idMsg"></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    비밀번호
-                                    <img src="{% static 'img/required.gif' %}">
-                                </th>
-                                <td>
-                                    <input id="member_id" name="member_id">
-                                    <span id="idMsg"></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    비밀번호 확인
-                                    <img src="{% static 'img/required.gif' %}">
-                                </th>
-                                <td>
-                                    <input id="member_id" name="member_id">
-                                    <span id="idMsg"></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    이름
-                                    <img src="{% static 'img/required.gif' %}">
-                                </th>
-                                <td>
-                                    <input id="member_id" name="member_id">
-                                    <span id="idMsg"></span>
-                                </td>
-                            </tr>                            <tr>
-                                <th scope="row">
-                                    휴대전화
-                                </th>
-                                <td>
-                                    <input id="member_id" name="member_id">
-                                    <span id="idMsg"></span>
-                                </td>
-                            </tr>                            <tr>
-                                <th scope="row">
-                                    이메일
-                                    <img src="{% static 'img/required.gif' %}">
-                                </th>
-                                <td>
-                                    <input id="member_id" name="member_id">
-                                    <span id="idMsg"></span>
-                                </td>
-                            </tr>
-
-                        </table>
-                    </div>
-                </form>
+<div id="content">
+    <div class="user-box">
+        <div class="user-box1">
+            <div class="titleArea">
+                <h2>JOIN</h2>
             </div>
+            <hr class="black-hr"/>
+            <form action="." method="post">{% csrf_token %}
+                <div class="join-table">
+                    <table border="1" summary>
+                        <tr>
+                            <th scope="row">
+                                아이디
+                                <img src="{% static 'img/required.gif' %}">
+                            </th>
+                            <td>
+                                <input id="user_id" name="user_id">
+                                <span id="idMsg"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                비밀번호
+                                <img src="{% static 'img/required.gif' %}">
+                            </th>
+                            <td>
+                                <input type="password" id="password" name="password">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                비밀번호 확인
+                                <img src="{% static 'img/required.gif' %}">
+                            </th>
+                            <td>
+                                <input type="password" id="password_fonfirm" name="password_fonfirm">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                이름
+                            </th>
+                            <td>
+                                <input id="username" name="username">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                휴대전화
+                            </th>
+                            <td>
+                                <input id="phone" name="phone">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                이메일
+                                <img src="{% static 'img/required.gif' %}">
+                            </th>
+                            <td>
+                                <input type="email" id="email" name="email">
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+                <input type="submit" value="회원가입" class="join_button"/>
+            </form>
         </div>
     </div>
-    </div>
+</div>
+</div>
 {% endblock content %}
 
 {% block extrascript %}

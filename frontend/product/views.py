@@ -8,21 +8,12 @@ api_url = default.api_url
 
 class ProductDV(View):
     def get(self, request, pk):
-        category_response = requests.get(root_url + api_url + "categorys/")
-        if category_response.status_code is not 200:
-            return render(request, 'home.html', data=dict())
+        default.set_base_data()
         product_response = requests.get(root_url+api_url+"products/"+pk)
-
         if product_response.status_code is not 200 :
             return render(requests,'home.html',data=dict())
-
-        data = {
-            "shop_name":"AWESOME SHOP",
-            "categorys": category_response.json()["data"],
-            "product" : product_response.json()["data"]
-        }
-
-        print(product_response.json()['data'])
+        data = default.base_data
+        data['product'] = product_response.json()["data"]
 
         return render(request, 'product/detail.html', data)
 

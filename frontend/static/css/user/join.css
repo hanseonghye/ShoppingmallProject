@@ -1,3 +1,7 @@
+hr.black-hr{
+    border: solid 1px #000;
+}
+
 div#content div.user-box {
     min-width: 1000px;
     max-width: 1000px;
@@ -25,16 +29,31 @@ div#content div.user-box div.titleArea h2 {
     letter-spacing: 1px;
 }
 
-div.user-box div.join-box {
+.join_button{
+    background: none;
+    margin: 10px;
+    overflow: hidden;
+    display: inline-block;
+    padding: 10px 20px 10px;
+    margin-left:90%;
+    border: 2px solid black;
+    font-family: 'Noto Sans KR',sans-serif;
+    font-weight: 600;
+    font-size:0.75em;
+    text-align: center;
+    color: #000;
+}
+
+div.user-box div.user-box1 {
     position: relative;
     height: auto;
     min-height: 30px;
     margin: 0px auto 0px;
-    padding: 50px 2% 50px;
+    padding: 30px 2% 50px;
 }
 
 div.user-box div.join-table {
-    margin-top: 10px;
+    margin-top: 2px;
 }
 
 div.user-box div.join-table table {
@@ -44,10 +63,8 @@ div.user-box div.join-table table {
     color: #000;
     line-height: 1.5;
     width: 100%;
-    border: 0;
     border-spacing: 0;
     border-collapse: collapse;
-    display: table-row-group;
     vertical-align: middle;
     border-color: inherit;
 }
@@ -59,7 +76,8 @@ div.user-box div.join-table table tr {
 }
 
 div.user-box div.join-table table tr th {
-    padding: 10px 20px;
+width:20%;
+    padding: 11px 0 10px 18px;
     border: 1px solid #444;
     border-bottom-width: 0;
     color: #000;
@@ -78,9 +96,19 @@ div.user-box div.join-table table tr th img {
 }
 
 div.user-box div.join-table table tr td {
-    padding: 11px 30px 10px;
+    padding: 10px;
     border-top: 1px solid #444;
     color: #000;
     vertical-align: middle;
     font-size: 0.75em;
+}
+
+div.user-box div.join-table table tr td input{
+width:80%;
+    height: 18px;
+    line-height: 20px;
+    padding: 2px 4px;
+    border: 1px solid #d5d5d5;
+    color: #000;
+    font-size: 12px;
 }

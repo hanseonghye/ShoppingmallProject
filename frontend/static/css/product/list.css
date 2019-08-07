@@ -1,0 +1,116 @@
+div#content div.list_main {
+    min-width: 1000px;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    /*border: 5px solid #FBA6B2;*/
+}
+
+div.list_main div.list_main1{
+    position: relative;
+    height: auto;
+    min-height: 30px;
+    margin: 0px auto 0px;
+    padding: 0px;
+    float:center;
+    align:center;
+}
+
+div.list_main div.category-sub-list{
+    margin: 0px auto;
+    text-align:center;
+}
+
+div.list_main div.category-sub-list span{
+    font-family: 'Bitter',Noto Sans KR;
+    font-weight: bold;
+    font-size: 30px;
+    color: #000;
+    background: #FFEDA5;
+    margin:2px auto;
+}
+
+div.list_main div.category-sub-list ul{
+
+    position: relative;
+}
+
+div.list_main div.category-sub-list ul li {
+    float: left;
+    left: 46%;
+    position: relative;
+    margin:2px 0px;
+    list-style: none;
+    text-align:center;
+    padding-right:20px;
+    background: #000;
+}
+
+div.list_main div.category-sub-list ul li  a{
+    display: block;
+    font-family: 'Bitter',Noto Sans KR;
+    font-weight: 400;
+    font-size: 13px;
+    color: #fff;
+    margin: 0 0 0 0px;
+    text-decoration: none;
+    height: auto;
+}
+
+div.list_main div.list_main1 div.product-list ul.productList{
+    display: table;
+    width: 100%;
+    margin: 0px auto;
+    font-size: 0;
+    line-height: 0;
+}
+
+ul.column4 li.item{
+    width:25%;
+    display:inline-block;
+    margin:0px 0 40px;
+    color:#757575;
+    vertical-align:top;
+    zoom:1;
+    border-top:0px solid #eaeaea;
+}
+
+div.box{
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+div.box div.line{
+    position: relative;
+    width: 82%;
+    min-height: auto;
+    margin: 0 20px 20px;
+    padding: 15px 15px 15px;
+    background: #fff;
+    transition: ease-out 0.3s;
+    border: 3px solid #fff;
+    box-shadow: 3px 3px 0px #fba6b2;
+}
+
+div.box div.line img{
+    width:100%;
+}
+
+div.box div.line p{
+    text-align: center;
+    margin: 15px auto 3px;
+    width: 80%;
+    font-weight:bold;
+    font-family: 'Noto Sans KR',sans-serif;
+    font-size:13px
+}
+div.box div.line p.name{
+    color: #6483D7;
+}
+
+div.box div.line p.price{
+    color:#000;
+}

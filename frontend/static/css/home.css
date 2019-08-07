@@ -25,16 +25,6 @@ div#content div#color_main div#color_main1 h2{
 div.gallery{
     width: 100%;
     max-width: 1250px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
     justify-content: center;
 }
 
@@ -51,24 +41,13 @@ div.gallery ul.productList{
 
 ul.column4 li.item{
     width:25%;
-    display:inline-block;margin:0px 0 40px;color:#757575;vertical-align:top;*display:inline;*zoom:1;border-top:0px solid #eaeaea;
+    display:inline-block;
+    margin:0px 0 40px;
+    color:#757575;
+    vertical-align:top;
+    zoom:1;
+    border-top:0px solid #eaeaea;
 }
-
-.gallery{
-    width:100%;
-    max-width:1250px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display:flex;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;-webkit-box-pack:center;
-    -webkit-justify-content:center;
-    -ms-flex-pack:center;
-    justify-content:center;
-}
-
 .box{margin:0 auto;font-size:12px;line-height:18px;text-align:center;}
 
 ul.column4 li.item{width:25%;}

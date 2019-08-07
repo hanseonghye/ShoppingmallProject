@@ -7,4 +7,5 @@ app_name='user'
 urlpatterns=[
     path('login/', LoginView.as_view(), name='login'),
     path('join/', JoinView.as_view(), name='join'),
+    path('cart/', CartView.as_view(), name='cart'),
 ]
