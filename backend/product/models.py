@@ -6,7 +6,7 @@ from category.models import Category
 class Product(models.Model):
     name = models.CharField('Name', max_length=30, null=False)
     price = models.SmallIntegerField('Price')
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, db_column='category_id')
+    category = models.ForeignKey(Category, related_name="category_products", on_delete=models.CASCADE, db_column='category_id')
 
     is_stock = models.BooleanField('Stock')
     is_display = models.BooleanField('Display')

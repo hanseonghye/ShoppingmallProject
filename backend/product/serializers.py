@@ -35,7 +35,7 @@ class OptionDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = OptionDetail
-        fields = ('name', 'option')
+        fields = ('pk','name', 'option')
 
     def create(self, request):
         option_detail = OptionDetail.objects.create(**request)
@@ -48,7 +48,7 @@ class OptionsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Option
-        fields = ('name', 'product', 'option_details')
+        fields = ('pk', 'name', 'product', 'option_details')
 
     def create(self, request):
         option = Option.objects.create(**request)
@@ -70,15 +70,15 @@ class ProductAdminSerializer(serializers.ModelSerializer):
 
 class ProductSerializer(serializers.ModelSerializer):
     product_details = ProductDetailSerializer(many=True, read_only=True)
+    product_options = OptionsSerializer(many=True, read_only=True)
 
     class Meta:
         model = Product
         fields = (
             'name', 'price', 'is_stock', 'is_display', 'is_option', 'file_url', 'image_url', 'category',
-            'product_details')
+            'product_details', 'product_options')
 
         extra_kwargs = {
-            'is_option': {'write_only': True},
             'is_display': {'write_only': True},
         }
 

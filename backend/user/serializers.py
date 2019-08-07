@@ -10,7 +10,7 @@ from .models import CustomUser as User, Address
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('username', 'user_id', 'password', 'email', 'phone_number')
+        fields = ('pk','username', 'user_id', 'password', 'email', 'phone_number')
         validators = [
 
         ]
