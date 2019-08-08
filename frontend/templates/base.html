@@ -8,6 +8,8 @@
     </title>
 
     {% load static %}
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href='{% static "css/base.css" %}'/>
     <link rel="stylesheet" type="text/css" href='{% block extrastyle %}{% endblock %}'/>
@@ -15,7 +17,9 @@
     <link href="https://fonts.googleapis.com/css?family=Patua+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bitter&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src='{% block extrascript %}{% endblock %}'></script>
@@ -30,10 +34,14 @@
 
             <div class="member-bar">
                 <ul>
-                    <li><a href="{% url 'user:login' %}" >login</a></li>
-                    <li><a href="{% url 'user:join' %}" >join</a></li>
-                    <li><a href="{% url 'user:cart'  %}" >cart</a></li>
-                    <li><a href="" >order</a></li>
+                    {% if request.session.authuser is None %}
+                        <li><a href="{% url 'user:login' %}">login</a></li>
+                    {% else %}
+                        <li><a href="{% url 'user:logout' %}">logout</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'user:join' %}">join</a></li>
+                    <li><a href="{% url 'user:cart'  %}">cart</a></li>
+                    <li><a href="">order</a></li>
 
                 </ul>
             </div>
@@ -50,11 +58,11 @@
                 <div class="nav tabs">
                     {% load custom_tags %}
                     {% for category in categorys|sort_by:'priority' %}
-                        {% if category.parent == None %}
-                            <div class="nav-item">
-                                <a class="nav-link" href="{% url 'category' category.pk %}">{{ category.name }}</a>
-                            </div>
-                        {% endif %}
+                    {% if category.parent == None %}
+                    <div class="nav-item">
+                        <a class="nav-link" href="{% url 'category' category.pk %}">{{ category.name }}</a>
+                    </div>
+                    {% endif %}
                     {% endfor %}
                 </div>
             </div>
@@ -66,7 +74,7 @@
     </div>
 </div>
 
-<script src='{% static "script/base.js" %}'>
+<script src='{% static "script/super/product-add.js" %}'>
 </script>
 </body>
 </html>

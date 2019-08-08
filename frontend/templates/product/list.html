@@ -23,11 +23,11 @@
                 <ul class="productList column4">
 
                     {% load custom_tags %}
-                    {% for product in products|sort_by:'id' %}
+                    {% for product in products|sort_by:'pk' %}
                     <li class="item">
                         <div class="box">
                             <div class="line">
-                                <a href="{% url 'product:detail' product.id %}">
+                                <a href="{% url 'product:detail' product.pk %}">
                                     <img src="{{ product.image_url }}">
                                 </a>
                                 <p class="name">

@@ -25,20 +25,19 @@
                             <th scope="col">상품 정보</th>
                             <th scope="col">가격</th>
                             <th scope="col">수량</th>
-                            <th scope="col">가격</th>
-                            <th scope="col">선택</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>dd</td>
-                            <td>dd</td>
-                            <td>dd</td>
-                            <td>dd</td>
-                            <td>dd</td>
-                            <td>dd</td>
-                            <td>dd</td>
-                        </tr>
+                            {% load custom_tags %}
+                            {% for cart in carts|unsort_by:'pk' %}
+                            <tr>
+                                <th><input type="checkbox"/></th>
+                                <td><img style="width:100px; height:auto;" src="{{ cart.product.image_url }}"></td>
+                                <td>{{ cart.product.name }}</td>
+                                <td>{{ cart.product.price }}</td>
+                                <td>{{ cart.amount }}</td>
+                            </tr>
+                            {% endfor %}
                     </tbody>
                 </table>
             </div>

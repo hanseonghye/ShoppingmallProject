@@ -1,16 +1,15 @@
 from rest_framework import generics, status
 from rest_framework.response import Response
 
-from cart.serializers import CartSerializer, CartsSerializer
+from cart.serializers import CartSerializer, CartsSerializer, CartProductSerializer
 from myModule.myGenerics import *
 from .models import Cart
 
 
-class CartLV(mixins.CreateModelMixin,
-             ListAPIView,
-             generics.GenericAPIView):
+class CartLV(
+    ListCreateAPIView):
     queryset = Cart.objects.all()
-    serializer_class = CartsSerializer
+    serializer_class = CartProductSerializer
 
     def get_queryset(self):
         if getattr(self, 'swagger_fake_view', False):
@@ -19,13 +18,6 @@ class CartLV(mixins.CreateModelMixin,
 
         return self.queryset.filter(user=self.kwargs['pk'])
 
-    def post(self, request, *args, **kwargs):
-        try:
-            data = self.create(request.data['cart'], many=True, *args, **kwargs)
-        except Exception as e:
-            return Response({"result": "fail", "message": str(e), "data": None}, status=status.HTTP_400_BAD_REQUEST)
-        return Response({"result": "success", "message": None, "data": data}, status=status.HTTP_200_OK)
-
 
 class CartDV(RetrieveUpdateDestroyAPIView):
     queryset = Cart.objects.all()
@@ -33,11 +25,9 @@ class CartDV(RetrieveUpdateDestroyAPIView):
     lookup_url_kwarg = 'cartpk'
 
 
-class NonUserCartLV(mixins.CreateModelMixin,
-                    ListAPIView,
-                    generics.GenericAPIView):
+class NonUserCartLV(ListCreateAPIView):
     queryset = Cart.objects.all()
-    serializer_class = CartsSerializer
+    serializer_class = CartProductSerializer
 
     def get_queryset(self):
         if getattr(self, 'swagger_fake_view', False):
@@ -45,13 +35,6 @@ class NonUserCartLV(mixins.CreateModelMixin,
             return Cart.objects.none()
 
         return self.queryset.filter(non_user=self.kwargs['pk'])
-
-    def post(self, request, *args, **kwargs):
-        try:
-            data = self.create(request.data['cart'], many=True, *args, **kwargs)
-        except Exception as e:
-            return Response({"result": "fail", "message": str(e), "data": None}, status=status.HTTP_400_BAD_REQUEST)
-        return Response({"result": "success", "message": None, "data": data}, status=status.HTTP_200_OK)
 
 
 class NonUserCartDV(RetrieveUpdateDestroyAPIView):

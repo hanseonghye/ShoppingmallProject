@@ -2,11 +2,13 @@ div#content div#color_main{
     width: 100%;
     margin: 0px auto 0px;
     paddimg-bottom : 0px;
+    background-color:#FFDBE5;
 }
 
 
 div#content div#color_main div#color_main1{
     margin:0px auto 0px;
+    background-color:#FFDBE5;
 }
 
 div#content div#color_main div#color_main1 h2{

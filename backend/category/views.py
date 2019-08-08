@@ -4,10 +4,10 @@ from rest_framework import status
 from rest_framework.response import Response
 
 from product.models import Product
-from product.serializers import ProductSerializer, ProductSimpleSerializer
+# from product.serializers import ProductSerializer, ProductSimpleSerializer
 from .models import Category
 from .serializers import CategorySerializer, CategoryProductSerializer, \
-    CategoryPraentProductSerializer, CategoryParentSerializer
+    CategoryPraentProductSerializer, CategoryParentSerializer, ProductSimpleSerializer
 from myModule.myGenerics import *
 
 

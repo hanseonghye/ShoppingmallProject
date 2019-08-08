@@ -76,7 +76,7 @@ def check_email(request, email=''):
 
 @api_view(['POST'])
 def login(request):
-    user = auth.authenticate( user_id=request.POST['user_id'], password= request.POST['password'])
+    user = auth.authenticate( user_id=request.POST['user_id'], password= request.POST['password'],is_admin=False)
     # user =User.objects.filter(user_id=request.POST['user_id'], password=request.POST['password'])
     if not user:
         return Response({"result":"fail", "message":"아이디또는 패스워드를 다시 확인해 주세요.", "data":None}, status=status.HTTP_400_BAD_REQUEST)

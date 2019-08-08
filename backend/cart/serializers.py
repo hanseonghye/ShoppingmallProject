@@ -2,6 +2,7 @@ from django.utils import timezone
 from rest_framework import serializers
 
 from cart.models import Cart
+from category.serializers import ProductSimpleSerializer
 from product.serializers import ProductSerializer
 from user.serializers import UserSerializer
 
@@ -37,5 +38,14 @@ class CartsSerializer(serializers.ModelSerializer):
         }
 
     def create(self, request):
+
         cart = Cart.objects.create(expiry_date=timezone.now(), **request)
         return cart
+
+
+class CartProductSerializer(serializers.ModelSerializer):
+    product = ProductSimpleSerializer(read_only=True)
+
+    class Meta:
+        model = Cart
+        fields = ('pk', 'product', 'product_detail', 'amount')

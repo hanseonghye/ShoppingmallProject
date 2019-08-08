@@ -5,7 +5,7 @@
 
 body{
     display : block;
-    background: #FFDBE5;
+    background-color: #FFDBE5;
 }
 
 html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, img {
@@ -15,6 +15,8 @@ html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form
 
 div#wrapper{
     background: #FFDBE5;
+
+    background-color: #FFDBE5;
 }
 
 div#wrapper .slide_01{
@@ -85,7 +87,7 @@ div#wrapper div#wrap div.logo_top01 div.search-bar{
 
 div#wrapper div#wrap div.logo_top01 div.member-bar{
     position: relative;
-    width: 205px;
+    width: 220px;
     height:30px;
     left: 72%;
     max-right: 30px;

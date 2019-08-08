@@ -61,5 +61,6 @@ class OptionDetail(models.Model):
     class Meta:
         db_table = "product_option_detail"
 
+
     def __str__(self):
         return f'OptionDetail : {self.name}, {self.option.name} , {self.option.procudt.name}'

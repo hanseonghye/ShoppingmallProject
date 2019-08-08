@@ -6,7 +6,7 @@ from django.test import TestCase
 class TestCategory(TestCase):
 
     def test_카테고리추가_성공(self):
-        response = self.client.post('/api/v1/admin/categorys/',
+        response = self.client.post('/api/v1/super/categorys/',
                                     {"name": "상의"})
 
         self.assertEqual(response.status_code, 201)

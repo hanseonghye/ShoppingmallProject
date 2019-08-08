@@ -36,6 +36,9 @@ class OptionDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = OptionDetail
         fields = ('pk','name', 'option')
+        extra_kwargs = {
+            'option': {'required': False}
+        }
 
     def create(self, request):
         option_detail = OptionDetail.objects.create(**request)
@@ -44,11 +47,16 @@ class OptionDetailSerializer(serializers.ModelSerializer):
 
 
 class OptionsSerializer(serializers.ModelSerializer):
-    option_details = OptionDetailSerializer(many=True, read_only=True)
+    option_details = OptionDetailSerializer(many=True)
 
     class Meta:
         model = Option
         fields = ('pk', 'name', 'product', 'option_details')
+
+        extra_kwargs = {
+            'product': {'required': False},
+            'option_details': {'required': False},
+        }
 
     def create(self, request):
         option = Option.objects.create(**request)
@@ -67,6 +75,31 @@ class ProductAdminSerializer(serializers.ModelSerializer):
             'product_details',
             'product_options')
 
+class AddProductSerializer(serializers.ModelSerializer):
+    product_options = OptionsSerializer(many=True)
+
+    class Meta:
+        model = Product
+        fields = (
+            'name', 'price', 'is_stock', 'is_display', 'is_option', 'file_url', 'image_url', 'category',
+            'product_options')
+
+        extra_kwargs = {
+            'product_options': {'required': False}
+        }
+
+    def create(self, request):
+        print(request)
+        options = request.pop('product_options')
+
+        product = Product.objects.create(**request)
+        for option in options:
+            option_details = option.pop("option_details")
+            o = Option.objects.create(product=product, **option)
+            for option_detail in option_details:
+                OptionDetail.objects.create(option=o, **option_detail)
+
+        return product
 
 class ProductSerializer(serializers.ModelSerializer):
     product_details = ProductDetailSerializer(many=True, read_only=True)
@@ -79,24 +112,9 @@ class ProductSerializer(serializers.ModelSerializer):
             'product_details', 'product_options')
 
         extra_kwargs = {
-            'is_display': {'write_only': True},
         }
 
     def create(self, request):
         product = Product.objects.create(**request)
         product.save()
         return product
-
-
-class ProductSimpleSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Product
-        fields = (
-            'id','name', 'price','file_url', 'image_url')
-
-        extra_kwargs = {
-            'is_option': {'write_only': True},
-            'is_display': {'write_only': True},
-        }
-

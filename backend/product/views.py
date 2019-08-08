@@ -1,19 +1,17 @@
-from django.db.models import Q
-from rest_framework import generics, status
-from rest_framework.response import Response
-
+from category.serializers import ProductSimpleSerializer
 from myModule.myGenerics import *
-from product.models import Product, Option, OptionDetail, ProductDetail
 from .serializers import *
-from myModule import myMixins as mixins
 
 class ProductLV(ListAPIView):
     queryset = Product.objects.filter(is_display=True)
     serializer_class = ProductSimpleSerializer
 
-class ProductCV(CreateAPIView):
-    serializer_class = ProductSerializer
+class ProductLV(ListAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSimpleSerializer
 
+class ProductCV(CreateAPIView):
+    serializer_class = AddProductSerializer
 
 class ProductDV(RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()

@@ -1,0 +1,30 @@
+{% extends "super/base.html" %}
+{% block title %}member-list.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}
+    {% static "css/super/table.css" %}
+{% endblock %}
+
+{% block content %}
+<h1>product list</h1>
+<table class="table">
+    <tr>
+        <th>No.</th>
+        <th> </th>
+        <th>상품 명</th>
+        <th>가격</th>
+        <th>카테고리</th>
+    </tr>
+    {% load custom_tags %}
+    {% for product in products|sort_by:'pk' %}
+        <tr>
+            <td>{{ product.pk }}</td>
+            <td><img src="{{ product.image_url }}"></td>
+            <td><a href="{% url 'product:detail' product.pk %}">{{ product.name }}</a></td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.category.name }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

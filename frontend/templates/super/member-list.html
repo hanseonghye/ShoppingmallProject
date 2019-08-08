@@ -1,0 +1,30 @@
+{% extends "super/base.html" %}
+{% block title %}member-list.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}
+    {% static "css/super/table.css" %}
+{% endblock %}
+
+{% block content %}
+<h1>member list</h1>
+<table class="table">
+    <tr>
+        <th>No.</th>
+        <th>회원 이름</th>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Phone</th>
+    </tr>
+    {% load custom_tags %}
+    {% for member in members|sort_by:'pk' %}
+        <tr>
+            <td>{{ member.pk }}</td>
+            <td>{{ member.username }}</td>
+            <td>{{ member.user_id }}</td>
+            <td>{{ member.email }}</td>
+            <td>{{ member.phone_number }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

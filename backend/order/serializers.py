@@ -7,7 +7,6 @@ from product.models import Product
 
 
 class OrderProductSerializer(serializers.ModelSerializer):
-    # order = OrderSerializer(source='order')
 
     class Meta:
         model = OrderProduct
@@ -18,7 +17,6 @@ class OrderProductSerializer(serializers.ModelSerializer):
         }
 
     def create(self, request):
-
         product = Product.objects.get(id=request['product'].id)
         order_product = OrderProduct.objects.create(**request)
         if not Product.objects.get(id=request['product'].id).is_option:
@@ -101,11 +99,10 @@ class OrdersSerializer(serializers.ModelSerializer):
             if not all(x in ['sender_name', 'sender_email', 'sender_phone_number'] for x in request):
                 raise serializers.ValidationError("null sender value")
 
-        if not all(x in ['receiver_name', 'receiver_phone_number', 'receiver_address'] for x in request):
-            raise serializers.ValidationError("null receiver value")
+        # if not all(x in ['receiver_name', 'receiver_phone_number', 'receiver_address'] for x in request):
+        #     raise serializers.ValidationError("null receiver value")
 
         order = Order.objects.create(status=0, price=0, **request)
-
         for op in order_products:
             OrderProduct.objects.create(order=order, **op)
         return order

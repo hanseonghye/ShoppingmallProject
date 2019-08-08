@@ -1,0 +1,17 @@
+table.table{
+    width:1200px;
+}
+
+table.table tr th{
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #fff;
+    background: #3CA2E0;
+    margin: 20px 10px;
+
+}
+
+table.table img{
+    width:50px;
+}

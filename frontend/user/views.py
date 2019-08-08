@@ -13,6 +13,11 @@ api_url = default.api_url
 header = default.headers
 
 
+class Logout(View):
+    def get(self, request):
+        del request.session['authuser']
+        return HttpResponseRedirect(reverse('home'))
+
 class LoginView(View):
     def get(self, request):
         response = requests.get(root_url + api_url + "categorys/")
@@ -78,10 +83,17 @@ class JoinView(View):
         print(response.json()['data'])
         return render(request, 'user/join.html', data)
 
-class CartView(TemplateView):
-    template_name = 'user/cart.html'
-    def get_context_data(self, **kwargs):
+class CartView(View):
+
+    def get(self, request):
         default.set_base_data()
         data = default.base_data
 
-        return data
+        category_response = requests.get(root_url+api_url+"carts/user/1" )
+        if category_response.status_code is not 200 :
+            data['carts']=[]
+            return render(request, 'user/cart.html', data)
+
+        data['carts'] = category_response.json()['data']
+
+        return render(request,'user/cart.html', data)

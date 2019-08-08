@@ -35,19 +35,19 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
 
     path('api/v1/users/', include('user.urls'), name='user'),
-    path('api/v1/admin/users/', include('user.admin-urls'), name='admin-user'),
+    path('api/v1/super/users/', include('user.super-urls'), name='super-user'),
 
     path('api/v1/categorys/', include('category.urls'), name='category'),
-    path('api/v1/admin/categorys/', include('category.admin-urls'), name='admin-category'),
+    path('api/v1/super/categorys/', include('category.super-urls'), name='super-category'),
 
     path('api/v1/products/', include('product.urls'), name='product'),
-    path('api/v1/admin/products/', include('product.admin-urls'), name='admin-product'),
+    path('api/v1/super/products/', include('product.super-urls'), name='super-product'),
 
     path('api/v1/orders/', include('order.urls'), name='order'),
-    path('api/v1/admin/orders/', include('order.admin-urls'), name='admin-order'),
+    path('api/v1/super/orders/', include('order.super-urls'), name='super-order'),
 
     path('api/v1/carts/', include('cart.urls'), name='cart'),
 
-    path('api/v1/admin/manager/', include('manager.urls'), name='manager'),
+    path('api/v1/super/', include('super.urls'), name='super'),
     # path('api/hello/',test.as_view())
 ]

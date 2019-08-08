@@ -125,3 +125,8 @@ div.product-order-list input{
     border:none;
     margin: 5px 0px 5px;
 }
+
+div.amount-btn{
+    width: 150px;
+    margin: 0px;
+}
