@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import MemberLV, LoginView, Home, ProductLV, ProductCV
+from .views import MemberLV, LoginView, Home, ProductLV, ProductCV, Logout
 
 app_name='super'
 
@@ -10,4 +10,5 @@ urlpatterns = [
     path('products/', ProductLV.as_view(), name='product-list'),
     path('products/add/', ProductCV.as_view(), name='product-add'),
     path('login/', LoginView.as_view(), name='login'),
+    path('logout/', Logout.as_view(), name='logout'),
 ]

@@ -80,4 +80,8 @@ def login(request):
     # user =User.objects.filter(user_id=request.POST['user_id'], password=request.POST['password'])
     if not user:
         return Response({"result":"fail", "message":"아이디또는 패스워드를 다시 확인해 주세요.", "data":None}, status=status.HTTP_400_BAD_REQUEST)
-    return Response({"result":"success", "message":None, "data":user.username}, status=status.HTTP_200_OK)
+    user = {
+        'pk':user.pk,
+        'name':user.username,
+    }
+    return Response({"result":"success", "message":None, "data":user}, status=status.HTTP_200_OK)

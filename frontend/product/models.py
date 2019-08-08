@@ -1,3 +1,8 @@
 from django.db import models
 
-# Create your models here.
+class ProductImage(models.Model):
+    main = models.ImageField()
+    content = models.ImageField()
+
+    class Meta:
+        db_table = "product_image"

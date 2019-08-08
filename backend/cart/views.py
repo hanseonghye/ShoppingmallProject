@@ -1,13 +1,12 @@
 from rest_framework import generics, status
 from rest_framework.response import Response
 
-from cart.serializers import CartSerializer, CartsSerializer, CartProductSerializer
+from cart.serializers import CartSerializer, CartsSerializer, CartProductSerializer, CartProductAddSerializer
 from myModule.myGenerics import *
 from .models import Cart
 
 
-class CartLV(
-    ListCreateAPIView):
+class CartLV(ListCreateAPIView):
     queryset = Cart.objects.all()
     serializer_class = CartProductSerializer
 
@@ -17,6 +16,9 @@ class CartLV(
             return Cart.objects.none()
 
         return self.queryset.filter(user=self.kwargs['pk'])
+
+class CartCV(CreateAPIView):
+    serializer_class = CartProductAddSerializer
 
 
 class CartDV(RetrieveUpdateDestroyAPIView):

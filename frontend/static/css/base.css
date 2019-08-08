@@ -4,8 +4,8 @@
 *				{ margin:0; padding:0 }
 
 body{
-    display : block;
     background-color: #FFDBE5;
+     top: 0; right: 0; bottom: 0; left: 0;
 }
 
 html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, img {
@@ -14,8 +14,9 @@ html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form
 }
 
 div#wrapper{
-    background: #FFDBE5;
-
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    width:100%;
     background-color: #FFDBE5;
 }
 
@@ -87,7 +88,7 @@ div#wrapper div#wrap div.logo_top01 div.search-bar{
 
 div#wrapper div#wrap div.logo_top01 div.member-bar{
     position: relative;
-    width: 220px;
+    width: 350px;
     height:30px;
     left: 72%;
     max-right: 30px;

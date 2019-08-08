@@ -14,8 +14,7 @@ class CartSerializer(serializers.ModelSerializer):
 
         extra_kwargs = {
             'user': {'write_only': True},
-            'non_user': {'write_only': True},
-
+            'non_user': {'write_only': True}
         }
 
     def create(self, request):
@@ -48,4 +47,21 @@ class CartProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Cart
-        fields = ('pk', 'product', 'product_detail', 'amount')
+        fields = ('pk','user','non_user' ,'product', 'product_detail', 'amount')
+
+
+class CartProductAddSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cart
+        fields = ('user','non_user' ,'product', 'product_detail', 'amount')
+        extra_kwargs = {
+            'product': {'required': False},
+            'product_detail': {'required': False},
+            'user': {'required': False},
+            'non_user': {'required': False},
+        }
+
+    def create(self, request):
+
+        cart = Cart.objects.create(expiry_date=timezone.now(), **request)
+        return cart

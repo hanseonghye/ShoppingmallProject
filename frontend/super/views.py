@@ -81,13 +81,23 @@ class LoginView(View):
             'user_id':request.POST['user_id'],
             'password':request.POST['password']
         }
-        print(super)
         response = requests.post(root_url+api_url+'super/login/', headers=header, data=super)
         if response.status_code is not 200 :
             return HttpResponseRedirect(reverse("super:login"))
 
-        print(response.json())
+        request.session['superuser'] = response.json()['data']
+
         return render(request, 'super/home.html')
 
-class Home(TemplateView):
-    template_name = 'super/home.html'
+
+class Logout(View):
+    def get(self, request):
+        del request.session['superuser']
+        return HttpResponseRedirect(reverse('super:login'))
+
+
+class Home(View):
+    def get(self, request):
+        if 'superuser' in request.session:
+            return render(request,'super/home.html')
+        return HttpResponseRedirect(reverse("super:login"))

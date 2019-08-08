@@ -23,18 +23,21 @@ class ProductDV(View):
         return render(request, 'product/detail.html', data)
 
     def post(self, request, pk):
-        cart = {
-            'user': 1,
-            'product': pk,
-            "amount": request.POST['amount']
-        }
-        headers = {'Content-Type': 'application/json; charset=utf-8'}
 
         if 'buy-btn' in request.POST:
             pass
 
         if 'cart-btn' in request.POST:
-            cart_response = requests.post(root_url + api_url + "carts/user/1", headers=headers, data=json.dumps(cart))
-            if cart_response.status_code is not 201:
-                return HttpResponseRedirect(reverse("product:detail", args=pk))
-            return HttpResponseRedirect(reverse("user:cart"))
+            if 'authuser' in request.session:
+                cart = {
+                    'user': request.session['authuser']['pk'],
+                    'product': pk,
+                    "amount": request.POST['amount']
+                }
+                headers = {'Content-Type': 'application/json; charset=utf-8'}
+                cart_response = requests.post(
+                    root_url + api_url + "carts/user/" + str(request.session['authuser']['pk']) + "/add/", headers=headers,
+                    data=json.dumps(cart))
+                if cart_response.status_code is 201:
+                    return HttpResponseRedirect(reverse("user:cart"))
+        return HttpResponseRedirect(reverse("product:detail", args=pk))

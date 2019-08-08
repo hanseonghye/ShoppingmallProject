@@ -77,11 +77,9 @@ class JoinView(View):
         headers = {'Content-Type': 'application/json; charset=utf-8'}
         response = requests.post(root_url + api_url + "users/",headers=headers, data=json.dumps(user))
         if response.status_code is not 201:
-            print(response.json())
             return render(request, 'home.html', data)
 
-        print(response.json()['data'])
-        return render(request, 'user/join.html', data)
+        return HttpResponseRedirect(reverse('home'))
 
 class CartView(View):
 
@@ -89,11 +87,12 @@ class CartView(View):
         default.set_base_data()
         data = default.base_data
 
-        category_response = requests.get(root_url+api_url+"carts/user/1" )
-        if category_response.status_code is not 200 :
-            data['carts']=[]
-            return render(request, 'user/cart.html', data)
+        if 'authuser' in request.session:
+            category_response = requests.get(root_url+api_url+"carts/user/"+str(request.session['authuser']['pk']) )
+            if category_response.status_code is not 200 :
+                data['carts']=[]
+                return render(request, 'user/cart.html', data)
 
-        data['carts'] = category_response.json()['data']
+            data['carts'] = category_response.json()['data']
 
         return render(request,'user/cart.html', data)

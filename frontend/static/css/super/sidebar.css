@@ -1,5 +1,30 @@
 .sidebar-nav{
-    margin:20px;
+    margin:20px 20px;
     padding:0;
     list-style:none;
+}
+
+h1.logo_text a{
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+}
+h1.logo_text{
+    width: auto;
+    height: 120px;
+    text-align: center;
+    margin: 0 auto;
+    font-family: 'Anton',sans-serif;
+    font-weight: 400;
+    font-size: 50px;
+    margin-top: 0px;
+    z-index: 9;
+    padding: 55px 0px 0;
+    width: auto;
+    display: block;
+    text-align: center;
+    line-height: 35px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #fba6b2;
+    text-shadow: -1px -1px 0px #fff, 2px 2px 0px #fff, 0px 7px 0 #faceda;
 }
