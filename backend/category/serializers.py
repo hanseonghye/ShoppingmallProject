@@ -4,8 +4,15 @@ from cart.models import Cart
 from product.models import Product
 from .models import Category
 
+class CategoryParentSerializer2(serializers.ModelSerializer):
+
+    class Meta:
+        model = Category
+        fields = ('pk', 'name', 'parent', 'priority')
+        ordering = ['priority', ]
 
 class CategorySerializer(serializers.ModelSerializer):
+    parent= CategoryParentSerializer2()
     class Meta:
         model = Category
         fields = ('pk', 'name', 'parent', 'priority')
@@ -13,6 +20,8 @@ class CategorySerializer(serializers.ModelSerializer):
 
     def create(self, request):
         category = Category.objects.create(**request)
+        if category.parent is not None :
+            category.priority = category.parent.priority
         category.save()
         return category
 

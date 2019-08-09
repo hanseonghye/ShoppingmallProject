@@ -5,6 +5,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import View, TemplateView
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 from frontend import default
 
@@ -86,13 +88,19 @@ class CartView(View):
     def get(self, request):
         default.set_base_data()
         data = default.base_data
-
+        data['carts'] = []
         if 'authuser' in request.session:
             category_response = requests.get(root_url+api_url+"carts/user/"+str(request.session['authuser']['pk']) )
             if category_response.status_code is not 200 :
-                data['carts']=[]
                 return render(request, 'user/cart.html', data)
 
             data['carts'] = category_response.json()['data']
+        else :
+            pass
 
         return render(request,'user/cart.html', data)
+
+@api_view(['GET'])
+def check_id(request,check_id):
+    response = requests.get(root_url+api_url+"users/check/id/"+check_id)
+    return Response(response.json())

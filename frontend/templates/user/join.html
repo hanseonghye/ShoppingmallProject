@@ -3,7 +3,7 @@
 
 {% load staticfiles %}
 {% block extrastyle %}
-    {% static "css/user/join.css" %}
+{% static "css/user/join.css" %}
 {% endblock %}
 {% block content %}
 
@@ -23,8 +23,11 @@
                                 <img src="{% static 'img/required.gif' %}">
                             </th>
                             <td>
-                                <input id="user_id" name="user_id">
+                                <input id="user_id" name="user_id" placeholder="5자리 이상">
                                 <span id="idMsg"></span>
+                            </td>
+                            <td>
+                                <input type="button" id="btn-id" value="아이디 체크" class="idcheck_button">
                             </td>
                         </tr>
                         <tr>
@@ -33,8 +36,10 @@
                                 <img src="{% static 'img/required.gif' %}">
                             </th>
                             <td>
-                                <input type="password" id="password" name="password">
+                                <input type="password" id="password" name="password" placeholder="10자리 이상"
+                                       autocomplete="new-password">
                             </td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th scope="row">
@@ -44,31 +49,35 @@
                             <td>
                                 <input type="password" id="password_fonfirm" name="password_fonfirm">
                             </td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th scope="row">
                                 이름
+                                <img src="{% static 'img/required.gif' %}">
                             </th>
                             <td>
                                 <input id="username" name="username">
                             </td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th scope="row">
                                 휴대전화
                             </th>
                             <td>
-                                <input id="phone" name="phone">
+                                <input id="phone" name="phone" placeholder="-없이 숫자만 입력해 주세요.">
                             </td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th scope="row">
                                 이메일
-                                <img src="{% static 'img/required.gif' %}">
                             </th>
                             <td>
                                 <input type="email" id="email" name="email">
                             </td>
+                            <td></td>
                         </tr>
 
                     </table>
@@ -82,4 +91,5 @@
 {% endblock content %}
 
 {% block extrascript %}
+{% static "script/user/join.js" %}
 {% endblock %}

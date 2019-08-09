@@ -23,10 +23,13 @@
             {% block sidebar %}
                 <ul class="sidebar-nav">
                     <li><a href="{% url 'super:home' %}">홈</a></li>
+                    <li><a href="{% url 'super:category-list' %}">카테고리 조회</a></li>
+                    <li><a href="{% url 'super:category-add' %}">카테고리 등록</a></li>
                     <li><a href="{% url 'super:product-list' %}">상품 조회</a></li>
                     <li><a href="{% url 'super:product-add' %}">상품 등록</a></li>
                     <li><a href="{% url 'super:member-list' %}">회원 조회</a></li>
                     <li><a href="">장바구니 목록</a></li>
+                    <li><a href="{% url 'home' %}">쇼핑몰로 가기</a></li>
                 </ul>
             {% endblock %}
         </div>

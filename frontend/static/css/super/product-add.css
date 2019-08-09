@@ -1,3 +1,16 @@
+label{
+    display: block;
+    text-align: left;
+    line-height: 150%;
+    font-size: .85em;
+}
+
+img.preview{
+    display:none;
+    float:center;
+    width:50px;
+    height:50px;
+}
 div.product-add{
     width:70%;
     min-width:800px;

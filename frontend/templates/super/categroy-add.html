@@ -1,0 +1,69 @@
+{% extends "super/base.html" %}
+{% block title %}member-list.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}
+{% static "css/super/product-add.css" %}
+{% endblock %}
+{% block extrafile %}
+<script type="text/javascript" src="{% static 'script/jquery.min.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<h1>category add</h1>
+<div class="box">
+    <form action="." method="post" enctype="multipart/form-data">{% csrf_token %}
+        <input id="csrf_token" type="hidden" value="{{ csrf_token }}"/>
+        <div class="product-add">
+            <fieldset>
+                <div class="form-inline form-group">
+                    <label class="label col-sm-2">
+                        카테고리 명
+                    </label>
+                    <div class="col-sm-10">
+                        {% if category is None %}
+                        <input name="name" class="form-control" type="text">
+                        {% else %}
+                        <input name="name" class="form-control" type="text" value="{{ category.name }}">
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-inline form-group">
+                    <label class="col-sm-2">
+                        상위 카테고리
+                    </label>
+                    <div class="col-sm-10">
+                        <select name="category">
+                            {% for categroy in categorys %}
+                            <option value="{{ category.pk }}">{{ categroy.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-inline form-group">
+
+                    <label class="col-sm-2">
+                        우선순위
+                    </label>
+                    <div class="col-sm-10">
+                        {% if category is None %}
+                        <input name="priority" class="form-control" type="text">
+                        {% else %}
+                        <input name="priority" class="form-control" type="text" value="{{ category.priority }}">
+                        {% endif %}
+                    </div>
+                </div>
+                <p>[부모 카테고리가 있을시, 부모카테고리의 우선순위를 따릅니다]</p>
+
+                <input id="submit" type="submit" value="등록"/>
+            </fieldset>
+        </div>
+
+    </form>
+</div>
+{% endblock %}
+
+{% block extrascript %}
+{% static "script/super/product-add.js" %}
+{% endblock %}

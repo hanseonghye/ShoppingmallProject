@@ -91,6 +91,14 @@ div.detailArea table tr td p{
     font-size:13px
 }
 
+div.detailArea table tr td p.description{
+    font-weight:normal;
+    font-family: 'Noto Sans KR',sans-serif;
+    font-size:13px;
+    width:180px;
+    word-wrap: break-word;
+}
+
 div.detailArea table tr td p.name{
     font-weight:bold;
     font-family: 'Noto Sans KR',sans-serif;
@@ -104,7 +112,7 @@ div.product-detail div#productDetail{
 div.product-detail div#productDetail p.file_url img{
     margin-top:100px;
     width: 850px;
-    height:2200px;
+    height:auto;
 }
 
 

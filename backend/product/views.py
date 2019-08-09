@@ -2,12 +2,12 @@ from category.serializers import ProductSimpleSerializer
 from myModule.myGenerics import *
 from .serializers import *
 
-class ProductLV(ListAPIView):
-    queryset = Product.objects.filter(is_display=True)
+class SuperProductLV(ListAPIView):
+    queryset = Product.objects.filter()
     serializer_class = ProductSimpleSerializer
 
 class ProductLV(ListAPIView):
-    queryset = Product.objects.all()
+    queryset = Product.objects.filter(is_display=True)
     serializer_class = ProductSimpleSerializer
 
 class ProductCV(CreateAPIView):

@@ -81,7 +81,7 @@ class AddProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = (
-            'name', 'price', 'is_stock', 'is_display', 'is_option', 'file_url', 'image_url', 'category',
+            'name', 'price', 'is_stock', 'is_display', 'is_option', 'file_url', 'image_url', 'category','description',
             'product_options')
 
         extra_kwargs = {
@@ -89,7 +89,6 @@ class AddProductSerializer(serializers.ModelSerializer):
         }
 
     def create(self, request):
-        print(request)
         options = request.pop('product_options')
 
         product = Product.objects.create(**request)
@@ -108,7 +107,7 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = (
-            'name', 'price', 'is_stock', 'is_display', 'is_option', 'file_url', 'image_url', 'category',
+            'name', 'price', 'is_stock', 'is_display', 'is_option', 'file_url', 'image_url', 'category','description',
             'product_details', 'product_options')
 
         extra_kwargs = {
@@ -116,5 +115,4 @@ class ProductSerializer(serializers.ModelSerializer):
 
     def create(self, request):
         product = Product.objects.create(**request)
-        product.save()
         return product

@@ -29,11 +29,25 @@ div#content div.user-box div.titleArea h2 {
     letter-spacing: 1px;
 }
 
+.idcheck_button{
+    background: none;
+    display: inline-block;
+    padding: 2px 10px 2px 10px;
+    border: 2px solid black;
+    font-family: 'Noto Sans KR',sans-serif;
+    font-weight: 600;
+    font-size:0.75em;
+    text-align: center;
+    color: #000;
+}
+
 .join_button{
+
+    display: inline-block;
+    display:none;
     background: none;
     margin: 10px;
     overflow: hidden;
-    display: inline-block;
     padding: 10px 20px 10px;
     margin-left:90%;
     border: 2px solid black;
@@ -103,8 +117,8 @@ div.user-box div.join-table table tr td {
     font-size: 0.75em;
 }
 
-div.user-box div.join-table table tr td input{
-width:80%;
+div.user-box div.join-table table tr td input:not([type="button"]){
+    width:80%;
     height: 18px;
     line-height: 20px;
     padding: 2px 4px;

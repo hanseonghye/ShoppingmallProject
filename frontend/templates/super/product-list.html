@@ -3,7 +3,7 @@
 
 {% load staticfiles %}
 {% block extrastyle %}
-    {% static "css/super/table.css" %}
+{% static "css/super/table.css" %}
 {% endblock %}
 
 {% block content %}
@@ -11,20 +11,26 @@
 <table class="table">
     <tr>
         <th>No.</th>
-        <th> </th>
+        <th></th>
         <th>상품 명</th>
         <th>가격</th>
         <th>카테고리</th>
+        <th> </th>
     </tr>
     {% load custom_tags %}
     {% for product in products|sort_by:'pk' %}
-        <tr>
-            <td>{{ product.pk }}</td>
-            <td><img src="{{ product.image_url }}"></td>
-            <td><a href="{% url 'product:detail' product.pk %}">{{ product.name }}</a></td>
-            <td>{{ product.price }}</td>
-            <td>{{ product.category.name }}</td>
-        </tr>
+    <tr>
+        <td>{{ product.pk }}</td>
+
+        <td>
+            <img src="../..{{product.image_url}}"></img>
+        </td>
+        <td><a href="{% url 'product:detail' product.pk %}">{{ product.name }}</a></td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.category.name }}</td>
+<!--        <td><a href="{% url 'super:product-update' product.pk %}">수정</a></td>-->
+        <td><a href="{% url 'super:product-delete' product.pk %}">삭제</a></td>
+    </tr>
     {% endfor %}
 </table>
 {% endblock %}

@@ -88,7 +88,7 @@ div.box div.line{
     width: 82%;
     min-height: auto;
     margin: 0 20px 20px;
-    padding: 15px 15px 15px;
+    padding: 5px 5px 5px;
     background: #fff;
     transition: ease-out 0.3s;
     border: 3px solid #fff;
@@ -97,6 +97,7 @@ div.box div.line{
 
 div.box div.line img{
     width:100%;
+    height:100%;
 }
 
 div.box div.line p{

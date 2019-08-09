@@ -5,7 +5,7 @@ from .views import *
 app_name = 'super-product'
 
 urlpatterns = [
-    path('', ProductLV.as_view(), name='list'),
+    path('', SuperProductLV.as_view(), name='list'),
     path('add/', ProductCV.as_view(), name='add'),
     path('<int:pk>/', ProductDV.as_view(), name='detail'),
 

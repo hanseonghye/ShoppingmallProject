@@ -1,0 +1,31 @@
+{% extends "super/base.html" %}
+{% block title %}member-list.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}
+{% static "css/super/table.css" %}
+{% endblock %}
+
+{% block content %}
+<h1>category list</h1>
+<table class="table">
+    <tr>
+        <th>이름</th>
+        <th>상위 카테고리</th>
+        <th>우선순위</th>
+        <th></th>
+    </tr>
+    {% load custom_tags %}
+    {% for category in categorys|sort_by:'priority' %}
+    <tr>
+        <td>{{ category.name }}</td>
+        {% if category.parent is None %}
+            <td></td>
+        {% else %}
+            <td>{{ category.parent.name }}</td>
+        {% endif %}
+        <td>{{ category.priority }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

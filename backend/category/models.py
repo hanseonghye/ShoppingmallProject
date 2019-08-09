@@ -11,4 +11,4 @@ class Category(models.Model):
         db_table = "category_category"
 
     def __str__(self):
-        return f'Category : {self.name}'
+        return f'Category : {self.name}, {self.priority}'

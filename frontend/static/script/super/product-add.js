@@ -120,4 +120,22 @@ window.onload = function(){
 //
 //    });
 
+    function readURL(input, preview_id) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          $(preview_id).attr('src', e.target.result);
+        }
+        document.getElementsByClassName("preview")[0].style.display="block"
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#img_main").change(function() {
+      readURL(this,'#'+'preview_main');
+    });
+
+
 }

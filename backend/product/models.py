@@ -15,8 +15,9 @@ class Product(models.Model):
     create_date = models.DateTimeField('Create Date', auto_now_add=True)
     modify_date = models.DateTimeField('Modify_Date', auto_now=True)
 
-    file_url = models.TextField()
-    image_url = models.TextField()
+    file_url = models.CharField(max_length=100)
+    image_url = models.CharField(max_length=100)
+    description = models.TextField()
 
     class Meta:
         db_table = "product_product"

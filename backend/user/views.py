@@ -60,9 +60,9 @@ def id_validator(user_id):
 
 @api_view(['GET'])
 def check_id(request, user_id=''):
-    if not id_validator(user_id):
+    if len(user_id) < 5:
         return Response({"result": "fail", "message": "id양식을 맞춰주세요", "data": None}, status=status.HTTP_400_BAD_REQUEST)
-    if not User.objects.filter(user_id=user_id).exists():
+    if  User.objects.filter(user_id=user_id).exists():
         return Response({"result": "fail", "message": "이미 사용하고 있는 id입니다.", "data": None},
                         status=status.HTTP_400_BAD_REQUEST)
     return Response({"result": "success", "message": None, "data": "ok"}, status=status.HTTP_200_OK)
