@@ -10,4 +10,5 @@ urlpatterns=[
     path('join/', JoinView.as_view(), name='join'),
     path('checkid/<check_id>/', check_id, name='check_id'),
     path('cart/', CartView.as_view(), name='cart'),
+    path('order/', order, name='order'),
 ]

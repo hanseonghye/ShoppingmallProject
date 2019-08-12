@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic.base import View
 import frontend.default as default
+from product.forms import OrderForm
 
 root_url = default.root_url
 api_url = default.api_url
@@ -25,7 +26,8 @@ class ProductDV(View):
     def post(self, request, pk):
 
         if 'buy-btn' in request.POST:
-            pass
+            if 'authuser' in request.session:
+                return HttpResponseRedirect(reverse("user:order"))
 
         if 'cart-btn' in request.POST:
             if 'authuser' in request.session:

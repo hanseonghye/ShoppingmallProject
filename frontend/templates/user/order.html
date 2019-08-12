@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}login.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}
+{% static "css/user/cart.css" %}
+{% endblock %}
+{% block content %}
+
+<div id="content">
+
+    <div class="user-box">
+
+        <div class="user-box1">
+            <div class="titleArea">
+                <h2>ORDER</h2>
+            </div>
+            <hr class="black-hr"/>
+            <div class="cart-list">
+                <form action="." method="post">{% csrf_token %}
+                    <table>
+                        <tr>
+                            <th><label for="id_user">User:</label></th>
+                            <td><input type="number" name="user" required id="id_user"></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <th><label for="id_receiver_name">받는사람:</label></th>
+                            <td><input type="text" name="receiver_name" required id="id_receiver_name"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="id_receiver_phone_number">받는사람 전화번호:</label></th>
+                            <td><input type="text" name="receiver_phone_number" maxlength="50" required
+                                       id="id_receiver_phone_number"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="id_receiver_address">받는사람 주소:</label></th>
+                            <td><input type="text" name="receiver_address" maxlength="250" required
+                                       id="id_receiver_address"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="id_delivery_message">배송 메시지:</label></th>
+                            <td><input type="text" name="delivery_message" required id="id_delivery_message"></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <th><label for="id_pay_type">결제방법:</label></th>
+                            <td><select name="pay_type" id="id_pay_type">
+                                <option value="0">무통장입금</option>
+                                <option value="1">휴대폰소액결제</option>
+                                <option value="2">실시간계좌이체</option>
+                                <option value="3">신용카드결제</option>
+                                <option value="4">카카오페이</option>
+                            </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="submit">
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content %}
+
+{% block extrascript %}
+{% endblock %}

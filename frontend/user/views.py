@@ -4,11 +4,12 @@ import requests
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-from django.views.generic import View, TemplateView
+from django.views.generic import View, TemplateView, CreateView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from frontend import default
+from product.forms import OrderForm
 
 root_url= default.root_url
 api_url = default.api_url
@@ -99,6 +100,21 @@ class CartView(View):
             pass
 
         return render(request,'user/cart.html', data)
+
+
+def order(request):
+    if request.method == 'GET':
+        default.set_base_data()
+        data = default.base_data
+        data['carts'] = []
+        form = OrderForm()
+        print(form)
+    else :
+        pass
+
+    return render(request,'user/order.html',data,{'form':form})
+
+
 
 @api_view(['GET'])
 def check_id(request,check_id):

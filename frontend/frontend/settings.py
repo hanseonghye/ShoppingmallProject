@@ -9,12 +9,10 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-
+import json
 import os
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -26,7 +24,6 @@ SECRET_KEY = 'g(23h=2t)k_c!u&f-a19e8g*4_*-80e89u_bpw@-j^$uuoq#$c'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -41,9 +38,18 @@ INSTALLED_APPS = [
     'frontend',
     'frontend.templatetags',
 
-
     'product.apps.ProductConfig',
-    'super.apps.SuperConfig',
+    'super.apps.SuperConfig'
+]
+
+INSTALLED_APPS += [
+    # The following apps are required:
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'customprovider'
 ]
 
 MIDDLEWARE = [
@@ -77,19 +83,19 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'frontend.wsgi.application'
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
+WSGI_APPLICATION = 'frontend.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
+KEY_PATH = os.path.join(BASE_DIR + '/key.json')
+DATABASES = json.loads(open(KEY_PATH).read())
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -109,8 +115,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -124,7 +128,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
@@ -134,3 +137,9 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_REDIRECT_URL = "/user/login"
+ACCOUNT_LOGOUT_REDIRECT_URL = "/user/logout"
+
+OAUTH_SERVER_BASEURL = 'http://127.0.0.1:8000'
+SITE_ID=1

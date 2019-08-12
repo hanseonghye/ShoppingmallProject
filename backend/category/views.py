@@ -24,6 +24,8 @@ class TopCategoryLV(ListAPIView):
 class CategoryFriendLV(ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategoryParentSerializer
+    lookup_url_kwarg = 'pk'
+    lookup_field = 'pk'
 
     def get_queryset(self):
         category = self.queryset.filter(pk=self.kwargs['pk'])

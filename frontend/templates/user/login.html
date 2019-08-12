@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load socialaccount %}
 {% block title %}login.html{% endblock %}
 
 {% load staticfiles %}
@@ -32,6 +33,7 @@
 
                         <input type="submit" value="로그인" class="login_button"/>
                         <input type="submit" value="회원가입" class="login_button"/>
+                        <a class="login_button" href="{% provider_login_url 'customprovider' %}">Sign Up</a>
                         <hr>
                     </fieldset>
                 </div>

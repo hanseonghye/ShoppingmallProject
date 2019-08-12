@@ -1,4 +1,5 @@
 from django.contrib import auth
+from oauth2_provider.decorators import protected_resource
 from rest_framework import generics, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -16,7 +17,6 @@ class UserCV(CreateAPIView):
     serializer_class = UserSerializer
 
 
-# ProtectedResourceView
 class UserDV(RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer

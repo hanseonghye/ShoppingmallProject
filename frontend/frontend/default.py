@@ -1,6 +1,6 @@
 import requests
 
-root_url = "http://127.0.0.1:8001/"
+root_url = "http://127.0.0.1:8000/"
 api_url = "api/v1/"
 headers = {"Content-Type": "application/x-www-form-urlencoded;  charset=utf-8"}
 

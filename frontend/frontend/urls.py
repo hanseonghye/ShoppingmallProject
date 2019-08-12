@@ -22,8 +22,10 @@ from .views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('super/', include('super.urls'), name='super'),
     path('',HomeView.as_view(), name='home'),
+    path('accounts/', include('allauth.urls')),
+    path('accounts/profile/', ProfileView.as_view()),
+    path('super/', include('super.urls'), name='super'),
 
     path('user/',include('user.urls'), name='user'),
     path('category/<pk>/',CategoryView.as_view(), name='category'),
