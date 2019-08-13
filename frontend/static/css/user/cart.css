@@ -1,6 +1,39 @@
 hr.black-hr{
     border: solid 1px #000;
 }
+hr.gray-hr{
+    border: solid 1px #A6A6A6;
+}
+
+.buy_button{
+    background: none;
+    float:right;
+    margin: 15px 3px 15px;
+    overflow: hidden;
+    display: inline-block;
+    padding: 10px 20px 10px;
+    border: 2px solid black;
+    font-family: 'Noto Sans KR',sans-serif;
+    font-weight: 600;
+    font-size:0.75em;
+    text-align: center;
+    color: #000;
+}
+
+.buy_button2{
+    background: none;
+    float:right;
+    margin: 15px 3px 25px;
+    overflow: hidden;
+    display: inline-block;
+    padding: 10px 20px 10px;
+    border: 2px solid black;
+    font-family: 'Noto Sans KR',sans-serif;
+    font-weight: 600;
+    font-size:0.75em;
+    text-align: center;
+    color: #000;
+}
 
 div#content div.user-box {
     min-width: 1000px;
@@ -14,6 +47,10 @@ div#content div.user-box {
     font-family: "Noto Sans KR",Dotum;
     color: #000;
     font-size: 0.75em;
+}
+
+div.order-box{
+    padding-bottom:20px;
 }
 
 div#content div.user-box div.titleArea {
@@ -73,6 +110,17 @@ div.cart-list table{
     color: #000;
     line-height: 1.5;
 }
+
+table .img{
+    width:200px;
+}
+table .name{
+    width:150px;
+}
+table .etc{
+    width:100px;
+}
+
 
 div.cart-list table thead{
     display: table-header-group;

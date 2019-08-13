@@ -1,6 +1,6 @@
 from myModule.myGenerics import *
 from order.models import Order
-from order.serializers import OrderSerializer, OrdersSerializer
+from order.serializers import OrderSerializer, OrdersSerializer, OrderListSerializer
 
 
 class OrderLV(ListAPIView):
@@ -24,9 +24,9 @@ class OrderManyCV(CreateAPIView):
     serializer_class = OrdersSerializer
 
 
-class UserOrderLV(ListCreateAPIView):
+class UserOrderLV(ListAPIView):
     queryset = Order.objects.all()
-    serializer_class = OrderSerializer
+    serializer_class = OrderListSerializer
 
     def get_queryset(self):
         if getattr(self, 'swagger_fake_view', False):

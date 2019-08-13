@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block title %}login.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}
+{% static "css/user/cart.css" %}
+{% endblock %}
+{% block content %}
+
+<div id="content">
+
+    <div class="user-box order-box">
+
+        <div class="user-box1">
+            <div class="titleArea">
+                <h2>ORDER</h2>
+            </div>
+            <hr class="black-hr"/>
+            <div class="cart-list">
+                <form action="{% url 'product:order' %}" method="post">{% csrf_token %}
+                    <table>
+                        <tr>
+                            <th><label for="id_sender_name">주문자 이름:</label></th>
+                            <td><input type="text" name="sender_name" required id="id_sender_name"
+                                       value="{{ request.session.authuser.username  }}"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="id_receiver_phone_number">주문자 전화번호:</label></th>
+                            <td><input type="text" name="sender_phone_number" maxlength="50" required
+                                       id="id_sender_phone_number" value="{{ request.session.authuser.phone_number  }}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="id_receiver_phone_number">주문자 이메일:</label></th>
+                            <td><input type="text" name="sender_email" maxlength="50" required
+                                       id="id_sender_email" value="{{ request.session.authuser.email  }}"></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <th><label for="id_receiver_name">받는사람:</label></th>
+                            <td><input type="text" name="receiver_name" required id="id_receiver_name"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="id_receiver_phone_number">받는사람 전화번호:</label></th>
+                            <td><input type="text" name="receiver_phone_number" maxlength="50" required
+                                       id="id_receiver_phone_number"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="id_receiver_address">받는사람 주소:</label></th>
+                            <td><input type="text" name="receiver_address" maxlength="250" required
+                                       id="id_receiver_address"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="id_delivery_message">배송 메시지:</label></th>
+                            <td><input type="text" name="delivery_message" required id="id_delivery_message"></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <th><label for="id_pay_type">결제방법:</label></th>
+                            <td><select name="pay_type" id="id_pay_type">
+                                <option value="0">무통장입금</option>
+                                <option value="1">휴대폰소액결제</option>
+                                <option value="2">실시간계좌이체</option>
+                                <option value="3">신용카드결제</option>
+                                <option value="4">카카오페이</option>
+                            </select>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>상품명</th>
+                            <th>가격</th>
+                            <th>수량</th>
+                            <th>총가격</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% load custom_tags %}
+                        {% for product in order_products %}
+                        <input type="hidden" name="pk" value="{{ product.product.pk }}"/>
+                        <input type="hidden" name="amount" value="{{ product.amount }}"/>
+                        <tr>
+                            <th>{{ product.product.name}}</th>
+                            <th>{{ product.product.price}}</th>
+                            <th>{{ product.amount}}</th>
+                            <th>{{ product.all_price}}</th>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <input type="submit" value="구매" class="buy_button">
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content %}
+
+{% block extrascript %}
+{% endblock %}

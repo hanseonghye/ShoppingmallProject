@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     'frontend',
     'frontend.templatetags',
@@ -42,15 +43,6 @@ INSTALLED_APPS = [
     'super.apps.SuperConfig'
 ]
 
-INSTALLED_APPS += [
-    # The following apps are required:
-    'django.contrib.sites',
-
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'customprovider'
-]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -82,13 +74,6 @@ TEMPLATES = [
         },
     },
 ]
-
-AUTHENTICATION_BACKENDS = (
-    # Needed to login by username in Django admin, regardless of `allauth`
-    'django.contrib.auth.backends.ModelBackend',
-    # `allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
-)
 
 WSGI_APPLICATION = 'frontend.wsgi.application'
 
@@ -141,5 +126,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_REDIRECT_URL = "/user/login"
 ACCOUNT_LOGOUT_REDIRECT_URL = "/user/logout"
 
-OAUTH_SERVER_BASEURL = 'http://127.0.0.1:8000'
-SITE_ID=1

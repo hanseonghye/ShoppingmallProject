@@ -6,7 +6,7 @@ from .provider import CustomProvider
 
 class CustomAdapter(OAuth2Adapter):
     provider_id = CustomProvider.id
-
+    # access_token_url = '{}/oauth2/applications/register/'.format(settings.OAUTH_SERVER_BASEURL)
     access_token_url = '{}/oauth2/token/'.format(settings.OAUTH_SERVER_BASEURL)
     authorize_url = '{}/oauth2/authorize/'.format(settings.OAUTH_SERVER_BASEURL)
     # profile_url = '{}/api/v1/users/login/'.format(settings.OAUTH_SERVER_BASEURL)

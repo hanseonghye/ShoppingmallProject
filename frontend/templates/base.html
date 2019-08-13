@@ -43,7 +43,7 @@
                         <li><a href="{% url 'user:logout' %}">logout</a></li>
                     {% endif %}
                     <li><a href="{% url 'user:cart'  %}">cart</a></li>
-                    <li><a href="">order</a></li>
+                    <li><a href="{% url 'user:order'  %}">order</a></li>
 
                 </ul>
             </div>
@@ -59,13 +59,16 @@
                 <h1 class="logo_text"><a href="{% url 'home' %}">{{ shop_name }}</a></h1>
                 <div class="nav tabs">
                     {% load custom_tags %}
-                    {% for category in categorys|sort_by:'priority' %}
-                    {% if category.parent == None %}
-                    <div class="nav-item">
-                        <a class="nav-link" href="{% url 'category' category.pk %}">{{ category.name }}</a>
-                    </div>
+                    {% if categorys is None %}
+                    {% else %}
+                        {% for category in categorys|sort_by:'priority' %}
+                            {% if category.parent == None %}
+                                <div class="nav-item">
+                                    <a class="nav-link" href="{% url 'category' category.pk %}">{{ category.name }}</a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
                     {% endif %}
-                    {% endfor %}
                 </div>
             </div>
         </div>

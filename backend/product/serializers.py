@@ -107,10 +107,11 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = (
-            'name', 'price', 'is_stock', 'is_display', 'is_option', 'file_url', 'image_url', 'category','description',
+            'pk','name', 'price', 'is_stock', 'is_display', 'is_option', 'file_url', 'image_url', 'category','description',
             'product_details', 'product_options')
 
         extra_kwargs = {
+            'pk': {'read_only': False}
         }
 
     def create(self, request):

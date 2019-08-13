@@ -26,6 +26,7 @@ class Order(models.Model):
     price = models.SmallIntegerField(default=0)
     date = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=2, choices=ORDER_TYPE)
+    date = models.DateTimeField(auto_now_add=True)
 
     user = models.ForeignKey(User, null=True, db_column='user_id', on_delete=models.CASCADE)
     non_user = models.CharField(max_length=30,null=True)
@@ -53,7 +54,7 @@ class OrderProduct(models.Model):
                                        on_delete=models.CASCADE)
     product = models.ForeignKey(Product, null=False, db_column='product_id', on_delete=models.CASCADE)
     amount = models.SmallIntegerField()
-    price = models.SmallIntegerField()
+    price = models.SmallIntegerField(null=True)
     all_price = models.SmallIntegerField(null=True)
 
     class Meta:

@@ -9,16 +9,16 @@
 
 <div id="content">
 
-    <div class="user-box">
-
+    <div class="user-box order-box">
         <div class="user-box1">
-            <div class="titleArea">
-                <h2>CART</h2>
-            </div>
-            <hr class="black-hr"/>
-            <div class="cart-list">
-                <table border="1">
-                    <thead>
+            <form action="."  method="post">{% csrf_token %}
+                <div class="titleArea">
+                    <h2>CART</h2>
+                </div>
+                <hr class="black-hr"/>
+                <div class="cart-list">
+                    <table border="1">
+                        <thead>
                         <tr>
                             <th scope="col">선택</th>
                             <th scope="col">이미지</th>
@@ -26,21 +26,26 @@
                             <th scope="col">가격</th>
                             <th scope="col">수량</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                            {% load custom_tags %}
-                            {% for cart in carts|unsort_by:'pk' %}
-                            <tr>
-                                <th><input type="checkbox"/></th>
-                                <td><img style="width:100px; height:auto;" src="{{ cart.product.image_url }}"></td>
-                                <td>{{ cart.product.name }}</td>
-                                <td>{{ cart.product.price }}</td>
-                                <td>{{ cart.amount }}</td>
-                            </tr>
-                            {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody>
+                        {% load custom_tags %}
+                        {% for cart in carts|unsort_by:'pk' %}
+                        <tr>
+                            <th><input type="checkbox" name="checks" value="{{ cart.product.pk }}"/></th>
+                            <td><img style="width:100px; height:auto;" src="{{ cart.product.image_url }}"></td>
+                            <td>{{ cart.product.name }}</td>
+                            <input type="hidden" name="pk" value="{{ cart.product.pk }}">
+                            <td>{{ cart.product.price }}</td>
+                            <input type="hidden" name="price" value="{{ cart.product.price }}">
+                            <td>{{ cart.amount }}</td>
+                            <input type="hidden" name="amount"  value="{{ cart.amount }}">
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <input type="submit" value="구매" class="buy_button2">
+            </form>
         </div>
     </div>
 </div>
