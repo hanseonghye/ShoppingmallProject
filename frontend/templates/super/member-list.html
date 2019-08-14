@@ -3,21 +3,26 @@
 
 {% load staticfiles %}
 {% block extrastyle %}
-    {% static "css/super/table.css" %}
+{% static "css/super/table.css" %}
 {% endblock %}
 
 {% block content %}
-<h1>member list</h1>
-<table class="table">
-    <tr>
-        <th>No.</th>
-        <th>회원 이름</th>
-        <th>ID</th>
-        <th>Email</th>
-        <th>Phone</th>
-    </tr>
-    {% load custom_tags %}
-    {% for member in members|sort_by:'pk' %}
+<div id="content">
+    <br/>
+    <div class="titleArea">
+        <h2>member list</h2>
+    </div>
+    <br/>
+    <table class="table">
+        <tr>
+            <th>No.</th>
+            <th>회원 이름</th>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+        {% load custom_tags %}
+        {% for member in members|sort_by:'pk' %}
         <tr>
             <td>{{ member.pk }}</td>
             <td>{{ member.username }}</td>
@@ -25,6 +30,7 @@
             <td>{{ member.email }}</td>
             <td>{{ member.phone_number }}</td>
         </tr>
-    {% endfor %}
-</table>
+        {% endfor %}
+    </table>
+</div>
 {% endblock %}

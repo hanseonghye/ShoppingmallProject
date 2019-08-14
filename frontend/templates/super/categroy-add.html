@@ -10,7 +10,12 @@
 {% endblock %}
 
 {% block content %}
-<h1>category add</h1>
+<div id="content">
+    <br/>
+    <div class="titleArea">
+        <h2>category add</h2>
+    </div>
+    <br/>
 <div class="box">
     <form action="." method="post" enctype="multipart/form-data">{% csrf_token %}
         <input id="csrf_token" type="hidden" value="{{ csrf_token }}"/>
@@ -62,8 +67,8 @@
 
     </form>
 </div>
+</div>
 {% endblock %}
 
 {% block extrascript %}
-{% static "script/super/product-add.js" %}
 {% endblock %}

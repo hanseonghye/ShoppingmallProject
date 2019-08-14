@@ -31,7 +31,7 @@
                 {% load custom_tags %}
                 {% for order in orders|unsort_by:'pk' %}
                 <table class="order">
-                    <p> {{ order.date  }}</p>
+                    <a href="{% url 'product:order_detail' order.pk %}"> {{ order.date  }}</a>
                     {% for product in order.order_products %}
                     <tr>
                         <td class="img"><img style="width:100px; height:auto;" src="{{ product.product.image_url }}">

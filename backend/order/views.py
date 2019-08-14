@@ -15,7 +15,7 @@ class UserOrderUV(RetrieveUpdateAPIView):
 
 class UserOrderRV(RetrieveAPIView):
     queryset = Order.objects.all()
-    serializer_class = OrderSerializer
+    serializer_class = OrderListSerializer
     lookup_field = 'pk'
     lookup_url_kwarg = 'orderpk'
 

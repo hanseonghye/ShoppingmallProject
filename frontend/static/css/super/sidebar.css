@@ -4,30 +4,36 @@
     list-style:none;
 }
 div.home{
-    width:500px;
+    text-align:center;
+    margin-top:30px;
+    margin-right:500px;
 }
 h1.logo_text a{
     color: inherit; /* blue colors for links too */
     text-decoration: inherit; /* no underline */
     align:center;
 }
-h1.logo_text{
-    width: auto;
-    height: 120px;
+
+div.home p{
+    font-weight:bold;
+}
+
+div.home img{
+    width:300px;
+    height:auto;
+}
+
+div.home input[type="button"]{
+        float:right;
+    display: inline-block;
+    background: none;
+    margin: 100px;
+    overflow: hidden;
+    padding: 10px 20px 10px;
+    border: 2px solid black;
+    font-family: 'Noto Sans KR',sans-serif;
+    font-weight: 600;
+    font-size:0.75em;
     text-align: center;
-    margin: 0 auto;
-    font-family: 'Anton',sans-serif;
-    font-weight: 400;
-    font-size: 50px;
-    margin-top: 0px;
-    z-index: 9;
-    padding: 55px 0px 0;
-    width: auto;
-    display: block;
-    text-align: center;
-    line-height: 35px;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    color: #fba6b2;
-    text-shadow: -1px -1px 0px #fff, 2px 2px 0px #fff, 0px 7px 0 #faceda;
+    color: #000;
 }

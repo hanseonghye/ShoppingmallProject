@@ -7,30 +7,36 @@
 {% endblock %}
 
 {% block content %}
-<h1>product list</h1>
-<table class="table">
-    <tr>
-        <th>No.</th>
-        <th></th>
-        <th>상품 명</th>
-        <th>가격</th>
-        <th>카테고리</th>
-        <th> </th>
-    </tr>
-    {% load custom_tags %}
-    {% for product in products|sort_by:'pk' %}
-    <tr>
-        <td>{{ product.pk }}</td>
+<div class="content">
+    <br/>
+    <div class="titleArea">
+        <h2>product list</h2>
+    </div>
+    <br/>
+    <table class="table">
+        <tr>
+            <th>No.</th>
+            <th></th>
+            <th>상품 명</th>
+            <th>가격</th>
+            <th>카테고리</th>
+            <th></th>
+        </tr>
+        {% load custom_tags %}
+        {% for product in products|sort_by:'pk' %}
+        <tr>
+            <td>{{ product.pk }}</td>
 
-        <td>
-            <img src="../..{{product.image_url}}"></img>
-        </td>
-        <td><a href="{% url 'product:detail' product.pk %}">{{ product.name }}</a></td>
-        <td>{{ product.price }}</td>
-        <td>{{ product.category.name }}</td>
-<!--        <td><a href="{% url 'super:product-update' product.pk %}">수정</a></td>-->
-        <td><a href="{% url 'super:product-delete' product.pk %}">삭제</a></td>
-    </tr>
-    {% endfor %}
-</table>
+            <td>
+                <img src="../..{{product.image_url}}"></img>
+            </td>
+            <td><a href="{% url 'product:detail' product.pk %}">{{ product.name }}</a></td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.category.name }}</td>
+            <!--        <td><a href="{% url 'super:product-update' product.pk %}">수정</a></td>-->
+            <td><a href="{% url 'super:product-delete' product.pk %}">삭제</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 {% endblock %}

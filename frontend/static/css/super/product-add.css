@@ -78,6 +78,30 @@ div.option-border{
 }
 
 input[type='submit']{
-    margin:5px;
     float:right;
+    display: inline-block;
+    background: none;
+    margin: 100px;
+    overflow: hidden;
+    padding: 10px 20px 10px;
+    border: 2px solid black;
+    font-family: 'Noto Sans KR',sans-serif;
+    font-weight: 600;
+    font-size:0.75em;
+    text-align: center;
+    color: #000;
+}
+
+
+div.titleArea h2 {
+    display: inline-block;
+    margin: 0px;
+    color: #000;
+    *zoom: 1;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    border: 3px solid #000;
+    padding: 3px;
+    letter-spacing: 1px;
 }

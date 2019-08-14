@@ -1,7 +1,10 @@
 {% extends "super/base.html" %}
-
+{% load staticfiles %}
 {% block content %}
 <div class="home">
-<h1 class="logo_text"><a href="{% url 'super:home' %}">Awsome-Shop-Admin</a></h1>
+    <p>admin 페이지 입니다</p>
+    <img src="{% static 'img/admin.png' %}"/>
+    <input type="button" value="쇼핑몰로 가기"/>
+    <input type="button" value="로그아웃"/>
 </div>
 {% endblock %}

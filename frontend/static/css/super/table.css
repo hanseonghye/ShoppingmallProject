@@ -1,3 +1,5 @@
+@import "product-add.css";
+
 table.table{
     width:1200px;
 }
@@ -7,7 +9,7 @@ table.table tr th{
     font-weight: bold;
     vertical-align: top;
     color: #fff;
-    background: #3CA2E0;
+    background: #FFC0C0;
     margin: 20px 10px;
 
 }

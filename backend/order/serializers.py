@@ -82,7 +82,7 @@ class OrderUserSerializer(serializers.ModelSerializer):
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    order_products = OrderProductSerializer(many=True, read_only=True)
+    order_products = OrderProductDetailSerializer(many=True, read_only=True)
     status = serializers.CharField(read_only=True)
 
     class Meta:

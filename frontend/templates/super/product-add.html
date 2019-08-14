@@ -10,141 +10,148 @@
 {% endblock %}
 
 {% block content %}
-<h1>product add</h1>
-<div class="box">
-    <form action="." method="post" enctype="multipart/form-data">{% csrf_token %}
-        <input id="csrf_token" type="hidden" value="{{ csrf_token }}"/>
-        <div class="product-add">
-            <fieldset>
-                <div class="form-inline form-group">
-                    <label class="label col-sm-2">
-                        상품 명
-                    </label>
-                    <div class="col-sm-10">
-                        {% if product is None %}
-                        <input name="name" class="form-control" type="text">
-                        {% else %}
-                        <input name="name" class="form-control" type="text" value="{{ product.name }}">
-                        {% endif %}
-                    </div>
-                </div>
 
-                <div class="form-inline form-group">
-                    <label class="col-sm-2">
-                        가격
-                    </label>
-                    <div class="col-sm-10">
-                        {% if product is None %}
-                        <input name="price" class="form-control" type="text">
-                        {% else %}
-                        <input  name="price" class="form-control" type="text" value="{{ product.price }}">
-                        {% endif %}
-                    </div>
-                </div>
-                <div class="form-inline form-group">
-                    <label class="col-sm-2">
-                        설명
-                    </label>
-                    <div class="col-sm-10">
-                        {% if product is None %}
-                        <textarea name="description" class="form-control rounded-0"></textarea>
-                        {% else %}
-                            <textarea  name="description" class="form-control rounded-0" value="{{ product.description }}"></textarea>
-                        {% endif %}
-                    </div>
-                </div>
-                <div class="form-inline form-group">
-                    <label class="col-sm-2">
-                        대표 이미지 파일
-                    </label>
-                    <div class="col-sm-5">
-                        {% if product is None %}
-                        <input  name="img_main" class="form-control" type="file">
-                        {% else %}
-                        <input  name="img_main" class="form-control" type="file" value="{{ product.image_url }}">
-                        {% endif %}
-                    </div>
-                    <div class="col-sm-5">
-                        <img class="preview" id="preview_main" src="#"/>
-                    </div>
-                </div>
-
-                <div class="form-inline form-group">
-                    <label class="col-sm-2">
-                        상세 설명 파일
-                    </label>
-                    <div class="col-sm-10">
-                        {% if product is None %}
-                        <input  name="img_content" class="form-control" type="file">
-                        {% else %}
-                        <input  name="img_content" class="form-control" type="file" value="{{ product.file_url }}">
-                        {% endif %}
-
-                    </div>
-                </div>
-
-                <div class="form-inline form-group">
-                    <label class="col-sm-2">
-                        카테고리
-                    </label>
-                    <div class="col-sm-10">
-                        <select class="form-control" name="category" id="category">
-                            {% load custom_tags %}
-                            {% for category in categorys|sort_by:'pk' %}
-                            <option value="{{ category.pk }}">{{ category.name }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-inline form-group horizontal-checkbox">
-                    <label class="col-sm-2 control-label">
-                        재고 유무
-                    </label>
-                    <div class="col-sm-10">
-                        <input type="checkbox" id="is_stock" name="is_stock">
-                    </div>
-                </div>
-
-                <div class="form-inline form-group horizontal-checkbox">
-                    <label class="col-sm-2 control-label">
-                        메인 전시
-                    </label>
-                    <div class="col-sm-10">
-                        <input type="checkbox" id="is_display" name="is_display">
-                    </div>
-                </div>
-
-                <div class="form-inline form-group horizontal-checkbox">
-                    <label class="col-sm-2 control-label">
-                        옵션 유무
-                    </label>
-                    <div class="col-sm-10">
-                        <input type="checkbox" id="is_option" name="is_option" class="checkboxChange">
-                    </div>
-                </div>
-
-                <div class="options">
-                    <div class="plus-icon">
-                        <img id="plus1" src="{% static 'img/plus.png' %}"/>
-                    </div>
-                    <div class="option-border">
-                        <div class="option">
-                            <input type="text" name="option-name" id="option-name" placeholder="옵션 명"/>
-                            <ul>
-                                <li class="plus2-li">+</li>
-                            </ul>
+<div id="content">
+    <br/>
+    <div class="titleArea">
+        <h2>product add</h2>
+    </div>
+    <br/>
+    <div class="box">
+        <form action="." method="post" enctype="multipart/form-data">{% csrf_token %}
+            <input id="csrf_token" type="hidden" value="{{ csrf_token }}"/>
+            <div class="product-add">
+                <fieldset>
+                    <div class="form-inline form-group">
+                        <label class="label col-sm-2">
+                            상품 명
+                        </label>
+                        <div class="col-sm-10">
+                            {% if product is None %}
+                            <input name="name" class="form-control" type="text">
+                            {% else %}
+                            <input name="name" class="form-control" type="text" value="{{ product.name }}">
+                            {% endif %}
                         </div>
                     </div>
-                </div>
-                <input id="submit" type="submit" value="등록"/>
-            </fieldset>
-        </div>
 
-    </form>
+                    <div class="form-inline form-group">
+                        <label class="col-sm-2">
+                            가격
+                        </label>
+                        <div class="col-sm-10">
+                            {% if product is None %}
+                            <input name="price" class="form-control" type="text">
+                            {% else %}
+                            <input name="price" class="form-control" type="text" value="{{ product.price }}">
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="form-inline form-group">
+                        <label class="col-sm-2">
+                            설명
+                        </label>
+                        <div class="col-sm-10">
+                            {% if product is None %}
+                            <textarea name="description" class="form-control rounded-0"></textarea>
+                            {% else %}
+                            <textarea name="description" class="form-control rounded-0"
+                                      value="{{ product.description }}"></textarea>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="form-inline form-group">
+                        <label class="col-sm-2">
+                            대표 이미지 파일
+                        </label>
+                        <div class="col-sm-5">
+                            {% if product is None %}
+                            <input name="img_main" class="form-control" type="file">
+                            {% else %}
+                            <input name="img_main" class="form-control" type="file" value="{{ product.image_url }}">
+                            {% endif %}
+                        </div>
+                        <div class="col-sm-5">
+                            <img class="preview" id="preview_main" src="#"/>
+                        </div>
+                    </div>
+
+                    <div class="form-inline form-group">
+                        <label class="col-sm-2">
+                            상세 설명 파일
+                        </label>
+                        <div class="col-sm-10">
+                            {% if product is None %}
+                            <input name="img_content" class="form-control" type="file">
+                            {% else %}
+                            <input name="img_content" class="form-control" type="file" value="{{ product.file_url }}">
+                            {% endif %}
+
+                        </div>
+                    </div>
+
+                    <div class="form-inline form-group">
+                        <label class="col-sm-2">
+                            카테고리
+                        </label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="category" id="category">
+                                {% load custom_tags %}
+                                {% for category in categorys|sort_by:'pk' %}
+                                <option value="{{ category.pk }}">{{ category.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-inline form-group horizontal-checkbox">
+                        <label class="col-sm-2 control-label">
+                            재고 유무
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="checkbox" id="is_stock" name="is_stock">
+                        </div>
+                    </div>
+
+                    <div class="form-inline form-group horizontal-checkbox">
+                        <label class="col-sm-2 control-label">
+                            메인 전시
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="checkbox" id="is_display" name="is_display">
+                        </div>
+                    </div>
+
+                    <!--                <div class="form-inline form-group horizontal-checkbox">-->
+                    <!--                    <label class="col-sm-2 control-label">-->
+                    <!--                        옵션 유무-->
+                    <!--                    </label>-->
+                    <!--                    <div class="col-sm-10">-->
+                    <!--                        <input type="checkbox" id="is_option" name="is_option" class="checkboxChange">-->
+                    <!--                    </div>-->
+                    <!--                </div>-->
+
+                    <!--                <div class="options">-->
+                    <!--                    <div class="plus-icon">-->
+                    <!--                        <img id="plus1" src="{% static 'img/plus.png' %}"/>-->
+                    <!--                    </div>-->
+                    <!--                    <div class="option-border">-->
+                    <!--                        <div class="option">-->
+                    <!--                            <input type="text" name="option-name" id="option-name" placeholder="옵션 명"/>-->
+                    <!--                            <ul>-->
+                    <!--                                <li class="plus2-li">+</li>-->
+                    <!--                            </ul>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <!--                </div>-->
+                    <input id="submit" type="submit" value="등록"/>
+                </fieldset>
+            </div>
+
+        </form>
+    </div>
 </div>
 {% endblock %}
 
 {% block extrascript %}
-{% static "script/super/product-add.js" %}
 {% endblock %}

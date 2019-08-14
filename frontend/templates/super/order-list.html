@@ -7,26 +7,32 @@
 {% endblock %}
 
 {% block content %}
-<h1>product list</h1>
-<table class="table">
-    <tr>
-        <th>주문일</th>
-        <th>주문 번호</th>
-        <th>주문자</th>
-        <th>결제 가격</th>
-        <th>결제 수단</th>
-        <th>주문 상태</th>
-    </tr>
-    {% load custom_tags %}
-    {% for order in orders|unsort_by:'pk' %}
-    <tr>
-        <td>{{ order.date }}</td>
-        <td><a href="{% url 'super:order-detail' order.pk  %}">{{ order.pk }}</a></td>
-        <td>{{ order.user.username }}</td>
-        <td>{{ order.price }}</td>
-        <td>{{ order.pay_type }}</td>
-        <td>{{ order.status }}</td>
-    </tr>
-    {% endfor %}
-</table>
+<div id="content">
+    <br/>
+    <div class="titleArea">
+        <h2>product list</h2>
+    </div>
+    <br/>
+    <table class="table">
+        <tr>
+            <th>주문일</th>
+            <th>주문 번호</th>
+            <th>주문자</th>
+            <th>결제 가격</th>
+            <th>결제 수단</th>
+            <th>주문 상태</th>
+        </tr>
+        {% load custom_tags %}
+        {% for order in orders|unsort_by:'pk' %}
+        <tr>
+            <td>{{ order.date }}</td>
+            <td><a href="{% url 'super:order-detail' order.pk  %}">{{ order.pk }}</a></td>
+            <td>{{ order.user.username }}</td>
+            <td>{{ order.price }}</td>
+            <td>{{ order.pay_type }}</td>
+            <td>{{ order.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 {% endblock %}

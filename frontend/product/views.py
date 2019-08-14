@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import FormView
-from django.views.generic.base import View
+from django.views.generic.base import View, TemplateView
 import frontend.default as default
 from product.forms import OrderForm
 
@@ -89,3 +89,17 @@ class OrderView(View):
 
 
         return render(request, 'home.html')
+
+
+class OrderDV(TemplateView):
+    template_name = "user/order_detail.html"
+
+    def get_context_data(self, **kwargs):
+        response = requests.get(root_url+api_url+f"orders/user/{self.request.session['authuser']['pk']}/{kwargs['pk']}")
+        if response.status_code is not 200 :
+            pass
+
+        default.set_base_data()
+        data = default.base_data
+        data['order']=response.json()['data']
+        return data
