@@ -1,0 +1,140 @@
+hr.black-hr{
+    border: solid 1px #000;
+}
+
+div#content div.user-box{
+    min-width:1200px;
+    max-width:1200px;
+    margin:0 auto;
+    width:100%
+    background:white;
+    background-color:white;
+    border : 5px solid #FBA6B2;
+}
+
+
+div.user-box div.product-detail{
+    position: relative;
+    margin: 0px auto 0px;
+    padding: 80px 0px 50px;
+    width: 100%;
+}
+
+
+div.user-box div.product-detail div.detailArea{
+    padding: 0 0 0 540px;
+    width:100%;
+    margin : 0px auto 0px;
+}
+
+
+
+div.user-box div.product-detail div.detailArea{
+
+}
+div.user-box div.product-detail div.detailArea div.product-image{
+    float: left;
+    width: 450px;
+    margin: 0 0 0 -450px;
+}
+
+div.user-box div.product-detail div.detailArea div.product-image img.BigImage{
+    max-width: 400px;
+    cursor: pointer;
+    box-shadow: 6px 6px 0px #000;
+    -moz-box-shadow: 6px 6px 0px #000;
+    -webkit-box-shadow: 6px 6px 0px #000;
+    border: none;
+    vertical-align: top;
+    left:10px;
+    margin:0;
+    padding:0;
+    background:#E4E4E4;
+}
+
+div.detailArea table {
+    width: 100%;
+    border: none;
+    border-spacing: 0;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-left:100px;
+}
+
+
+div.detailArea table tr td{
+    display : table-cell;
+    border: none;
+    width:80%;
+    padding-bottom:12px;
+}
+
+div.detailArea table tr th{
+    border:none;
+    margin: 0px auto;
+}
+
+div.detailArea table tr th p{
+    border:none;
+    margin: 0px auto;
+}
+
+div.detailArea table tr td.name {
+    padding: 2px 6px 10px 9px;
+    vertical-align: middle;
+    font-weight: 700;
+}
+
+div.detailArea table tr td p{
+    font-weight:bold;
+    font-family: 'Noto Sans KR',sans-serif;
+    font-size:13px
+}
+
+div.detailArea table tr td p.description{
+    font-weight:normal;
+    font-family: 'Noto Sans KR',sans-serif;
+    font-size:13px;
+    width:180px;
+    word-wrap: break-word;
+}
+
+div.detailArea table tr td p.name{
+    font-weight:bold;
+    font-family: 'Noto Sans KR',sans-serif;
+    font-size:16px;
+    color: #6483D7;
+}
+
+div.product-detail div#productDetail{
+}
+
+div.product-detail div#productDetail p.file_url img{
+    margin-top:100px;
+    width: 850px;
+    height:auto;
+}
+
+
+div.product-order-list{
+    width: 300px;
+    border: none;
+    border-spacing: 0;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-left:100px;
+}
+
+div.product-order-list input{
+    width:100%;
+    height:30px;
+    background:#000;
+    color:#fff;
+    border:none;
+    margin: 5px 0px 5px;
+}
+
+div.amount-btn{
+    width: 150px;
+    margin: 0px;
+}

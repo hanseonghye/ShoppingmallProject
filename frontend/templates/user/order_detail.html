@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block title %}login.html{% endblock %}
+
+{% load staticfiles %}
+{% block extrastyle %}
+{% static "css/user/cart.css" %}
+{% endblock %}
+{% block content %}
+
+<div id="content">
+    <div class="user-box order-box">
+        <div class="user-box1">
+            <div class="titleArea">
+                <h2>ORDER</h2>
+            </div>
+            <hr class="black-hr"/>
+            <div class="cart-list">
+                <table>
+                    <tr>
+                        <th><label for="id_sender_name">주문자 이름:</label></th>
+                        <td><p id="id_sender_name">{{ sender_name }}</p></td>
+                    </tr>
+                    <tr>
+                        <th><label for="id_receiver_phone_number">주문자 전화번호:</label></th>
+                        <td><p id="id_sender_phone_number">{{ sender_phone_number }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="id_receiver_phone_number">주문자 이메일:</label></th>
+                        <td><p id="id_sender_email">{{ sender_email }}</p></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <th><label for="id_receiver_name">받는사람:</label></th>
+                        <td><p id="id_receiver_name">{{ receiver_name }}</td>
+                    </tr>
+                    <tr>
+                        <th><label for="id_receiver_phone_number">받는사람 전화번호:</label></th>
+                        <td><p id="id_receiver_phone_number">{{ receiver_phone_number }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="id_receiver_address">받는사람 주소:</label></th>
+                        <td><p id="id_receiver_address">{{ receiver_address }}</p></td>
+                    </tr>
+                    <tr>
+                        <th><label for="id_delivery_message">배송 메시지:</label></th>
+                        <td><p id="id_delivery_message">{{ delivery_message }}</p></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <th><label for="id_pay_type">결제방법:</label></th>
+                        <td><p id="id_pay_type">{{ pay_type }}</p></td>
+                    </tr>
+                    <tr>
+                        <th><label for="id_status">결제방법:</label></th>
+                        <td><p id="id_status">{{ status }}</p></td>
+                    </tr>
+                </table>
+
+                <table>
+                    <thead>
+                    <tr>
+                        <th>상품명</th>
+                        <th>가격</th>
+                        <th>수량</th>
+                        <th>총가격</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% load custom_tags %}
+                    {% for product in order_products %}
+                    <tr>
+                        <th>{{ product.product.name}}</th>
+                        <th>{{ product.product.price}}</th>
+                        <th>{{ product.amount}}</th>
+                        <th>{{ product.all_price}}</th>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extrascript %}
+{% endblock %}

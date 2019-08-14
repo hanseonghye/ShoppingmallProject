@@ -5,6 +5,7 @@ from order.models import Order, OrderProduct
 from product.serializers import ProductSerializer
 from user.models import CustomUser as User
 from product.models import Product
+from user.serializers import UserSerializer
 
 
 class OrderProductDetailSerializer(serializers.ModelSerializer):
@@ -52,19 +53,32 @@ class OrderProductSerializer(serializers.ModelSerializer):
 
 class OrderListSerializer(serializers.ModelSerializer):
     order_products = OrderProductDetailSerializer(many=True, read_only=True)
-    status = serializers.CharField(read_only=True)
+    date = serializers.DateTimeField(format="%Y-%m-%d, %H:%M:%S")
+    status = serializers.CharField(read_only=True,source='get_status_display')
+    pay_type = serializers.CharField(source='get_pay_type_display')
+
+    class Meta:
+        model = Order
+        fields = ('pk',
+                  'user', 'sender_name', 'sender_email', 'sender_phone_number', 'receiver_name',
+                  'receiver_phone_number', 'receiver_address', 'delivery_message', 'pay_type', 'date',
+                  'order_products', 'status',
+                  )
+        extra_kwargs = {
+            'pk': {'read_only': True},
+            'date': {'read_only': True},
+        }
+
+
+class OrderUserSerializer(serializers.ModelSerializer):
+    # order_products = OrderProductSerializer(many=True, read_only=True)
+    status = serializers.CharField(read_only=True, source='get_status_display')
+    user = UserSerializer(read_only=True)
     date = serializers.DateTimeField(format="%Y-%m-%d, %H:%M:%S")
 
     class Meta:
         model = Order
-        fields = (
-            'user', 'sender_name', 'sender_email', 'sender_phone_number', 'receiver_name',
-            'receiver_phone_number', 'receiver_address', 'delivery_message', 'pay_type','date',
-            'order_products', 'status',
-        )
-        extra_kwargs = {
-            'date': {'read_only':True},
-        }
+        fields = ('pk', 'date', 'price','user', 'pay_type','status')
 
 
 class OrderSerializer(serializers.ModelSerializer):
@@ -122,7 +136,8 @@ class OrdersSerializer(serializers.ModelSerializer):
             'sender_email': {'required': False},
             'sender_phone_number': {'required': False},
             'status': {'required': False},
-            'order_products': {'required': True}
+            'order_products': {'required': True},
+            'price': {'read_only': True}
         }
 
     def create(self, request):
@@ -138,14 +153,17 @@ class OrdersSerializer(serializers.ModelSerializer):
         order = Order.objects.create(status=0, price=0, **request)
         # for op in order_products:
         #     OrderProduct.objects.create(order=order, **op)
+        real_price = 0
         for op in order_products:
-            order_product=OrderProduct.objects.create(order=order, **op)
+            order_product = OrderProduct.objects.create(order=order, **op)
             if op['product'].is_option:
                 order_product.price = op['product'].price
             order_product.price = op['product'].price
             order_product.all_price = int(op['product'].price) * int(order_product.amount)
-            order_product.all_price = int(op['product'].price) * int(order_product.amount)
             order_product.date = timezone.now()
             order_product.save()
-
+            real_price += order_product.all_price
+        order.price = real_price
+        order.status = 1
+        order.save()
         return order

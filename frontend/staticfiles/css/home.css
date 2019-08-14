@@ -1,0 +1,117 @@
+div#content div#color_main{
+    width: 100%;
+    margin: 0px auto 0px;
+    paddimg-bottom : 0px;
+    background-color:#FFDBE5;
+}
+
+
+div#content div#color_main div#color_main1{
+    margin:0px auto 0px;
+    background-color:#FFDBE5;
+}
+
+div#content div#color_main div#color_main1 h2{
+    margin: 0px auto 50px;
+    font: 14px "Patua One",Dotum,AppleGothic,sans-serif;
+    color: #fff;
+    height: 40px;
+    letter-spacing: 2px;
+    width: 200px;
+    text-align: center;
+    background: #fba6b2;
+    padding: 10px;
+    display: block;
+}
+
+div.gallery{
+    width: 100%;
+    max-width: 1250px;
+    justify-content: center;
+}
+
+
+div.gallery ul.productList{
+    display: table;
+    width: 100%;
+    min-width: 1250px;
+    margin: -20px auto 0;
+    font-size: 0;
+    line-height: 0;
+    margin-left: 30px;
+}
+
+ul.column4 li.item{
+    width:25%;
+    display:inline-block;
+    margin:0px 0 40px;
+    color:#757575;
+    vertical-align:top;
+    zoom:1;
+    border-top:0px solid #eaeaea;
+}
+.box{margin:0 auto;font-size:12px;line-height:18px;text-align:center;}
+
+ul.column4 li.item{width:25%;}
+ul.column4 li.item .box{width:100%;text-align:center;}
+
+
+div.box div.line{
+    position:relative;
+    width:280px;
+    min-height:auto;
+    margin:0 0px 20px;
+    padding:0px 0px 0px 0px;
+    background:#fba6b2;
+    transition:ease-out 0.3s;
+    border:5px solid #fff;
+    box-shadow:4px 4px 0px #fba6b2;
+}
+
+.gallery-item{
+    width:270px;
+    height:270px;
+    margin:0px;
+    background:#000;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.gallery-item-image{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: lightblue;
+    z-index:20;
+    bottom:0;
+    overflow: hidden;
+}
+.gallery-item-image img{
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-item:hover .gallery-item-image{ bottom:80px;}
+
+div.gallery-item-description{
+    color:white;width:100%;height:80px;background:#000;position:absolute;bottom:0;
+}
+
+div.gallery-item-description p{
+    text-align: center;
+    margin: 15px auto 3px;
+    width: 80%;
+    font-weight:bold;
+    font-family: 'Noto Sans KR',sans-serif;
+}
+
+div.gallery-item-description p.name{
+    font-size:13px;
+    color : #fff;
+}
+
+div.gallery-item-description p.price{
+    font-size:15px
+    color:#e6686e;
+}

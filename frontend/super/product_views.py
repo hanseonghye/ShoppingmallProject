@@ -52,6 +52,7 @@ class ProductCV(View):
 
     def post(self, request):
         pi = ProductImage.objects.create(main=request.FILES['img_main'], content = request.FILES['img_content'])
+        print(request.POST)
         product = {
             'name':request.POST['name'],
             'price':request.POST['price'],
@@ -62,7 +63,7 @@ class ProductCV(View):
             'is_stock' : True if 'is_stock' in request.POST else False,
             'is_option' : True if 'is_option' in request.POST else False,
             'is_display' : True if 'is_display' in request.POST else False,
-            'product_options':[]
+            'product_options':request.POST['product_options']
         }
 
         headers = {'Content-Type': 'application/json; charset=utf-8'}

@@ -1,4 +1,5 @@
 import json
+from urllib.parse import urlparse
 
 import requests
 from django.http import HttpResponseRedirect
@@ -80,6 +81,11 @@ class OrderView(View):
 
         header = {'Content-Type': 'application/json; charset=utf-8'}
         requests.post(root_url + api_url + "orders/", headers=header, data=json.dumps(order))
+
+        previous_url = self.request.META.get('HTTP_REFERER')
+        if 'cart' in urlparse(previous_url).path:
+            for pk in request.POST.getlist('cart_pk'):
+                requests.delete(root_url+api_url+f'carts/user/{request.session["authuser"]["pk"]}/{pk}')
 
 
         return render(request, 'home.html')

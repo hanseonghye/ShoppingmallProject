@@ -32,6 +32,7 @@
                         {% for cart in carts|unsort_by:'pk' %}
                         <tr>
                             <th><input type="checkbox" name="checks" value="{{ cart.product.pk }}"/></th>
+                            <input type="hidden" name="cart_pk" value="{{ cart.pk }}">
                             <td><img style="width:100px; height:auto;" src="{{ cart.product.image_url }}"></td>
                             <td>{{ cart.product.name }}</td>
                             <input type="hidden" name="pk" value="{{ cart.product.pk }}">

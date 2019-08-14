@@ -1,16 +1,16 @@
 from myModule.myGenerics import *
 from order.models import Order
-from order.serializers import OrderSerializer, OrdersSerializer, OrderListSerializer
+from order.serializers import OrderSerializer, OrdersSerializer, OrderListSerializer, OrderUserSerializer
 
 
 class OrderLV(ListAPIView):
     queryset = Order.objects.all()
-    serializer_class = OrderSerializer
+    serializer_class = OrderUserSerializer
 
 
 class UserOrderUV(RetrieveUpdateAPIView):
     queryset = Order.objects.all()
-    serializer_class = OrderSerializer
+    serializer_class = OrderListSerializer
 
 
 class UserOrderRV(RetrieveAPIView):
@@ -37,7 +37,7 @@ class UserOrderLV(ListAPIView):
 
 class UserOrderNameLV(ListCreateAPIView):
     queryset = Order.objects.all()
-    serializer_class = OrderSerializer
+    serializer_class = OrderListSerializer
 
     def get_queryset(self):
         return self.queryset.filter(user__user_id=self.kwargs['user_id'], )

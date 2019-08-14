@@ -9,7 +9,6 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from frontend import default
-from product.forms import OrderForm
 
 root_url = default.root_url
 api_url = default.api_url
@@ -108,18 +107,18 @@ class CartView(View):
         data = default.base_data
         product_amount = request.POST.getlist('amount')
         product_check = request.POST.getlist('checks')
+        cart_pk = request.POST.getlist('cart_pk')
         cart_data = []
-        for check, amount in zip(product_check, product_amount):
+        for check, cart, amount in zip(product_check, cart_pk, product_amount):
             response = requests.get(root_url + api_url + "products/" + check)
-            print(response.json())
             product = response.json()['data']
             temp_data = {
+                'cart_pk':cart,
                 'product': product,
                 'amount': amount,
                 'all_price': int(product['price']) * int(amount)
             }
             cart_data.append(temp_data)
-
         data["order_products"] = cart_data
         return render(request, 'order.html', data)
 

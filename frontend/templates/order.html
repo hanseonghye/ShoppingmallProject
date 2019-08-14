@@ -83,6 +83,9 @@
                         <tbody>
                         {% load custom_tags %}
                         {% for product in order_products %}
+                            {% if 'cart' in request.META.HTTP_REFERER %}
+                                <input type="hidden" name="cart_pk" value="{{ product.cart_pk }}">
+                            {% endif %}
                         <input type="hidden" name="pk" value="{{ product.product.pk }}"/>
                         <input type="hidden" name="amount" value="{{ product.amount }}"/>
                         <tr>

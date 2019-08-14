@@ -1,7 +1,7 @@
 import requests
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
+from django.template import RequestContext
 from django.views.generic import TemplateView
-from rest_framework.views import APIView
 
 from . import default
 
@@ -43,16 +43,8 @@ class CategoryView(TemplateView):
 
         return data
 
+def page_not_found(request, execption):
+    return render(request,'err/404.html')
 
-class ProfileView(TemplateView):
-    template_name = "user/login.html"
-
-    def get_context_data(self, **kwargs):
-        default.set_base_data()
-        data = default.base_data
-        products_response = requests.get(root_url + api_url + "products/main/")
-        if products_response.status_code is not 200:
-            return dict()
-        data['products'] = products_response.json()["data"]
-
-        return data
+def server_error(request):
+    return render(request,'err/404.html')

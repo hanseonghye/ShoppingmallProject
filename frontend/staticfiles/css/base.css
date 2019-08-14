@@ -1,0 +1,198 @@
+@CHARSET "UTF-8";
+
+/* reset */
+*				{ margin:0; padding:0 }
+
+body{
+    background-color: #FFDBE5;
+     top: 0; right: 0; bottom: 0; left: 0;
+}
+
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, img {
+    margin: 0;
+    padding: 0;
+}
+
+div#wrapper{
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    width:100%;
+    background-color: #FFDBE5;
+}
+
+div#wrapper .slide_01{
+padding-top:2%;
+max-padding-top : 5px;
+}
+
+div#wrapper div#wrap{
+    width:80%;
+    margin: 0 auto;
+}
+
+div#wrapper div#wrap div.logo_top01{
+    width: 1150px;
+    height: 200px;
+    margin: 0 auto;
+    text-align : center;
+    z-index=9;
+    position: relative;
+}
+div#wrapper div#wrap div.logo_top01 div.logo_top01-1{
+    background: #FFDBE5;
+}
+
+div#wrapper div#wrap div.logo_top01 div.logo_top01-1 h1.logo_text a{
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+}
+div#wrapper div#wrap div.logo_top01 div.logo_top01-1 h1.logo_text{
+    width: auto;
+    height: 120px;
+    text-align: center;
+    margin: 0 auto;
+    font-family: 'Anton',sans-serif;
+    font-weight: 400;
+    font-size: 50px;
+    margin-top: 0px;
+    z-index: 9;
+    padding: 55px 0px 0;
+    width: auto;
+    display: block;
+    text-align: center;
+    line-height: 35px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #fba6b2;
+    text-shadow: -1px -1px 0px #fff, 2px 2px 0px #fff, 0px 7px 0 #faceda;
+}
+
+div#wrapper div#wrap div.logo_top01 div.logo_top01-1 .tabs{
+    margin: 2%  auto;
+    width:80%;
+    position:relative;
+    height :40px;
+    background-color:#1ecfff;
+    box-shadow: 0px 5px 0 #ffeda5
+}
+
+div#wrapper div#wrap div.logo_top01 div.search-bar{
+    position: absolute;
+    width: 205px;
+    height:30px;
+    right: 10%;
+    max-right : 30px;
+    padding: 0 3px;
+    background: #fff;
+}
+
+div#wrapper div#wrap div.logo_top01 div.member-bar{
+    position: relative;
+    width: 350px;
+    height:30px;
+    left: 72%;
+    max-right: 30px;
+    padding: 0px 3px;
+    margin-bottom : 10px;
+    background: #ffbdc8;
+
+/*        position: relative;
+    width: auto;
+    margin: 0px auto 5px;
+    height: 30px;
+    background: #ffbdc8;
+    display: inline-block;
+    padding: 20px 20px 0;*/
+}
+
+div#wrapper div#wrap div.logo_top01 div.member-bar ul{
+    float: right;
+    left: -50%;
+    position: relative;
+}
+
+div#wrapper div#wrap div.logo_top01 div.member-bar ul li{
+    float: left;
+    left: 55%;
+    position: relative;
+    margin:2px 0px;
+    list-style: none;
+    text-align:center;
+    padding-right:20px;
+}
+
+div#wrapper div#wrap div.logo_top01 div.member-bar ul li a{
+    display: block;
+    font-family: 'Bitter',Noto Sans KR;
+    font-weight: 400;
+    font-size: 13px;
+    color: #fff;
+    margin: 0 0 0 0px;
+    text-decoration: none;
+    height: auto;
+}
+
+div#wrapper div#wrap div.logo_top01 div.search-bar fieldset {
+    position: absolute;
+    border : none;
+    vertical-align: top;
+    background:white;
+}
+div#wrapper div#wrap div.logo_top01 div.search-bar input#keyword{
+    background: none;
+    width: 177px;
+    height: 20px;
+    padding: 0 0 0 0px;
+    border: 0;
+    line-height: 20px;
+    font-size: 12px;
+    color: #000;
+}
+div#wrapper div#wrap div.logo_top01 div.search-bar input#keyword img{
+    cursor : pointer;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+
+div#wrapper div#wrap div.logo_top01 div.logo_top01-1 .nav{
+}
+
+div#wrapper div#wrap div.logo_top01 div.logo_top01-1 .nav .nav-item a.nav-link{
+    color: white;
+    float: left;
+    display: block;
+    padding: 0px 0px 0px;
+    font-family: 'Noto Sans KR',sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px 10px 0;
+    height: 26px;
+}
+div#wrapper div#wrap div.logo_top01 div.logo_top01-1 .nav .nav-item{
+    display: table;
+    margin: 0 auto;
+}
+
+div#content{
+    background-color: #FFDBE5;
+    margin: 2%  auto;
+    width: 90%;
+}
+div#content .v-content{
+    /*background-color: #FFDBE5;*/
+    margin: 2%  auto;
+    width: 100%;
+}
+
+
+.search{
+display:block;
+padding:10px;
+}
+
+div#content{
+    margin-top : 70px;
+}

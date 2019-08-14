@@ -28,8 +28,8 @@
                     </tr>
                     </thead>
                 </table>
-
-                {% for order in orders %}
+                {% load custom_tags %}
+                {% for order in orders|unsort_by:'pk' %}
                 <table class="order">
                     <p> {{ order.date  }}</p>
                     {% for product in order.order_products %}
